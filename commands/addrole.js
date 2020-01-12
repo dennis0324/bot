@@ -16,7 +16,7 @@ module.exports.run = async(bot, message, args) =>{
         try{
             createRole = message.guild.createRole({
                 name: `${rolename}`,
-                color : `${Math.floor(Math.random * 16777216)}`,
+                color : "#ffffff",
                 permissions:[]
             })
             message.guild.channels.forEach(async(channel,id) => {
