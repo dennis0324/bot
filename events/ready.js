@@ -7,7 +7,7 @@ module.exports = bot =>{
     let statuses = [
         `${bot.guilds.size}!`,
         `--help`,
-        `현재 ${Discord.users.size}개 실행 중...`
+        `현재 ${bot.users.size}개 실행 중...`
     ]
 
     setInterval(function(){
