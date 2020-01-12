@@ -39,9 +39,7 @@ bot.on("message",async message => {
     console.log(`commandfile value: ${commandfile}`)
     if(commandfile) {
         commandfile.run(bot,message,args);
-        console.log("testing count");
     }
-    console.log("testing count outside");
 
 })
 
