@@ -12,11 +12,12 @@ module.exports.run = async(bot, message, args) =>{
     let rolename = args[0];
     console.log(`${rolename}를 생성하려 시도중...  ${msgs.size}으 크기`);
     let roleAdding = message.guild.roles.find(r => r.name === `${rolename}`);
+
     if(!roleAdding) {
         try{
             createRole = message.guild.createRole({
                 name: `${rolename}`,
-                color : "#ffffff",
+                color : "#333333",
                 permissions:[]
             })
             message.guild.channels.forEach(async(channel,id) => {
