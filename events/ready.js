@@ -4,16 +4,13 @@ module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
     // bot.user.setActivity("명령어에 귀 기울이는 중",{type: "STREAMING"});
     //
-    let bot_count = () => {
-        const allMembers = bot.users
-        console.log(`${allMembers}`)
-        allMembers.forEach(element => {
-            if(element.roles.find(r => r.name === "Bot")){
-                console.log("found bot!")
-            }
-        });
-        return 1
-    }
+    const allMembers = bot.users
+    console.log(`${allMembers.size}`)
+    allMembers.forEach(element => {
+        if(element.roles.find(r => r.name === "Bot")){
+            console.log("found bot!")
+        }
+    });
     console.log(`${bot_count}`);
 
     let statuses = [
