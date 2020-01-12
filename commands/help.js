@@ -1,0 +1,54 @@
+const Discord = require("discord.js");
+const Color = require("../colours.json");
+const botconfig = require("../botconfig.json");
+const prefix = botconfig.prefix;
+
+module.exports.run = async (bot, message, args) =>{
+    if(args[0] == "help") return message.channel.send(`Just do ${prefix}help instead.`)
+
+    if(args[0]) {
+        message.delete();
+        let command = args[0];
+        console.log(`${command}`);
+        if(bot.commands.has(command)){
+            console.log(`counting testing num of if`);
+            command = bot.commands.get(command);
+            var specificHelpEmbed = new Discord.RichEmbed()
+            .setColor(Color.mint)
+            .setAuthor("HELP",message.guild.iconURL)
+            .setDescription(`봇 수식: ${prefix}\n\n**명령:** ${command.config.name}\n**부가설명:** ${command.config.description || "설명 없음"}\n**사용:** ${command.config.usage || "사용 없음"}\n**사용 가능한 역할:** ${command.config.accessableby || "Everyone"}\n**또 다른 명령어:** ${command.config.noalias || command.config.aliases}`)
+            return message.channel.send({embed: specificHelpEmbed});
+        }
+    }
+
+    if(!args[0]){
+        message.delete();
+        let embed = new Discord.RichEmbed()
+        .setAuthor(`명령어 도우미`,message.guild.iconURL)
+        .setColor(Color.mint)
+        .setThumbnail(bot.user.displayAvatarURL)
+        .setDescription(`${message.author.username}님! 개인 메세지를 확인해주세요`)
+
+
+        let Sembed = new Discord.RichEmbed()
+        .setColor(Color.mint)
+        .setAuthor(`도움말`,message.guild.iconURL)
+        .setThumbnail(bot.user.displayAvatarURL)
+        .setTimestamp()
+        .setDescription(`**사용 가능한 명령어**\n명령어 수식어: ${prefix}`)
+        .addField(`Commands: "여러가지"`)
+        .setFooter("참여 봇",bot.users.displayAvatarURL)
+
+        message.channel.send(embed).then(m => m.delete(10000));
+
+        message.author.send(Sembed);
+    }
+}
+
+module.exports.config = {
+    name: "help",
+    aliases: ["h","commands"],
+    description: "필요한 역할을 부여받을 수 있습니다.",
+    usage: "!help",
+    accessableby:"Everyone"
+}
