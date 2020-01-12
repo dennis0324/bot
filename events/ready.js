@@ -6,12 +6,13 @@ module.exports = bot =>{
     //
     var bot_count = () => {
         const allMembers = bot.users
+        console.log(`${allMembers}`)
         allMembers.forEach(element => {
             if(element.roles.find(r => r.name === "Bot")){
                 console.log("found bot!")
             }
         });
-
+        return 1
     }
     console.log(`${bot_count}`);
 
