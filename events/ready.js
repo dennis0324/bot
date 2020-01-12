@@ -19,7 +19,6 @@ module.exports = bot =>{
         `${bot.guilds.size}!`,
         `--help`,
         `현재 ${bot.users.size}명 온라인!`
-        `${bot.bot.size}`
     ]
 
     setInterval(function(){
