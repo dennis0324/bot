@@ -49,6 +49,6 @@ module.exports.config = {
     name: "help",
     aliases: ["h","commands"],
     description: "필요한 역할을 부여받을 수 있습니다.",
-    usage: "!help",
+    usage: "--help",
     accessableby:"Everyone"
 }
