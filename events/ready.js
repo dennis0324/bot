@@ -4,7 +4,7 @@ module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
     // bot.user.setActivity("명령어에 귀 기울이는 중",{type: "STREAMING"});
     //
-    var bot_count = () => {
+    let bot_count = () => {
         const allMembers = bot.users
         console.log(`${allMembers}`)
         allMembers.forEach(element => {
