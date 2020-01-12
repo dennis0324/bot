@@ -5,9 +5,9 @@ module.exports = bot =>{
     // bot.user.setActivity("명령어에 귀 기울이는 중",{type: "STREAMING"});
 
     let statuses = [
-        `${bot.guilds.size()}!`,
+        `${bot.guilds.size}!`,
         `--help`,
-        `현재 ${bot.user.size()}개 실행 중...`
+        `현재 ${Discord.user.size}개 실행 중...`
     ]
 
     setInterval(function(){
