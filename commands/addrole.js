@@ -30,6 +30,15 @@ module.exports.run = async(bot, message, args) =>{
                     SPEAK: true
                 })
             });
+<<<<<<< Updated upstream
+=======
+            let addRoleEmbed = Discord.RichEmbed()
+            .setColor(Color.lightblue)
+            .setAuthor(`알림`,message.guild.iconURL)
+            .setDescription(`${rolename}역할이 성공적으로 추가되었습니다.`)
+            .setFooter("도우미","")
+            message.channel.send({embed: addRoleEmbed})
+>>>>>>> Stashed changes
         }
         catch(e){
             console.log(e.stack);
