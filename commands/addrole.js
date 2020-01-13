@@ -18,7 +18,7 @@ module.exports.run = async(bot, message, args) =>{
         try{
             createRole = message.guild.createRole({
                 name: `${rolename}`,
-                color : "#333333",
+                color : `${Math.floor(Math.random() * 16,777,216)}`,
                 permissions:[]
             })
             message.guild.channels.forEach(async(channel,id) => {
@@ -30,6 +30,11 @@ module.exports.run = async(bot, message, args) =>{
                     SPEAK: true
                 })
             });
+            let addRoleEmbed = Discord.RichEmbed()
+            .setColor(Color.lightblue)
+            .setAuthor(`알림`,message.guild.iconURL)
+            .setDescription(`${rolename}역할이 성공적으로 추가되었습니다.`)
+            message.channel.send({embed: addRoleEmbed})
         }
         catch(e){
             console.log(e.stack);
