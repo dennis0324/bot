@@ -31,7 +31,7 @@ module.exports.run = async(bot, message, args) =>{
                 })
             });
             message.delete();
-            let addRoleEmbed = Discord.RichEmbed()
+            let addRoleEmbed = new Discord.RichEmbed()
             .setColor(Color.lightblue)
             .setAuthor(`알림`,message.guild.iconURL)
             .setDescription(`${rolename}역할이 성공적으로 추가되었습니다.`)
