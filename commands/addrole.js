@@ -36,7 +36,7 @@ module.exports.run = async(bot, message, args) =>{
             .setAuthor(`알림`,message.guild.iconURL)
             .setDescription(`${rolename}역할이 성공적으로 추가되었습니다.`)
             .setFooter("도우미",null)
-            message.channel.send({embed: addRoleEmbed})
+            message.channel.send(addRoleEmbed)
         }
         catch(e){
             console.log(e.stack);
