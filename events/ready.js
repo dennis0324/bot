@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
-    bot.channels.forEach(element => {
+    bot.guilds.forEach(element => {
         console.log(`${element.name}`);
     });
     let statuses = [
