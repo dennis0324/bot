@@ -23,10 +23,8 @@ module.exports.run = async(bot, message, args) =>{
 
        }
 
-       console.log(array);
 
-
-        message.channel.send(`\`\`\`\n${array}\n\`\`\``);
+        message.channel.send(`\`\`\`md\n* 참여 목록:\n${array}\n\`\`\``);
 }
 
 
