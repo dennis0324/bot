@@ -4,7 +4,7 @@ const botconfig = require("../botconfig.json");
 const fs = require('fs');
 const prefix = botconfig.prefix;
 
-const msgsㅅ = require("../rolelist.json")
+const msgst = require("../rolelist.json")
 
 
 module.exports.run = async(bot, message, args) =>{
