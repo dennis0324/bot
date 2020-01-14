@@ -8,15 +8,24 @@ const msgs = require("../rolelist.json")
 
 
 module.exports.run = async(bot, message, args) =>{
+    var count = 0;
     message.guild.roles.forEach(element => {
         if(element.name.includes('-pro')){
+            
             var testing = element.name.split('-');
             testing.pop(1);
-            
-            console.log(`${testing}   -pro`);
+            msgs[count] = {
+                message: rolename
+            }
+            fs.writeFile("./rolelist.json",JSON.stringify (msgs,null,4)), err =>{
+                if(err) throw err;
+            }
+            count++;
         }
     });
-    //let messages = msgs[0].message;
+
+    let messages = msgs[0].message;
+    console.log(`${messages}`)
 }
 
 
