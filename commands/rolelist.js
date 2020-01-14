@@ -10,7 +10,7 @@ const msgs = require("../rolelist.json")
 module.exports.run = async(bot, message, args) =>{
     message.guild.roles.forEach(element => {
         if(element.name.includes('-pro')){
-            var testing = element.slice('-');
+            var testing = element.split('-');
             testing.pop(1);
             
             console.log(`${testing}   -pro`);
