@@ -15,12 +15,11 @@ module.exports.run = async(bot, message, args) =>{
     let Sembed = new Discord.RichEmbed()
         .setColor(Color.mint)
         .setAuthor(`참여방 목록`,message.guild.iconURL)
-        .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
         .setDescription(`**사용 가능한 명령어**\n명령어 수식어: ${prefix}`)
 
        for(var i = 0; i < count_num; i++){
-           Sembed.addField(`#${i} : ${msgst[i].message}`);
+           Sembed.addField(`#${i} : ${msgst[i].message}`,``);
        }
         message.channel.send(Sembed);
 }
