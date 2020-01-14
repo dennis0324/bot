@@ -2,10 +2,20 @@ const Discord = require('discord.js');
 const Color = require("../colours.json");
 const botconfig = require("../botconfig.json");
 const prefix = botconfig.prefix;
+const msgst = require("../rolelist.json")
 
 module.exports.run = async(bot, message, args) =>{
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
-    var testing = Number(args[0])
+    
+    var string = args[0];
+    var checknum = Number(string)
+    
+    if(isNaN(checknum)){
+        let roleAdding = message.guild.roles.find(r => r.name === `${string}-pro`);
+        message.author.addrole(roleAdding.id).then(() =>{
+            console.log("successed!");
+        })
+    }
     console.log(testing);
     
 }
