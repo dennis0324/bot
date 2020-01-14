@@ -9,7 +9,7 @@ const msgst = require("../rolelist.json");
 
 
 module.exports.run = async(bot, message, args) =>{
-    var array = [];
+    var array = "";
     let messages = msgst[0].message;
     let count_num = msgst.size;
     console.log(`${count_num}`);
@@ -19,7 +19,7 @@ module.exports.run = async(bot, message, args) =>{
 
        for(var i = 0; i < count_num; i++){
            Sembed.addField(`#${i} : ${msgst[i].message}`,"1 ");
-           array[array.length] = `#${i} : ${msgst[i].message}\n`;
+           array += `${i}. ${msgst[i].message}\n`;
 
        }
 
