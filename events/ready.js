@@ -9,7 +9,7 @@ module.exports = bot =>{
         element.roles.forEach(j => {
             var count = 0;
             if(j.name.includes('-pro')){
-                console.log(`#${count} : ${testing}`);
+                
                 var testing = j.name.split('-');
                 testing.pop(1);
                 msgst[count] = {
@@ -20,7 +20,7 @@ module.exports = bot =>{
                 fs.writeFile("./rolelist.json",JSON.stringify (msgst,null,4), function(err) {
                     if(err) console.log('error',err);
                 })
-                
+                console.log(`#${count} : ${testing}`);
                 count++;
             }
         });
