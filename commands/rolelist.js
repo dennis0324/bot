@@ -3,15 +3,15 @@ const Color = require("../colours.json");
 const botconfig = require("../botconfig.json");
 const fs = require('fs');
 const prefix = botconfig.prefix;
+const msgst = require("../rolelist.json");
 
 
 
 
 module.exports.run = async(bot, message, args) =>{
-    var count = 0;
-    message.guild.roles.forEach(element => {
+    let messages = msgst[0].message;
+    console.log(`${messages}`);
 
-    });
 }
 
 
