@@ -15,7 +15,7 @@ module.exports.run = async(bot, message, args) =>{
             var testing = element.name.split('-');
             testing.pop(1);
             msgs[count] = {
-                message: rolename
+                message: `${testing}`
             }
             fs.writeFile("./rolelist.json",JSON.stringify (msgs,null,4)), err =>{
                 if(err) throw err;
