@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
-    let roletesting = bot.guild.roles.find(r => r.name === 'testing-pro')
-    console.log(`${roletesting}`);
+    // let roletesting = bot.guild.roles.find(r => r.name === 'testing-pro')
+    // console.log(`${roletesting}`);
     // bot.user.setActivity("명령어에 귀 기울이는 중",{type: "STREAMING"});
     //
     // const allMembers = bot.users
