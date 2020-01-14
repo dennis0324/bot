@@ -28,18 +28,26 @@ module.exports.run = async(bot, message, args) =>{
             createRole = message.guild.createRole({
                 name: `${rolename}-pro`,
                 color : "#333333",
-                permissions:[]
-            })
-            message.guild.channels.forEach(async(channel,id) => {
-                await channel.overwritePermissions(createRole,{
-                    SEND_MESSAGE: true,
-                    ADD_REACTIONS: true,
-                    SEND_TTS_MESSAGES: true,
-                    ATTACH_FILES: true,
-                    SPEAK: true,
-                    MENTIONABLE: true
-                })
-            });
+                permissions:[
+                    "SEND_MESSAGES",
+                    "READ_MESSAGES",
+                    "SEND_TTS_MESSAGES",
+                    "SPEAK",
+                    "CHANGE_NICKNAME",
+                    "ATTACH_FILES",
+                    "ADD_REACTIONS"
+                ]
+            }).catch(console.error);
+            // message.guild.channels.forEach(async(channel,id) => {
+            //     await channel.overwritePermissions(createRole,{
+            //         SEND_MESSAGE: true,
+            //         ADD_REACTIONS: true,
+            //         SEND_TTS_MESSAGES: true,
+            //         ATTACH_FILES: true,
+            //         SPEAK: true,
+            //         MENTIONABLE: true
+            //     })
+            // });
 
             message.delete();
             let addRoleEmbed = new Discord.RichEmbed()
@@ -56,7 +64,7 @@ module.exports.run = async(bot, message, args) =>{
             // }
         }
         catch(e){
-            console.log(e.stack);
+            //console.log(e.stack);
         }
     }
     
