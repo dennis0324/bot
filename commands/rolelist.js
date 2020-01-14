@@ -17,7 +17,7 @@ module.exports.run = async(bot, message, args) =>{
             msgs[count] = {
                 message: `${testing}`
             }
-            fs.writeFile("./rolelist.json",JSON.stringify (msgs,null,4)), err =>{
+            fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
                 if(err) throw err;
             }
             count++;
