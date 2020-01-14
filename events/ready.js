@@ -24,8 +24,8 @@ module.exports = bot =>{
                 count++;
             }
         });
-        msgst.size = count - 1;
-        
+        msgst.size = count;
+
     });
     let statuses = [
         `${bot.guilds.size}개의 서버에서 실행중!`,
