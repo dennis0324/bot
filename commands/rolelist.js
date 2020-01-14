@@ -19,7 +19,7 @@ module.exports.run = async(bot, message, args) =>{
 
        for(var i = 0; i < count_num; i++){
            Sembed.addField(`#${i} : ${msgst[i].message}`,"1 ");
-           array[array.length] = `#${i} : ${msgst[i].message}:`;
+           array[array.length] = `#${i} : ${msgst[i].message}\n`;
 
        }
 
