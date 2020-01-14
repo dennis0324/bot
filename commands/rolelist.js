@@ -10,7 +10,8 @@ const msgst = require("../rolelist.json");
 
 module.exports.run = async(bot, message, args) =>{
     let messages = msgst[0].message;
-    console.log(`${msgst}`);
+    let count_num = msgst.size;
+    console.log(`${count_num}`);
     let Sembed = new Discord.RichEmbed()
         .setColor(Color.mint)
         .setAuthor(`참여방 목록`,message.guild.iconURL)

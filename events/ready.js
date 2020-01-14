@@ -24,6 +24,7 @@ module.exports = bot =>{
                 count++;
             }
         });
+        msgst.size = count - 1;
         
     });
     let statuses = [
