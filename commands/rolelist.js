@@ -11,6 +11,7 @@ const msgst = require("../rolelist.json");
 module.exports.run = async(bot, message, args) =>{
     let messages = msgst[0].message;
     console.log(`${messages}`);
+    console.log(`${mgst.size}`)
     let Sembed = new Discord.RichEmbed()
         .setColor(Color.mint)
         .setAuthor(`참여방 목록`,message.guild.iconURL)
