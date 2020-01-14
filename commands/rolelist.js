@@ -9,12 +9,7 @@ const msgs = require("../rolelist.json")
 
 module.exports.run = async(bot, message, args) =>{
     let messages = msgs[0].message;
-    message.guild.roles.forEach(e => {
-        if(e.name.includes("-pro")){
-            console.log("g");
-        }
-
-    });
+    console.log(`$message.guild.roles`);
 
     console.log(`${messages}`);
 }
