@@ -26,7 +26,7 @@ module.exports.run = async(bot, message, args) =>{
        console.log(array);
 
 
-        message.channel.send(array);
+        message.channel.send(`\`\`\`\n${array}\n\`\`\``);
 }
 
 
