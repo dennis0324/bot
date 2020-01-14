@@ -8,7 +8,7 @@ module.exports = bot =>{
     bot.guilds.forEach(element => {
         element.roles.forEach(j => {
             var count = 0;
-            if(element.name.includes('-pro')){
+            if(j.name.includes('-pro')){
                 console.log(`#${count} : ${testing}`);
                 var testing = element.name.split('-');
                 testing.pop(1);
