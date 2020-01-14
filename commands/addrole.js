@@ -21,7 +21,7 @@ module.exports.run = async(bot, message, args) =>{
     }
     console.log(`count의 사이즈는${count}`);
 
-    let roleAdding = message.guild.roles.find(r => r.name === `${rolename}`);
+    let roleAdding = message.guild.role.find(r => r.name === `${rolename}`);
 
     if(!roleAdding) {
         try{
