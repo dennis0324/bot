@@ -8,10 +8,9 @@ const msgs = require("../rolelist.json")
 
 
 module.exports.run = async(bot, message, args) =>{
-    message.guild.roles.map(function(e,i){
-        console.log(e)
-    })
-    console.log("testing");
+    message.guild.roles.forEach(element => {
+        console.log(`${element.name}`);
+    });
     let messages = msgs[0].message;
 
     console.log(`${messages}`);
