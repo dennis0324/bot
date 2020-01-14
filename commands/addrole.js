@@ -40,7 +40,7 @@ module.exports.run = async(bot, message, args) =>{
                 })
             });
 
-            message.delete();
+            message.push();
             let addRoleEmbed = new Discord.RichEmbed()
             .setColor(Color.lightblue)
             .setAuthor(`알림`,message.guild.iconURL)
