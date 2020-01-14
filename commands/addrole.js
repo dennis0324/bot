@@ -40,7 +40,7 @@ module.exports.run = async(bot, message, args) =>{
                 })
             });
 
-            message.push();
+            
             let addRoleEmbed = new Discord.RichEmbed()
             .setColor(Color.lightblue)
             .setAuthor(`알림`,message.guild.iconURL)
@@ -50,9 +50,9 @@ module.exports.run = async(bot, message, args) =>{
             msgs[count] = {
                 message: rolename
             }
-            fs.writeFile("./rolelist.json",JSON.stringify (msgs,null,4)), err =>{
-                if(err) throw err;
-            }
+            // fs.writeFile("./rolelist.json",JSON.stringify (msgs,null,4)), err =>{
+            //     if(err) throw err;
+            // }
         }
         catch(e){
             console.log(e.stack);
