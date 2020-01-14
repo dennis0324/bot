@@ -4,7 +4,7 @@ const botconfig = require("../botconfig.json");
 const fs = require('fs');
 const prefix = botconfig.prefix;
 
-const msgs = require("../rolelist.json")
+const msgs = require("./rolelist.json")
 
 
 module.exports.run = async(bot, message, args) =>{
@@ -49,7 +49,7 @@ module.exports.run = async(bot, message, args) =>{
             msgs[count] = {
                 message: rolename
             }
-            fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
+            fs.writeFile("./rolelist.json",JSON.stringify (msgs,null,4)), err =>{
                 if(err) throw err;
             }
         }
