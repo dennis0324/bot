@@ -12,10 +12,10 @@ module.exports.run = async(bot, message, args) =>{
     
     if(isNaN(checknum)){
         let roleAdding = message.guild.roles.find(r => r.name === `${string}-pro`);
-        console.log(`${message.id}`)
-        // message.author.username.addRole(roleAdding.id).then(() =>{
-        //     console.log("successed!");
-        // })
+        // console.log(`${message.guild.add}`)
+        message.guild.addRole(roleAdding.id).then(() =>{
+            console.log("successed!");
+        })
     }
     
 }
