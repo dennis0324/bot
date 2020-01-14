@@ -13,7 +13,7 @@ module.exports.run = async(bot, message, args) =>{
     if(!message.guild.me.hasPermissions(["MANAGE_ROLES","ADMINISTRATOR"])) return message.channel.send("봇이 명령어를 사용할 수 있는 권한이 없습니다.");
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
     let rolename = args[0];
-    console.log(`${rolename}를 생성하려 시도중...  ${msgs}`);
+    console.log(`${rolename}를 생성하려 시도중... `);
     var count = 0;
 
     if(!msgs){
