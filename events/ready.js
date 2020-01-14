@@ -7,6 +7,7 @@ module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
     bot.guilds.forEach(element => {
         element.roles.forEach(j => {
+            var count = 0;
             if(element.name.includes('-pro')){
                 console.log(`#${count} : ${testing}`);
                 var testing = element.name.split('-');
