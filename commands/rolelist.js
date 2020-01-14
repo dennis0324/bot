@@ -22,8 +22,7 @@ module.exports.run = async(bot, message, args) =>{
        for(var i = 0; i < count_num; i++){
            Sembed.addField(`${i} : ${msgst[0].message}`);
        }
-
-        message.channel.send({embed: listembed});
+        message.channel.send(Sembed);
 }
 
 
