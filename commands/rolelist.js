@@ -8,9 +8,9 @@ const msgs = require("../rolelist.json")
 
 
 module.exports.run = async(bot, message, args) =>{
-    let message = msgs[0].message;
+    let messages = msgs[0].message;
 
-    console.log(`${message}`);
+    console.log(`${messages}`);
 }
 
 
