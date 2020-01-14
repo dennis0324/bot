@@ -8,9 +8,9 @@ const msgs = require("../rolelist.json")
 
 
 module.exports.run = async(bot, message, args) =>{
-    if(!message.member.hasPermissions("MANAGE_ROLES") || !message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
+    if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
 
-    if(!message.guild.me.hasPermissions(["MANAGE_ROLES"])) return message.channel.send("봇이 명령어를 사용할 수 있는 권한이 없습니다.");
+    if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("봇이 명령어를 사용할 수 있는 권한이 없습니다.");
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
     let rolename = args[0];
     console.log(`${rolename}를 생성하려 시도중... `);
@@ -26,7 +26,7 @@ module.exports.run = async(bot, message, args) =>{
     if(!roleAdding) {
         try{
             createRole = message.guild.createRole({
-                name: `${rolename}`,
+                name: `${rolename}-pro`,
                 color : "#333333",
                 permissions:[]
             })
