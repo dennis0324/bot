@@ -11,22 +11,16 @@ const msgst = require("../rolelist.json");
 module.exports.run = async(bot, message, args) =>{
     let messages = msgst[0].message;
     console.log(`${messages}`);
-
-    const listembed = {
-        color: Color.mint,
-        author: {
-            name: `참여방 목록`,
-            iconURL: `${message.guild.iconURL}`,
-        },
-        fields:msgst
-    }
     let Sembed = new Discord.RichEmbed()
         .setColor(Color.mint)
         .setAuthor(`참여방 목록`,message.guild.iconURL)
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
         .setDescription(`**사용 가능한 명령어**\n명령어 수식어: ${prefix}`)
-        .addField(`Commands: "여러가지"`,``)
+
+        msgst.forEach(element,index => {
+            Sembed.addField(`${index} ; ${element.message}`,``);
+        });
 
         message.channel.send({embed: listembed});
 }
