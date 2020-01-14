@@ -18,7 +18,7 @@ module.exports.run = async(bot, message, args) =>{
         .setDescription(`참여방 목록:`)
 
        for(var i = 0; i < count_num; i++){
-           Sembed.addField(`#${i} : ${msgst[i].message}:`," ");
+           Sembed.addField(`#${i} : ${msgst[i].message}:`,"1 ");
            array.add(`#${i} : ${msgst[i].message}:`);
 
        }
