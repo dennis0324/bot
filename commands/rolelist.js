@@ -19,7 +19,8 @@ module.exports.run = async(bot, message, args) =>{
         .setDescription(`**사용 가능한 명령어**\n명령어 수식어: ${prefix}`)
 
         msgst.forEach(element,index => {
-            Sembed.addField(`${index} ; ${element.message}`,``);
+            console.log(`${element.name}`);
+            // Sembed.addField(`${index} ; ${element.message}`,``);
         });
 
         message.channel.send({embed: listembed});
