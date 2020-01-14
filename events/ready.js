@@ -6,8 +6,8 @@ const msgst = require("../rolelist.json");
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
     bot.guilds.forEach(element => {
+        var count = 0;
         element.roles.forEach(j => {
-            var count = 0;
             if(j.name.includes('-pro')){
                 
                 var testing = j.name.split('-');
