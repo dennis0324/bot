@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
-    console.log(`${bot}`);
+    console.log(`${bot.Channels}`);
     let statuses = [
         `${bot.guilds.size}!`,
         `--help`,
