@@ -10,7 +10,7 @@ module.exports = bot =>{
             var count = 0;
             if(j.name.includes('-pro')){
                 console.log(`#${count} : ${testing}`);
-                var testing = element.name.split('-');
+                var testing = j.name.split('-');
                 testing.pop(1);
                 msgst[count] = {
                     message: testing
