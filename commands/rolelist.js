@@ -9,18 +9,23 @@ const msgst = require("../rolelist.json");
 
 
 module.exports.run = async(bot, message, args) =>{
+    var array = new array();
     let messages = msgst[0].message;
     let count_num = msgst.size;
     console.log(`${count_num}`);
     let Sembed = new Discord.RichEmbed()
         .setColor(Color.mint)
-        .setAuthor(`참여방 목록`,message.guild.iconURL)
-        .setTimestamp()
-        .setDescription(`**사용 가능한 명령어**\n명령어 수식어: ${prefix}`)
+        .setDescription(`참여방 목록:`)
 
        for(var i = 0; i < count_num; i++){
-           Sembed.addField(`#${i} : ${msgst[i].message}:`,"");
+           Sembed.addField(`#${i} : ${msgst[i].message}:`," ");
+           array.add(`#${i} : ${msgst[i].message}:`);
+
        }
+
+       console.log(array);
+
+
         message.channel.send(Sembed);
 }
 

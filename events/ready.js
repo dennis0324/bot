@@ -13,7 +13,8 @@ module.exports = bot =>{
                 var testing = j.name.split('-');
                 testing.pop(1);
                 msgst[count] = {
-                    message: testing
+                    message: testing,
+                    usage: usages
                 }
                 //아직 파일 입출력 못 고침
     
