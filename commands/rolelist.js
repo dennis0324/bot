@@ -4,7 +4,7 @@ const botconfig = require("../botconfig.json");
 const fs = require('fs');
 const prefix = botconfig.prefix;
 
-const msgs = require("../rolelist.json")
+const msgsㅅ = require("../rolelist.json")
 
 
 module.exports.run = async(bot, message, args) =>{
@@ -14,14 +14,14 @@ module.exports.run = async(bot, message, args) =>{
             
             var testing = element.name.split('-');
             testing.pop(1);
-            msgs[count] = {
+            msgst[count] = {
                 message: testing
             }
             //아직 파일 입출력 못 고침
 
-            // fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
-            //     if(err) throw err;
-            // }
+            fs.writeFile("../rolelist.json",JSON.stringify (msgst,null,4)), err =>{
+                if(err) throw err;
+            }
             console.log(`#${count} : ${testing}`);
             count++;
         }
