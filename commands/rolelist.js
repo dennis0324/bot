@@ -4,27 +4,13 @@ const botconfig = require("../botconfig.json");
 const fs = require('fs');
 const prefix = botconfig.prefix;
 
-const msgst = require("../rolelist.json")
+
 
 
 module.exports.run = async(bot, message, args) =>{
     var count = 0;
     message.guild.roles.forEach(element => {
-        if(element.name.includes('-pro')){
-            
-            var testing = element.name.split('-');
-            testing.pop(1);
-            msgst[count] = {
-                message: testing
-            }
-            //아직 파일 입출력 못 고침
 
-            fs.writeFile("./rolelist.json",JSON.stringify (msgst,null,4), function(err) {
-                if(err) console.log('error',err);
-            })
-            console.log(`#${count} : ${testing}`);
-            count++;
-        }
     });
 }
 
