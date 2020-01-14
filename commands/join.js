@@ -5,7 +5,8 @@ const prefix = botconfig.prefix;
 
 module.exports.run = async(bot, message, args) =>{
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
-    console.log(typeof args[0]);
+    var testing = Number(args[0])
+    console.log(testing);
     
 }
 
