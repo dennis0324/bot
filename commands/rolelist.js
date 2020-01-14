@@ -19,7 +19,7 @@ module.exports.run = async(bot, message, args) =>{
             }
             //아직 파일 입출력 못 고침
 
-            fs.writeFile("../rolelist.json",JSON.stringify (msgst,null,4), function(err) {
+            fs.writeFile("./rolelist.json",JSON.stringify (msgst,null,4), function(err) {
                 if(err) throw err;
             })
             console.log(`#${count} : ${testing}`);
