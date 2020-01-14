@@ -19,5 +19,5 @@ module.exports.config = {
     aliases: ["ar","addr","arole"],
     description: "선택 가능한 역할을 볼 수 있습니다.",
     usage: "--rolelist",
-    accessableby:"Everyone"
+    accessableby:"모든 이"
 }

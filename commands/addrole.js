@@ -38,16 +38,6 @@ module.exports.run = async(bot, message, args) =>{
                     "ADD_REACTIONS"
                 ]
             }).catch(console.error);
-            // message.guild.channels.forEach(async(channel,id) => {
-            //     await channel.overwritePermissions(createRole,{
-            //         SEND_MESSAGE: true,
-            //         ADD_REACTIONS: true,
-            //         SEND_TTS_MESSAGES: true,
-            //         ATTACH_FILES: true,
-            //         SPEAK: true,
-            //         MENTIONABLE: true
-            //     })
-            // });
 
             message.delete();
             let addRoleEmbed = new Discord.RichEmbed()
@@ -76,5 +66,5 @@ module.exports.config = {
     aliases: ["ar","addr","arole"],
     description: "필요한 역할을 부여받을 수 있습니다.",
     usage: "--addrole <게임 이름>",
-    accessableby:"Everyone"
+    accessableby:"관리자"
 }

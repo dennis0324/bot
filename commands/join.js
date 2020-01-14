@@ -15,5 +15,5 @@ module.exports.config = {
     aliases: ["j"],
     description: "필요한 역할을 부여받을 수 있습니다.",
     usage: "--join <게임 이름>",
-    accessableby:"Everyone"
+    accessableby:"모든 이"
 }
