@@ -48,7 +48,7 @@ module.exports.run = async(bot, message, args) =>{
             fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
                 if(err) throw err;
             }
-            count++;
+            count = count + 1;
             console.log(`count의 사이즈는${count}`);
             msgs.size = count;
         }
