@@ -64,5 +64,7 @@ module.exports.config = {
 }
 
 function getKeyByValue(object, value) {
-    return Object.keys(object).find(key => object[key] === value);
+    return object.array.forEach(element => {
+        Object.keys(element).find(key => element[key].message === value)
+    });
   }
