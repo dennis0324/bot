@@ -59,10 +59,10 @@ module.exports.run = async(bot, message, args) =>{
 
 
 module.exports.config = {
-    name: "deleterole",
-    aliases: ["dr","deleter","derole"],
+    name: "removerole",
+    aliases: ["rr","remover","rerole"],
     description: "역할을 삭제할 수 있습니다.",
-    usage: "--deleterole <게임 이름>",
+    usage: "--removerole <게임 이름>",
     accessableby:"관리자"
 }
 
