@@ -42,7 +42,7 @@ module.exports.run = async(bot, message, args) =>{
                 }  
             }
             var temp = msgs.size;
-            temp -= 1;
+            temp = temp - 1;
             msgs.size = temp; 
             console.log(`msgs.size change after deleting : ${msgs.size}`);
             fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
