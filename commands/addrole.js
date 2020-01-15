@@ -48,7 +48,7 @@ module.exports.run = async(bot, message, args) =>{
             fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
                 if(err) throw err;
             }
-            msgs.size++;
+            msgs.size = count +1;
         }
         catch(e){
             //console.log(e.stack);
