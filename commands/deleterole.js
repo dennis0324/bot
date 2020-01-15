@@ -36,14 +36,13 @@ module.exports.run = async(bot, message, args) =>{
             console.log(`find in index #${starting_point}`);
             for(var i = starting_point; i < msgs.size; i++){
                 console.log(`msgs value #${i}: ${msgs[i].message} `);
-                delete mesgs[i].message;
-                if(i + 1 != msgs.size){
-                    mesgs[i].message = msgs[i + 1].message;
+                delete msgs[i].message;
+                if(i + 1 <= msgs.size){
+                    msgs[i].message = msgs[i + 1].message;
                 }  
             }
             msgs.size -= 1;
             console.log(`msgs.size change after deleting : ${msgs.size}`);
-            msgs.size = count;
             fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
                 if(err) throw err;
             } 
