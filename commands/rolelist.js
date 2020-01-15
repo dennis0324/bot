@@ -13,12 +13,7 @@ module.exports.run = async(bot, message, args) =>{
     let messages = msgst[0].message;
     let count_num = msgst.size;
     console.log(`${count_num}`);
-    let Sembed = new Discord.RichEmbed()
-        .setColor(Color.mint)
-        .setDescription(`참여방 목록:`)
-
        for(var i = 0; i < count_num; i++){
-           Sembed.addField(`#${i} : ${msgst[i].message}`,"1 ");
            array += `${i}. ${msgst[i].message}\n`;
 
        }

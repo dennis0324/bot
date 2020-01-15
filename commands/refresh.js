@@ -37,9 +37,9 @@ module.exports.run = async(bot, message, args) =>{
 
 
 module.exports.config = {
-    name: "join",
+    name: "refresh",
     aliases: ["j"],
     description: "필요한 역할을 부여받을 수 있습니다.",
-    usage: "--join <목록 이름|숫자>",
+    usage: "--refresh",
     accessableby:"모든 이"
 }
