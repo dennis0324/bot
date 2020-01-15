@@ -17,6 +17,13 @@ module.exports.run = async(bot, message, args) =>{
             console.log("successed!");
         })
     }
+    else{
+        let roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum - 1]}-pro`);
+        // console.log(`${message.guild.add}`)
+        message.member.addRole(roleAdding.id).then(() =>{
+            console.log("successed!");
+        })
+    }
     
 }
 

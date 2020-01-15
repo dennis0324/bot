@@ -57,6 +57,9 @@ module.exports.run = async(bot, message, args) =>{
             //console.log(e.stack);
         }
     }
+    else{
+        message.channel.send(`이미 같은 이름이 존재합니다.`);
+    }
     
 }
 
