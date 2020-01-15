@@ -33,7 +33,7 @@ module.exports.run = async(bot, message, args) =>{
             .setFooter("도우미",null)
             message.channel.send(addRoleEmbed)
             for(var i = 0; i < msgs.size; i++){
-                if(msgs[i].message === `${rolename}-pro`){
+                if(msgs[i].message == `${rolename}`){
                     console.log(`found ${rolename}`);
                 }
             }
