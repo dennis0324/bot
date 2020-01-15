@@ -32,7 +32,7 @@ module.exports.run = async(bot, message, args) =>{
             .setDescription(`${rolename}역할이 성공적으로 삭제되었습니다.`)
             .setFooter("도우미",null)
             message.channel.send(addRoleEmbed)
-            conmsole.log(getKeyByValue(msgs,`${rolename}-pro`));
+            console.log(getKeyByValue(msgs,`${rolename}-pro`));
             // for(var i = )
             // count = count + 1;
             // console.log(`count의 사이즈는${count} #2`);
