@@ -43,14 +43,10 @@ module.exports.run = async(bot, message, args) =>{
             }
             msgs.size -= 1;
             console.log(`msgs.size change after deleting : ${msgs.size}`);
-
-            // for(var i = )
-            // count = count + 1;
-            // console.log(`count의 사이즈는${count} #2`);
-            // msgs.size = count;
-            // fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
-            //     if(err) throw err;
-            // } 
+            msgs.size = count;
+            fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
+                if(err) throw err;
+            } 
         }
         catch(e){
             //console.log(e.stack);
