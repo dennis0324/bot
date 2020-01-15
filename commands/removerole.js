@@ -13,51 +13,38 @@ module.exports.run = async(bot, message, args) =>{
     if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("봇이 명령어를 사용할 수 있는 권한이 없습니다.");
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
     let rolename = args[0];
-    console.log(`${rolename}를 생성하려 시도중... `);
+    console.log(`${rolename}를 제거하려 시도중... `);
     var count = msgs.size;
     console.log(`count의 사이즈는${count} #1`);
 
     let roleAdding = message.guild.roles.find(r => r.name === `${rolename}-pro`);
 
     if(!roleAdding) {
+        message.channel.send(`지울 수 있는 이름이 존재하지 않습니다.`);
+    }
+    else{
         try{
-            createRole = message.guild.createRole({
-                name: `${rolename}-pro`,
-                color : "#333333",
-                permissions:[
-                    "SEND_MESSAGES",
-                    "READ_MESSAGES",
-                    "SEND_TTS_MESSAGES",
-                    "SPEAK",
-                    "CHANGE_NICKNAME",
-                    "ATTACH_FILES",
-                    "ADD_REACTIONS"
-                ]
-            }).catch(console.error);
-
+            roleAdding.delete();
             message.delete();
             let addRoleEmbed = new Discord.RichEmbed()
             .setColor(Color.lightblue)
             .setAuthor(`알림`,message.guild.iconURL)
-            .setDescription(`${rolename}역할이 성공적으로 추가되었습니다.`)
+            .setDescription(`${rolename}역할이 성공적으로 삭제되었습니다.`)
             .setFooter("도우미",null)
             message.channel.send(addRoleEmbed)
-            msgs[count] = {
-                message: rolename
-            }
-            count = count + 1;
-            console.log(`count의 사이즈는${count} #2`);
-            msgs.size = count;
-            fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
-                if(err) throw err;
-            } 
+            conmsole.log(getKeyByValue(msgs,`${rolename}-pro`));
+            // for(var i = )
+            // count = count + 1;
+            // console.log(`count의 사이즈는${count} #2`);
+            // msgs.size = count;
+            // fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
+            //     if(err) throw err;
+            // } 
         }
         catch(e){
             //console.log(e.stack);
         }
-    }
-    else{
-        message.channel.send(`이미 같은 이름이 존재합니다.`);
+        
     }
     
 }
@@ -70,3 +57,7 @@ module.exports.config = {
     usage: "--addrole <게임 이름>",
     accessableby:"관리자"
 }
+
+function getKeyByValue(object, value) {
+    return Object.keys(object).find(key => object[key] === value);
+  }
