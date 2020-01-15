@@ -32,12 +32,9 @@ module.exports.run = async(bot, message, args) =>{
             .setDescription(`${rolename}역할이 성공적으로 삭제되었습니다.`)
             .setFooter("도우미",null)
             message.channel.send(addRoleEmbed)
-            console.log("found : "+getKeyByValue(msgs,`${rolename}`));
-            for(var i = 0; i < msgs.size; i++){
-                if(msgs[i].message == `${rolename}`){
-                    console.log(`found ${rolename}`);
-                }
-            }
+            console.log(`find in index #${getKeyByValue(msgs,`${rolename}`)}`);
+
+            
             // for(var i = )
             // count = count + 1;
             // console.log(`count의 사이즈는${count} #2`);
@@ -64,7 +61,9 @@ module.exports.config = {
 }
 
 function getKeyByValue(object, value) {
-    return object.array.forEach(element => {
-        Object.keys(element).find(key => element[key].message === value)
-    });
+    for(var i = 0; i < object.size; i++){
+        if(object[i].message == `${value}`){
+            return i;  
+        }
+    }
   }
