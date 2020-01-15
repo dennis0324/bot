@@ -23,7 +23,7 @@ module.exports.run = async(bot, message, args) =>{
         try{
             createRole = message.guild.createRole({
                 name: `${rolename}-pro`,
-                color : "#333333",
+                color : '#${Math.floor(Math.random()*16777215).toString(16)}',
                 permissions:[
                     "SEND_MESSAGES",
                     "READ_MESSAGES",
