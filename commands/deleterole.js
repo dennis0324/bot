@@ -33,7 +33,7 @@ module.exports.run = async(bot, message, args) =>{
             .setFooter("도우미",null)
             message.channel.send(addRoleEmbed)
             for(var i = 0; i < msgs.size; i++){
-                if(msgs[i].name === `${rolename}-pro`){
+                if(msgs[i].message === `${rolename}-pro`){
                     console.log(`found ${rolename}`);
                 }
             }
@@ -55,10 +55,10 @@ module.exports.run = async(bot, message, args) =>{
 
 
 module.exports.config = {
-    name: "removerole",
-    aliases: ["rr","remover","remrole"],
+    name: "deleterole",
+    aliases: ["dr","deleter","derole"],
     description: "역할을 삭제할 수 있습니다.",
-    usage: "--removerole <게임 이름>",
+    usage: "--deleterole <게임 이름>",
     accessableby:"관리자"
 }
 
