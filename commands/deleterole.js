@@ -32,6 +32,7 @@ module.exports.run = async(bot, message, args) =>{
             .setDescription(`${rolename}역할이 성공적으로 삭제되었습니다.`)
             .setFooter("도우미",null)
             message.channel.send(addRoleEmbed)
+            console.log("found : "+getKeyByValue(msgs,`${rolename}`));
             for(var i = 0; i < msgs.size; i++){
                 if(msgs[i].message == `${rolename}`){
                     console.log(`found ${rolename}`);
