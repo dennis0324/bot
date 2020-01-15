@@ -8,9 +8,12 @@ module.exports.run = async(bot, message, args) =>{
     if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
 
     if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("봇이 명령어를 사용할 수 있는 권한이 없습니다.");
+    
+    for(var i = 0; i < msgst.size; i++){
+        delete msgst[i];
+    }
     var count = 0;
     bot.guilds.forEach(element => {
-        
         element.roles.forEach(j => {
             if(j.name.includes('-pro')){
                 var testing = j.name.split('-');
