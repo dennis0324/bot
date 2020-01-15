@@ -41,7 +41,9 @@ module.exports.run = async(bot, message, args) =>{
                     msgs[i].message = msgs[i + 1].message;
                 }  
             }
-            msgs.size -= 1;
+            var temp = msgs.size;
+            temp -= 1;
+            msgs.size = temp; 
             console.log(`msgs.size change after deleting : ${msgs.size}`);
             fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
                 if(err) throw err;
