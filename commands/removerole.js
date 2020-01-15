@@ -51,10 +51,10 @@ module.exports.run = async(bot, message, args) =>{
 
 
 module.exports.config = {
-    name: "addrole",
-    aliases: ["ar","addr","arole"],
-    description: "필요한 역할을 부여받을 수 있습니다.",
-    usage: "--addrole <게임 이름>",
+    name: "removerole",
+    aliases: ["rr","remover","remrole"],
+    description: "역할을 삭제할 수 있습니다.",
+    usage: "--removerole <게임 이름>",
     accessableby:"관리자"
 }
 
