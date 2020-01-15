@@ -37,7 +37,7 @@ module.exports.run = async(bot, message, args) =>{
             for(var i = starting_point; i < msgs.size; i++){
                 console.log(`msgs value #${i}: ${msgs[i].message} `);
                 delete msgs[i].message;
-                if(i + 1 <= msgs.size){
+                if(i + 1 < msgs.size){
                     msgs[i].message = msgs[i + 1].message;
                 }  
             }
