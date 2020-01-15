@@ -15,7 +15,7 @@ module.exports.run = async(bot, message, args) =>{
     let rolename = args[0];
     console.log(`${rolename}를 생성하려 시도중... `);
     var count = msgs.size;
-    
+    console.log(`count의 사이즈는${count}`);
 
     let roleAdding = message.guild.roles.find(r => r.name === `${rolename}`);
 
