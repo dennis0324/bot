@@ -35,8 +35,15 @@ module.exports.run = async(bot, message, args) =>{
             var starting_point = getKeyByValue(msgs,`${rolename}`);
             console.log(`find in index #${starting_point}`);
             for(var i = starting_point; i < msgs.size; i++){
-                console.log(`msgs value #${i}: ${msgs[i]} `);
+                console.log(`msgs value #${i}: ${msgs[i].message} `);
+                delete mesgs[i].message;
+                if(i + 1 != msgs.size){
+                    mesgs[i].message = msgs[i + 1].message;
+                }  
             }
+            msgs.size -= 1;
+            console.log(`msgs.size change after deleting : ${msgs.size}`);
+
             // for(var i = )
             // count = count + 1;
             // console.log(`count의 사이즈는${count} #2`);
