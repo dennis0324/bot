@@ -17,7 +17,7 @@ module.exports.run = async(bot, message, args) =>{
     var count = 0;
 
     if(!msgs){
-        count = 0;
+        count = msgst.size;
     }
     console.log(`count의 사이즈는${count}`);
 
