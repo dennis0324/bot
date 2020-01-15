@@ -14,11 +14,7 @@ module.exports.run = async(bot, message, args) =>{
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
     let rolename = args[0];
     console.log(`${rolename}를 생성하려 시도중... `);
-    var count = 0;
-
-    if(!msgs){
-        count = msgst.size;
-    }
+    var count = msgst.size;
     console.log(`count의 사이즈는${count}`);
 
     let roleAdding = message.guild.roles.find(r => r.name === `${rolename}`);
