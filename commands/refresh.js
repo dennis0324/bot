@@ -38,7 +38,7 @@ module.exports.run = async(bot, message, args) =>{
 
 module.exports.config = {
     name: "refresh",
-    aliases: ["j"],
+    aliases: ["re"],
     description: "필요한 역할을 부여받을 수 있습니다.",
     usage: "--refresh",
     accessableby:"모든 이"
