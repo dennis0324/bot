@@ -46,7 +46,8 @@ module.exports.run = async(bot, message, args) =>{
         .setDescription(`${message.author.username}가 ${string}방에 참여했습니다.`);
         message.channel.send(embed);
     }
-    else{
+
+    if(!args[1]){
         message.member.addRole(roleAdding.id).then(() =>{
             console.log("successed!");
         })
