@@ -21,7 +21,6 @@ module.exports.run = async(bot, message, args) =>{
         roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum].message}-pro`);
         rolename = `${msgst[checknum].message}-pro`
     }
-    if()
     if(!message.member.roles.find(r => r.name === rolename ) && !roleAdding){
         console.log("이름을 찾지 못하였습니다.")
     }
