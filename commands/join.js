@@ -36,7 +36,9 @@ module.exports.run = async(bot, message, args) =>{
         return ;
     }
 
-
+    if(!args[1]){
+        console.log("왜 안돼?")
+    }
     if(args[1]){
         playername.addRole(roleAdding.id).then(() => {
             console.log("successed!");
