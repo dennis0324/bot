@@ -9,25 +9,23 @@ module.exports.run = async(bot, message, args) =>{
     
     var string = args[0];
     var checknum = Number(string)
+    var roleAdding;
     console.log(`${checknum}`)
     if(isNaN(checknum)){
-        let roleAdding = message.guild.roles.find(r => r.name === `${string}-pro`);
-        // console.log(`${message.guild.add}`)
+        roleAdding = message.guild.roles.find(r => r.name === `${string}-pro`);
         console.log(`${string}`);
-        message.member.addRole(roleAdding.id).then(() =>{
-            console.log("successed!");
-        })
     }
     else{
-        let roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum].message}-pro`);
-        // console.log(`${message.guild.add}`)
-        message.member.addRole(roleAdding.id).then(() =>{
-            console.log("successed!");
-        })
+        roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum].message}-pro`);
     }
-    let embed = new Discord.RichEmbed()
 
-    .setDescription(`${message.member.name}가 ${string}방에 들어왔습니다.`);
+
+    message.member.addRole(roleAdding.id).then(() =>{
+        console.log("successed!");
+    })
+
+    let embed = new Discord.RichEmbed()
+    .setDescription(`${message.author.username}가 ${string}방에 참여했습니다.`);
     message.channel.send(embed);
 }
 
