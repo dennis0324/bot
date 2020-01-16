@@ -29,12 +29,7 @@ module.exports.run = async(bot, message, args) =>{
         message.channel.send(embed);
         return ;
     }
-    if(message.member.roles.find(r => r.name === rolename )){
-        let embed = new Discord.RichEmbed()
-        .setDescription(`이미 ${string}방에 들어와있습니다.`);
-        message.channel.send(embed);
-        return ;
-    }
+
 
     if(args[1]){
         playername.addRole(roleAdding.id).then(() => {
@@ -46,6 +41,12 @@ module.exports.run = async(bot, message, args) =>{
         message.channel.send(embed);
     }
     else{
+        if(message.member.roles.find(r => r.name === rolename )){
+            let embed = new Discord.RichEmbed()
+            .setDescription(`이미 ${string}방에 들어와있습니다.`);
+            message.channel.send(embed);
+            return ;
+        }
         message.member.addRole(roleAdding.id).then(() =>{
             console.log("successed!");
         })
