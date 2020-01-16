@@ -35,10 +35,8 @@ module.exports.run = async(bot, message, args) =>{
         message.channel.send(embed);
         return ;
     }
-
-    if(!args[1]){
-        console.log("왜 안돼?")
-    }
+    console.log(`${args[1]}`)
+    console.log(`${playername}`)
     if(args[1]){
         playername.addRole(roleAdding.id).then(() => {
             console.log("successed!");
