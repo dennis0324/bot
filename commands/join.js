@@ -25,7 +25,10 @@ module.exports.run = async(bot, message, args) =>{
             console.log("successed!");
         })
     }
+    let embed = new Discord.RichEmbed()
     
+    .setDescription(`${message.member.username}가 ${string}방에 들어왔습니다.`);
+    message.channel.send(embed);
 }
 
 
