@@ -29,7 +29,6 @@ module.exports.run = async (bot, message, args) =>{
         .setThumbnail(bot.user.displayAvatarURL)
         .setDescription(`${message.author.username}님! 개인 메세지를 확인해주세요`)
 
-
         let Sembed = new Discord.RichEmbed()
         .setColor(Color.mint)
         .setAuthor(`도움말`,message.guild.iconURL)

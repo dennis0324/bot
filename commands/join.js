@@ -8,6 +8,7 @@ module.exports.run = async(bot, message, args) =>{
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
     
     var string = args[0];
+    var playername
     var checknum = Number(string)
     var roleAdding;
     var rolename;
@@ -15,7 +16,6 @@ module.exports.run = async(bot, message, args) =>{
     if(isNaN(checknum)){
         roleAdding = message.guild.roles.find(r => r.name === `${string}-pro`);
         rolename = `${string}-pro`;
-        console.log(`${string}`);
     }
     else{
         roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum].message}-pro`);
@@ -25,6 +25,12 @@ module.exports.run = async(bot, message, args) =>{
         console.log("이름을 찾지 못하였습니다.")
         let embed = new Discord.RichEmbed()
         .setDescription(`${string}존재하지 않습니다.`);
+        message.channel.send(embed);
+        return ;
+    }
+    if(message.member.roles.find(r => r.name === rolename )){
+        let embed = new Discord.RichEmbed()
+        .setDescription(`이미 ${string}방에 들어와있습니다.`);
         message.channel.send(embed);
         return ;
     }
