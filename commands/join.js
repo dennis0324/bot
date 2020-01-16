@@ -23,6 +23,10 @@ module.exports.run = async(bot, message, args) =>{
     }
     if(!message.member.roles.find(r => r.name === rolename ) && !roleAdding){
         console.log("이름을 찾지 못하였습니다.")
+        let embed = new Discord.RichEmbed()
+        .setDescription(`${string}존재하지 않습니다.`);
+        message.channel.send(embed);
+        return ;
     }
     message.member.addRole(roleAdding.id).then(() =>{
         console.log("successed!");
