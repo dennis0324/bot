@@ -37,7 +37,7 @@ module.exports.run = async(bot, message, args) =>{
         })
 
         let embed = new Discord.RichEmbed()
-        .setDescription(`${message.author.username}가 ${string}방에 참여했습니다.`);
+        .setDescription(`${playername}가 ${string}방에 참여했습니다.`);
         message.channel.send(embed);
     }
     else{
