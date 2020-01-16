@@ -35,8 +35,7 @@ module.exports.run = async(bot, message, args) =>{
         message.channel.send(embed);
         return ;
     }
-    console.log(`${args[1]}`)
-    console.log(`${playername}`)
+
     if(args[1]){
         playername.addRole(roleAdding.id).then(() => {
             console.log("successed!");
@@ -46,8 +45,7 @@ module.exports.run = async(bot, message, args) =>{
         .setDescription(`${message.author.username}가 ${string}방에 참여했습니다.`);
         message.channel.send(embed);
     }
-
-    if(!args[1]){
+    else{
         message.member.addRole(roleAdding.id).then(() =>{
             console.log("successed!");
         })
