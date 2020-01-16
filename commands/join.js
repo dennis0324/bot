@@ -10,16 +10,20 @@ module.exports.run = async(bot, message, args) =>{
     var string = args[0];
     var checknum = Number(string)
     var roleAdding;
+    var rolename;
     console.log(`${checknum}`)
     if(isNaN(checknum)){
         roleAdding = message.guild.roles.find(r => r.name === `${string}-pro`);
+        rolename = `${string}-pro`;
         console.log(`${string}`);
     }
     else{
         roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum].message}-pro`);
+        rolename = `${msgst[checknum].message}-pro`
     }
-
-
+    if(!message.member.roles.find(r => r.name === rolename )){
+        console.log("이름을 찾지 못하였습니다.")
+    }
     message.member.addRole(roleAdding.id).then(() =>{
         console.log("successed!");
     })
