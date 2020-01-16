@@ -9,7 +9,7 @@ module.exports.run = async(bot, message, args) =>{
     
     var string = args[0];
     var checknum = Number(string)
-    
+    console.log(`${checknum}`)
     if(isNaN(checknum)){
         let roleAdding = message.guild.roles.find(r => r.name === `${string}-pro`);
         // console.log(`${message.guild.add}`)
@@ -19,7 +19,7 @@ module.exports.run = async(bot, message, args) =>{
         })
     }
     else{
-        let roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum - 1]}-pro`);
+        let roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum]}-pro`);
         // console.log(`${message.guild.add}`)
         message.member.addRole(roleAdding.id).then(() =>{
             console.log("successed!");
