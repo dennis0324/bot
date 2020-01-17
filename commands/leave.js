@@ -33,32 +33,22 @@ module.exports.run = async(bot, message, args) =>{
 
     if(args[1]){
         if(playername.roles.find(r => r.name === rolename )){
+            playername.removeRole(roleAdding.id).then(() => {
+                console.log("successed!");
+            })
+    
             let embed = new Discord.RichEmbed()
-            .setDescription(`이미 ${string}방에 들어와있습니다.`);
+            .setDescription(`${playername}가 ${string}방에 탈퇴했습니다.`);
             message.channel.send(embed);
-            return ;
         }
-        playername.removeRole(roleAdding.id).then(() => {
-            console.log("successed!");
-        })
-
-        let embed = new Discord.RichEmbed()
-        .setDescription(`${playername}가 ${string}방에 참여했습니다.`);
-        message.channel.send(embed);
     }
     else{
-        if(message.member.roles.find(r => r.name === rolename )){
-            let embed = new Discord.RichEmbed()
-            .setDescription(`이미 ${string}방에 들어와있습니다.`);
-            message.channel.send(embed);
-            return ;
-        }
-        message.member.addRole(roleAdding.id).then(() =>{
+        message.member.removeRole(roleAdding.id).then(() =>{
             console.log("successed!");
         })
         
         let embed = new Discord.RichEmbed()
-        .setDescription(`${message.author.username}가 ${string}방에 참여했습니다.`);
+        .setDescription(`${message.author.username}가 ${string}방에 탈퇴했습니다.`);
         message.channel.send(embed);
     }
 }
