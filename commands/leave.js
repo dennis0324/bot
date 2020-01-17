@@ -25,7 +25,7 @@ module.exports.run = async(bot, message, args) =>{
     if(!message.member.roles.find(r => r.name === rolename ) && roleAdding){
         console.log("이미 탈되하였습니다.")
         let embed = new Discord.RichEmbed()
-        .setDescription(`${string} 역할이 존재하지 않습니다.`);
+        .setDescription(`${string}를 이미 탈퇴하셨습니다.`);
         message.channel.send(embed);
         return ;
     }
