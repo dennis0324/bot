@@ -21,17 +21,15 @@ module.exports.run = async(bot, message, args) =>{
         roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum].message}-pro`);
         rolename = `${msgst[checknum].message}-pro`
     }
-
-    if(!message.member.roles.find(r => r.name === rolename ) && roleAdding){
-        console.log("이미 탈되하였습니다.")
-        let embed = new Discord.RichEmbed()
-        .setDescription(`${string}를 이미 탈퇴하셨습니다.`);
-        message.channel.send(embed);
-        return ;
-    }
-
-
     if(args[1]){
+        if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
+        if(!playername.roles.find(r => r.name === rolename ) && roleAdding){
+            console.log("이미 탈퇴하였습니다.")
+            let embed = new Discord.RichEmbed()
+            .setDescription(`${string}를 이미 탈퇴하셨습니다.`);
+            message.channel.send(embed);
+            return ;
+        }
         if(playername.roles.find(r => r.name === rolename )){
             playername.removeRole(roleAdding.id).then(() => {
                 console.log("successed!");
@@ -43,6 +41,13 @@ module.exports.run = async(bot, message, args) =>{
         }
     }
     else{
+        if(!message.member.roles.find(r => r.name === rolename ) && roleAdding){
+            console.log("이미 탈퇴하였습니다.")
+            let embed = new Discord.RichEmbed()
+            .setDescription(`${string}를 이미 탈퇴하셨습니다.`);
+            message.channel.send(embed);
+            return ;
+        }
         message.member.removeRole(roleAdding.id).then(() =>{
             console.log("successed!");
         })

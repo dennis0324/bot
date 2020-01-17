@@ -35,7 +35,7 @@ module.exports.run = async (bot, message, args) =>{
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
         .setDescription(`**사용 가능한 명령어**\n명령어 수식어: ${prefix}`)
-        .addField(`Commands: "join","rolelist","removerole","addrole"`)
+        .addField(`Commands: "join","leave","rolelist","removerole","addrole"`)
         .setFooter("참여 봇",bot.users.displayAvatarURL)
 
         message.channel.send(embed).then(m => m.delete(10000));
