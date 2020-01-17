@@ -22,7 +22,7 @@ module.exports.run = async(bot, message, args) =>{
         rolename = `${msgst[checknum].message}-pro`
     }
 
-    if(!message.member.roles.find(r => r.name === rolename ) && !roleAdding){
+    if(!message.member.roles.find(r => r.name === rolename ) && roleAdding){
         console.log("이미 탈되하였습니다.")
         let embed = new Discord.RichEmbed()
         .setDescription(`${string}존재하지 않습니다.`);
