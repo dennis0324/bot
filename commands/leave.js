@@ -38,7 +38,7 @@ module.exports.run = async(bot, message, args) =>{
             message.channel.send(embed);
             return ;
         }
-        playername.addRole(roleAdding.id).then(() => {
+        playername.removeRole(roleAdding.id).then(() => {
             console.log("successed!");
         })
 
@@ -65,9 +65,9 @@ module.exports.run = async(bot, message, args) =>{
 
 
 module.exports.config = {
-    name: "join",
-    aliases: ["j"],
+    name: "leave",
+    aliases: ["l"],
     description: "필요한 역할을 부여받을 수 있습니다.",
-    usage: "--join <목록 이름|숫자>",
+    usage: "--leave <목록 이름|숫자>",
     accessableby:"모든 이"
 }
