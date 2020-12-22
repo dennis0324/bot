@@ -16,8 +16,9 @@ module.exports.run = async(bot, message, args) =>{
     if(args.length > 1){
         console.log("명령어 입력 방식이 잘못되었습니다.");
         let embed = new Discord.RichEmbed()
-        .setDescription("명령어 입력 방식이 잘못되었습니다.");
+        .setDescription("명령어 입력 방식이 잘못되었습니다.\n 자세한 방법은 --help join를 참고해주세요.");
         message.channel.send(embed);
+        return;
     }
     if(isNaN(checknum)){
         roleAdding = message.guild.roles.find(r => r.name === `${string}-pro`);
