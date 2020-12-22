@@ -27,10 +27,9 @@ module.exports.run = async(bot, message, args) =>{
     else{
         roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum].message}-pro`);
         rolename = `${msgst[checknum].message}-pro`
-        console.log(`${roleAdding}${rolename}`);
     }
     console.log("testing line #1");
-    message.member.roles.cache.find(r => console.log(r));
+    message.member.roles.cache.mapValues(user => console.log(user));;
     if(!message.member.roles.cache.find(r => r.name === rolename ) && !roleAdding){
         console.log("이름을 찾지 못하였습니다.")
         let embed = new Discord.RichEmbed()
@@ -38,8 +37,7 @@ module.exports.run = async(bot, message, args) =>{
         message.channel.send(embed);
         return ;
     }
-
-    console.log("testing line #2");
+    
     if(args[1]){
         if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
         if(playername.roles.cache.find(r => r.name === rolename )){
