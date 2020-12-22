@@ -6,7 +6,8 @@ const msgst = require("../rolelist.json")
 
 module.exports.run = async(bot, message, args) =>{
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
-    
+    var testing_dummy = args;
+    console.log(testing_dummy);
     var string = args[0];
     var playername = message.mentions.members.first();
     var checknum = Number(string)
