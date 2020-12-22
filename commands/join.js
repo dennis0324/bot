@@ -30,6 +30,9 @@ module.exports.run = async(bot, message, args) =>{
         console.log(`${roleAdding}${rolename}`);
     }
     console.log("testing line #1");
+    message.member.roles.cache.find.foreach(usering =>{
+        console.log(usering);
+    }
     if(!message.member.roles.cache.find(r => r.name === rolename ) && !roleAdding){
         console.log("이름을 찾지 못하였습니다.")
         let embed = new Discord.RichEmbed()
