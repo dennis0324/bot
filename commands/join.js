@@ -30,6 +30,9 @@ module.exports.run = async(bot, message, args) =>{
         console.log(`${roleAdding}${rolename}`);
     }
     console.log("testing line #1");
+    message.guild.roles.cache.find.foreach(usering =>{
+        console.log(usering);
+    });
     message.member.roles.cache.find.foreach(usering =>{
         console.log(usering);
     });
