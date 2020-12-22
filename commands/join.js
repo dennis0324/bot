@@ -25,7 +25,7 @@ module.exports.run = async(bot, message, args) =>{
         rolename = `${string}-pro`;
     }
     else{
-        roleAdding = message.guild.roles.cache.find(r => r.name === `${msgst[checknum].message}-pro`);
+        roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum].message}-pro`);
         rolename = `${msgst[checknum].message}-pro`
     }
     console.log("testing line #1");
