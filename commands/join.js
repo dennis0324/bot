@@ -30,7 +30,7 @@ module.exports.run = async(bot, message, args) =>{
         console.log(`${roleAdding}${rolename}`);
     }
     console.log("testing line #1");
-    message.guild.roles.cache.foreach(edr =>{
+    message.guild.roles.cache.each(edr =>{
         console.log(`${edr}`);
     });
     if(!message.member.roles.cache.find(r => r.name === rolename ) && !roleAdding){
