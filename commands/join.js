@@ -6,14 +6,19 @@ const msgst = require("../rolelist.json")
 
 module.exports.run = async(bot, message, args) =>{
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
-    var testing_dummy = args;
-    console.log(testing_dummy);
+   
     var string = args[0];
     var playername = message.mentions.members.first();
     var checknum = Number(string)
     var roleAdding;
     var rolename;
     console.log(`${checknum}`)
+    if(args.length <= 1){
+        console.log("명령어 입력 방식이 잘못되었습니다.");
+        let embed = new Discord.RichEmbed()
+        .setDescription("명령어 입력 방식이 잘못되었습니다.");
+        message.channel.send(embed);
+    }
     if(isNaN(checknum)){
         roleAdding = message.guild.roles.find(r => r.name === `${string}-pro`);
         rolename = `${string}-pro`;
