@@ -30,7 +30,7 @@ module.exports.run = async(bot, message, args) =>{
     }
     console.log("testing line #1");
     console.log(message.member.roles);
-    message.member.roles.cache.mapValues(user => console.log(user));
+    message.guild.roles.cache.mapValues(user => console.log(user));
     if(!message.member.roles.cache.find(r => r.name === rolename ) && !roleAdding){
         console.log("이름을 찾지 못하였습니다.")
         let embed = new Discord.RichEmbed()
@@ -77,6 +77,6 @@ module.exports.config = {
     name: "join",
     aliases: ["j"],
     description: "필요한 역할을 부여받을 수 있습니다.",
-    usage: "--join <목록 이름|숫자>",
+    usage: "--join <목록 이름|숫자> @[사람 이름]",
     accessableby:"모든 이"
 }
