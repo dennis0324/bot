@@ -29,8 +29,8 @@ module.exports.run = async(bot, message, args) =>{
         rolename = `${msgst[checknum].message}-pro`
     }
     console.log("testing line #1");
-
-    console.log(message.guild.roles.cache.keyArray());
+    let role = message.guild.roles.find(r => r.name === "Team Mystic");
+    console.log(role);
     
     
     if(!message.member.roles.cache.find(r => r.name === rolename ) && !roleAdding){
