@@ -29,7 +29,11 @@ module.exports.run = async(bot, message, args) =>{
         rolename = `${msgst[checknum].message}-pro`
     }
     console.log("testing line #1");
-
+    console.log(message);
+    console.log("testing line #2");
+    console.log(message.guild);
+    console.log(message.guild.roles);
+    
     let adminRole = message.guild.roles.get(rolename); 
     console.log(adminRole);
     console.log(message.member.roles.has(adminRole.id));
