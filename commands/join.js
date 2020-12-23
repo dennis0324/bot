@@ -33,7 +33,8 @@ module.exports.run = async(bot, message, args) =>{
     console.log("log 1");
     
     console.log(!roleAdding);
-    console.log(message.member.displayName)
+    var testing = message.member;
+    console.log(testing);
     
     if(!roleAdding){
         console.log("이름을 찾지 못하였습니다.")
