@@ -32,7 +32,7 @@ module.exports.run = async(bot, message, args) =>{
     console.log(roleAdding.name);
     console.log("log 1");
     
-    if(!message.member.roles.find(r => r.name === roleAdding.name )){
+    if(!message.member.roles.find(r => r.name === roleAdding )){
         console.log("이름을 찾지 못하였습니다.")
         let embed = new Discord.RichEmbed()
         .setDescription(`${string}존재하지 않습니다.`);
