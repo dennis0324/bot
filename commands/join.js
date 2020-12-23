@@ -29,7 +29,7 @@ module.exports.run = async(bot, message, args) =>{
         rolename = `${msgst[checknum].message}-pro`
     }
     console.log("testing line #1");
-    console.log(message.guild.roles.cache);
+    console.log(message.guild.roles);
     
     if(!message.member.roles.cache.find(r => r.name === rolename ) && !roleAdding){
         console.log("이름을 찾지 못하였습니다.")
