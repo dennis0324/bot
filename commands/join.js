@@ -29,7 +29,7 @@ module.exports.run = async(bot, message, args) =>{
         rolename = `${msgst[checknum].message}-pro`
     }
     console.log("testing line #1");
-    let role = message.guild.roles.find(r => r.name === "Team Mystic");
+    let role = message.guild.roles.find(r => r.name === "Programmer");
     console.log(role);
     console.log(typeof(rolename));
     console.log(!null);
