@@ -30,7 +30,7 @@ module.exports.run = async(bot, message, args) =>{
     }
     console.log("testing line #1");
     console.log(message.guild.roles.get("Programmer"));
-    console.log(message.guild.roles.get(rolename);
+    console.log(message.guild.roles.get(rolename));
     
     
     if(!message.member.roles.find(r => r.name === rolename ) && !roleAdding){
