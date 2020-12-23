@@ -33,7 +33,7 @@ module.exports.run = async(bot, message, args) =>{
     console.log("log 1");
     
     console.log(!roleAdding);
-    console.log(message.member.roles.cache.find(r => r.name === rolename ))
+    console.log(message.member..displayName)
     
     if(!roleAdding){
         console.log("이름을 찾지 못하였습니다.")
