@@ -32,6 +32,7 @@ module.exports.run = async(bot, message, args) =>{
     let role = message.guild.roles.find(r => r.name === "Team Mystic");
     console.log(role);
     console.log(typeof(rolename));
+    console.log(!null);
     let testing1 = message.member.roles.find(r => r.name === "Team Mystic" );
     console.log(!testing1);
     
