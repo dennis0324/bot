@@ -32,6 +32,9 @@ module.exports.run = async(bot, message, args) =>{
     console.log(message.guild.roles.get("Programmer"));
     console.log(message.guild.roles.cache.find(role => role.name === "Programmer"));
     
+    let adminRole = message.guild.roles.get(rolename); 
+    console.log(adminRole);
+    console.log(message.member.roles.has(adminRole.id));
     
     if(!message.member.roles.find(r => r.name === rolename ) && !roleAdding){
         console.log("이름을 찾지 못하였습니다.")
