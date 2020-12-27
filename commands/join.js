@@ -29,7 +29,9 @@ module.exports.run = async(bot, message, args) =>{
         rolename = `${msgst[checknum].message}-pro`
     }
     console.log("testing line #1");
+	console.log(message.author.bot);
     console.log(roleAdding.name);
+	console.log("testing");
     console.log("log 1");
     
     console.log(!roleAdding);
