@@ -40,7 +40,6 @@ bot.on("message",async message => {
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile) {
-        console.log(message.author.avatar);
         commandfile.run(bot,message,args);
     }
 
