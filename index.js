@@ -21,7 +21,7 @@ fs.readdir("./commands/",(err, files) =>{
         console.log(f);
         let pull = require(`./commands/${f}`);
         console.log(`${pull.config.name}${pull}`);
-        bot.commands.set(pull.name,pull);
+        bot.commands.set(pull.config.name,pull);
         pull.config.aliases.forEach(alias => {
             bot.aliases.set(alias,pull.config.name)
         });
@@ -40,10 +40,6 @@ bot.on("message",async message => {
 
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
-    console.log(bot.commands.get(cmd.slice(prefix.length)));
-    console.log(bot.commands.get(bot.aliases.get(cmd.slice(prefix.length))));
-    
-    console.log(commandfile);
     if(commandfile) {
         commandfile.run(bot,message,args);
     }
