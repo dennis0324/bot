@@ -29,7 +29,12 @@ module.exports.run = async(bot, message, args) =>{
         rolename = `${msgst[checknum].message}-pro`
     }
     console.log("testing line #1");
-    
+    if(message.member.roles.cache.some(r => r.name === rolename )){
+        console.log("testing");
+    }
+    else{
+        console.log("no find");
+    }
     if(!roleAdding){
         console.log("이름을 찾지 못하였습니다.")
         let embed = new Discord.RichEmbed()
