@@ -42,7 +42,6 @@ bot.on("message",async message => {
     if(commandfile) {
         console.log(message.author.avatar);
         console.log("testing 2");
-        console.log(message.member.roles);
         message.member.roles.cache.find(r => console.log(r.name));
         commandfile.run(bot,message,args);
     }
