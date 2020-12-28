@@ -22,9 +22,9 @@ fs.readdir("./commands/",(err, files) =>{
         let pull = require(`./commands/${f}`);
         console.log(`${pull.config.name}${pull}`);
         bot.commands.set(pull.name,pull);
-//         pull.config.aliases.forEach(alias => {
-//             bot.aliases.set(alias,pull.config.name)
-//         });
+        pull.config.aliases.forEach(alias => {
+            bot.aliases.set(alias,pull.config.name)
+        });
     })
 });
 
