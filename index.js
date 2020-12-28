@@ -40,8 +40,7 @@ bot.on("message",async message => {
 
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
-    console.log(cmd.slice(prefix.length));
-    console.log(bot.aliases.get(cmd.slice(prefix.length)));
+    console.log(bot.commands.get('addrole'));
     
     console.log(commandfile);
     if(commandfile) {
