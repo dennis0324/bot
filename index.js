@@ -41,6 +41,8 @@ bot.on("message",async message => {
     if(commandfile) {
         console.log(message.author.avatar);
         message.guild.roles.cache.find(user => console.log(user.username));
+        console.log("testing 2");
+        message.member.guild.roles.cache.find(user => console.log(user.username));
         commandfile.run(bot,message,args);
     }
 
