@@ -38,7 +38,6 @@ bot.on("message", message => {
 //     console.log(cmd);
     
 //     let args = messageArray.slice(1);
-    console.log(guilding);
     console.log(message.guild.name);
     let role = message.guild.roles.cache.find(r => r.name === 'Minecraft-pro');
     console.log(role);
