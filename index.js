@@ -42,7 +42,12 @@ bot.on("message",async message => {
     if(commandfile) {
         console.log(message.author.avatar);
         console.log("testing 2");
-        message.member.roles.cache.find(r => console.log(r.name));
+        if(!message.member.roles.cache.find(r => console.log(r.name))){
+            console.log("there is no roles");
+        }
+        else{
+            console.log("there is roles");
+        }
         commandfile.run(bot,message,args);
     }
 
