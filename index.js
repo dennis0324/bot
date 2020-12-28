@@ -38,7 +38,7 @@ bot.on("message", message => {
     console.log(cmd);
     let args = messageArray.slice(1);
 
-    let role = message.guild.roles.find(r => r.name === "LOL-pro");
+    let role = message.guild.roles.get(r => r.name === 'LOL-pro');
     console.log(role);
     // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
     let member = message.mentions.members.first();
