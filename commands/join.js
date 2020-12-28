@@ -29,14 +29,6 @@ module.exports.run = async(bot, message, args) =>{
         rolename = `${msgst[checknum].message}-pro`
     }
     console.log("testing line #1");
-	console.log(typeof(message));
-    console.log(roleAdding.name);
-
-	console.log("testing");
-    console.log("log 1");
-    
-    console.log(!roleAdding);
-    console.log(message.member.displayName)
     
     if(!roleAdding){
         console.log("이름을 찾지 못하였습니다.")
