@@ -30,18 +30,18 @@ fs.readdir("./commands/",(err, files) =>{
 
 
 bot.on("message", message => {
-    if(message.author.bot ||message.channel.type === "dm") return;
+//     if(message.author.bot ||message.channel.type === "dm") return;
 
-    let prefix = botconfig.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLowerCase();
-    console.log(cmd);
+//     let prefix = botconfig.prefix;
+//     let messageArray = message.content.split(" ");
+//     let cmd = messageArray[0].toLowerCase();
+//     console.log(cmd);
     
-    const {guilding} = message
+//     const {guilding} = message
     
-    let args = messageArray.slice(1);
+//     let args = messageArray.slice(1);
     
-    let role = message.guild.roles.cache.find(r => r.name === 'LOL-pro');
+    let role = message.guild.roles.cache.find(r => r.name === 'Minecraft-pro');
     console.log(role);
     // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
     let member = message.mentions.members.first();
