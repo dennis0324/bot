@@ -38,11 +38,20 @@ bot.on("message",async message => {
     console.log(cmd);
     let args = messageArray.slice(1);
 
-    if(!message.content.startsWith(prefix)) return;
-    let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
-    if(commandfile) {
-        commandfile.run(bot,message,args);
-    }
+    let role = message.guild.roles.find(r => r.name === "Programmer");
+
+    // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
+    let member = message.mentions.members.first();
+
+    // or the person who made started the command: let member = message.member;
+
+    //adds the role
+    member.roles.add(role)
+//     if(!message.content.startsWith(prefix)) return;
+//     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+//     if(commandfile) {
+//         commandfile.run(bot,message,args);
+//     }
 
 })
 
