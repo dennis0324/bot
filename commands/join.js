@@ -87,10 +87,10 @@ module.exports = {
 // }
 
 
-// module.exports.config = {
-//     name: "join",
-//     aliases: ["j"],
-//     description: "필요한 역할을 부여받을 수 있습니다.",
-//     usage: "--join <목록 이름|숫자> @[사람 이름]",
-//     accessableby:"모든 이"
-// }
+module.exports.config = {
+    name: "join",
+    aliases: ["j"],
+    description: "필요한 역할을 부여받을 수 있습니다.",
+    usage: "--join <목록 이름|숫자> @[사람 이름]",
+    accessableby:"모든 이"
+}
