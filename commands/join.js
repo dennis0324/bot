@@ -2,89 +2,82 @@ const Discord = require('discord.js');
 const Color = require("../colours.json");
 const botconfig = require("../botconfig.json");
 const prefix = botconfig.prefix;
-const msgst = require("../rolelist.json")
+const msgst = require("../rolelist.json");
 
-module.exports = {
-	name: 'join',
-	description: 'Joining role already made',
-	execute(message,args){
-		console.log(message.author.bot);
-	}
-}
-// module.exports.run = async(bot, message, args) =>{
-//     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
+module.exports.run = async(bot, message, args) =>{
+    if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
    
-//     var string = args[0];
-//     var playername = message.mentions.members.first();
-//     var checknum = Number(string)
-//     var roleAdding;
-//     var rolename;
-//     console.log(`${checknum}`)
-//     if(string.length > 1){
-//         console.log("명령어 입력 방식이 잘못되었습니다.");
-//         let embed = new Discord.RichEmbed()
-//         .setDescription("명령어 입력 방식이 잘못되었습니다.\n 자세한 방법은 --help join를 참고해주세요.");
-//         message.channel.send(embed);
-//         return;
-//     }
-//     if(isNaN(checknum)){
-//         roleAdding = message.guild.roles.cache.find(r => r.name === `${string}-pro`);
-//         rolename = `${string}-pro`;
-//     }
-//     else{
-//         roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum].message}-pro`);
-//         rolename = `${msgst[checknum].message}-pro`
-//     }
-//     console.log("testing line #1");
-// 	console.log(typeof(message));
-//     console.log(roleAdding.name);
+    var string = args[0];
+    var playername = message.mentions.members.first();
+    var checknum = Number(string)
+    var roleAdding;
+    var rolename;
+    console.log(`${checknum}`)
+    if(string.length > 1){
+        console.log("명령어 입력 방식이 잘못되었습니다.");
+        let embed = new Discord.RichEmbed()
+        .setDescription("명령어 입력 방식이 잘못되었습니다.\n 자세한 방법은 --help join를 참고해주세요.");
+        message.channel.send(embed);
+        return;
+    }
+    if(isNaN(checknum)){
+        roleAdding = message.guild.roles.cache.find(r => r.name === `${string}-pro`);
+        rolename = `${string}-pro`;
+    }
+    else{
+        roleAdding = message.guild.roles.find(r => r.name === `${msgst[checknum].message}-pro`);
+        rolename = `${msgst[checknum].message}-pro`
+    }
+    console.log("testing line #1");
+	console.log(typeof(message));
+    console.log(roleAdding.name);
 
-// 	console.log("testing");
-//     console.log("log 1");
+	console.log("testing");
+    console.log("log 1");
     
-//     console.log(!roleAdding);
-//     console.log(message.member.displayName)
+    console.log(!roleAdding);
+    console.log(message.member.displayName)
     
-//     if(!roleAdding){
-//         console.log("이름을 찾지 못하였습니다.")
-//         let embed = new Discord.RichEmbed()
-//         .setDescription(`${string}존재하지 않습니다.`);
-//         message.channel.send(embed);
-//         return ;
-//     }
+    if(!roleAdding){
+        console.log("이름을 찾지 못하였습니다.")
+        let embed = new Discord.RichEmbed()
+        .setDescription(`${string}존재하지 않습니다.`);
+        message.channel.send(embed);
+        return ;
+    }
     
-//     if(args[1]){
-//         if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
-//         if(playername.roles.cache.find(r => r.name === rolename )){
-//             let embed = new Discord.RichEmbed()
-//             .setDescription(`이미 ${string}방에 들어와있습니다.`);
-//             message.channel.send(embed);
-//             return ;
-//         }
-//         playername.addRole(roleAdding.id).then(() => {
-//             console.log("successed!");
-//         })
+    if(args[1]){
+        if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
+        if(playername.roles.cache.find(r => r.name === rolename )){
+            let embed = new Discord.RichEmbed()
+            .setDescription(`이미 ${string}방에 들어와있습니다.`);
+            message.channel.send(embed);
+            return ;
+        }
+        playername.addRole(roleAdding.id).then(() => {
+            console.log("successed!");
+        })
 
-//         let embed = new Discord.RichEmbed()
-//         .setDescription(`${playername}가 ${string}방에 참여했습니다.`);
-//         message.channel.send(embed);
-//     }
-//     else{
-//         if(message.member.roles.cache.find(r => r.name === rolename )){
-//             let embed = new Discord.RichEmbed()
-//             .setDescription(`이미 ${string}방에 들어와있습니다.`);
-//             message.channel.send(embed);
-//             return ;
-//         }
-//         message.member.addRole(roleAdding.id).then(() =>{
-//             console.log("successed!");
-//         })
+        let embed = new Discord.RichEmbed()
+        .setDescription(`${playername}가 ${string}방에 참여했습니다.`);
+        message.channel.send(embed);
+    }
+    else{
+        if(message.member.roles.cache.find(r => r.name === rolename )){
+            let embed = new Discord.RichEmbed()
+            .setDescription(`이미 ${string}방에 들어와있습니다.`);
+            message.channel.send(embed);
+            return ;
+        }
+        message.member.addRole(roleAdding.id).then(() =>{
+            console.log("successed!");
+        })
         
-//         let embed = new Discord.RichEmbed()
-//         .setDescription(`${message.author.username}가 ${string}방에 참여했습니다.`);
-//         message.channel.send(embed);
-//     }
-// }
+        let embed = new Discord.RichEmbed()
+        .setDescription(`${message.author.username}가 ${string}방에 참여했습니다.`);
+        message.channel.send(embed);
+    }
+}
 
 
 module.exports.config = {
