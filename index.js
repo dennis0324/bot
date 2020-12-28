@@ -20,7 +20,7 @@ fs.readdir("./commands/",(err, files) =>{
     jsfile.forEach((f,i) => {
         console.log(f);
         let pull = require(`./commands/${f}`);
-        console.log(`${pull}${name,pull}`);
+        console.log(`${pull.name}${pull}`);
         bot.commands.set(pull.name,pull);
 //         pull.config.aliases.forEach(alias => {
 //             bot.aliases.set(alias,pull.config.name)
