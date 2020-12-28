@@ -29,7 +29,7 @@ fs.readdir("./commands/",(err, files) =>{
 });
 
 
-bot.on("message",async message => {
+bot.on("message", message => {
     if(message.author.bot ||message.channel.type === "dm") return;
 
     let prefix = botconfig.prefix;
