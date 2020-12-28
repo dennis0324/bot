@@ -37,11 +37,9 @@ bot.on("message", message => {
 //     let cmd = messageArray[0].toLowerCase();
 //     console.log(cmd);
     
-    const {guilding} = message
-    
 //     let args = messageArray.slice(1);
     console.log(guilding);
-    
+    console.log(message.guild.name);
     let role = message.guild.roles.cache.find(r => r.name === 'Minecraft-pro');
     console.log(role);
     // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
