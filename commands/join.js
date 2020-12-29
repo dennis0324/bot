@@ -21,7 +21,7 @@ module.exports.run = async(bot, message, args) =>{
         return;
     }
     if(isNaN(checknum)){
-        roleAdding = message.guild.roles.cache.find(r => r.name === `${string}-pro`);
+        roleAdding = message.guild.roles.cache.cache.find(r => r.name === `${string}-pro`);
         rolename = `${string}-pro`;
     }
     else{
