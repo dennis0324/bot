@@ -32,26 +32,18 @@ fs.readdir("./commands/",(err, files) =>{
 bot.on("message", message => {
     if(message.author.bot ||message.channel.type === "dm") return;
 
-//     let prefix = botconfig.prefix;
-//     let messageArray = message.content.split(" ");
-//     let cmd = messageArray[0].toLowerCase();
-//     console.log(cmd);
+    let prefix = botconfig.prefix;
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0].toLowerCase();
+    console.log(cmd);
     
-//     let args = messageArray.slice(1);
-    let role = message.guild.roles.cache.find(r => r.name === "Red");(r => r.name === "Red");
-    console.log(role);
-    // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
-    let member = message.mentions.members.first();
+    let args = messageArray.slice(1);
 
-    // or the person who made started the command: let member = message.member;
-
-    //adds the role
-    member.roles.add(role)
-//     if(!message.content.startsWith(prefix)) return;
-//     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
-//     if(commandfile) {
-//         commandfile.run(bot,message,args);
-//     }
+    if(!message.content.startsWith(prefix)) return;
+    let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+    if(commandfile) {
+        commandfile.run(bot,message,args);
+    }
 
 })
 
