@@ -13,9 +13,9 @@ module.exports.run = async (bot, message, args) =>{
         if(bot.commands.has(command)){
             console.log(`counting testing num of if`);
             command = bot.commands.get(command);
-            var specificHelpEmbed = new Discord.RichEmbed()
+            var specificHelpEmbed = new Discord.MessageEmbed()
             .setColor(Color.mint)
-            .setAuthor("HELP",message.guild.iconURL)
+            .setAuthor("",message.guild.iconURL)
             .setDescription(`봇 수식: ${prefix}\n\n**명령:** ${command.config.name}\n**부가설명:** ${command.config.description || "설명 없음"}\n**사용:** ${command.config.usage || "사용 없음"}\n**사용 가능한 역할:** ${command.config.accessableby || "Everyone"}\n**또 다른 명령어:** ${command.config.noalias || command.config.aliases}`)
             return message.channel.send({embed: specificHelpEmbed});
         }
@@ -23,13 +23,13 @@ module.exports.run = async (bot, message, args) =>{
 
     if(!args[0]){
         message.delete();
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
         .setAuthor(`명령어 도우미`,message.guild.iconURL)
         .setColor(Color.mint)
         .setThumbnail(bot.user.displayAvatarURL)
         .setDescription(`${message.author.username}님! 개인 메세지를 확인해주세요`)
 
-        let Sembed = new Discord.RichEmbed()
+        let Sembed = new Discord.MessageEmbed()
         .setColor(Color.mint)
         .setAuthor(`도움말`,message.guild.iconURL)
         .setThumbnail(bot.user.displayAvatarURL)
