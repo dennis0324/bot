@@ -6,7 +6,25 @@ const prefix = botconfig.prefix;
 
 const msgs = require("../rolelist.json")
 
-
+/*
+    https://www.codegrepper.com/code-examples/javascript/discord.js+create+channel 추후 사용할 채널 예제
+    addrole과 removerole를 통합할 예정
+    명령어: role
+    arg[0]:
+        create 
+        arg[1]:
+            rolename
+            arg[2]:
+                color(if blank is submitted the color will be random)
+        remove
+        arg[1]:
+            rolename
+            arg[2]:
+                username
+        autocreatechannel
+        arg[1]:
+            on/off
+*/
 module.exports.run = async(bot, message, args) =>{
     if(!message.member.hasPermission("MANAGE_ROLES") || message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
 
