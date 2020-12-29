@@ -37,7 +37,7 @@ module.exports.run = async(bot, message, args) =>{
     }
     if(!roleAdding){
         console.log("이름을 찾지 못하였습니다.")
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
         .setDescription(`${string}존재하지 않습니다.`);
         message.channel.send(embed);
         return ;
@@ -48,7 +48,7 @@ module.exports.run = async(bot, message, args) =>{
         console.log(!message.guild.owner);
         if(!message.member.hasPermission('MANAGE_ROLES') || message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
         if(playername.roles.cache.find(r => r.name === rolename )){
-            let embed = new Discord.RichEmbed()
+            let embed = new Discord.MessageEmbed()
             .setDescription(`이미 ${string}방에 들어와있습니다.`);
             message.channel.send(embed);
             return ;
@@ -57,13 +57,13 @@ module.exports.run = async(bot, message, args) =>{
             console.log("successed!");
         })
 
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
         .setDescription(`${playername}가 ${string}방에 참여했습니다.`);
         message.channel.send(embed);
     }
     else{
         if(message.member.roles.cache.find(r => r.name === rolename )){
-            let embed = new Discord.RichEmbed()
+            let embed = new Discord.MessageEmbed()
             .setDescription(`이미 ${string}방에 들어와있습니다.`);
             message.channel.send(embed);
             return ;
@@ -72,7 +72,7 @@ module.exports.run = async(bot, message, args) =>{
             console.log("successed!");
         })
         
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
         .setDescription(`${message.author.username}가 ${string}방에 참여했습니다.`);
         message.channel.send(embed);
     }
