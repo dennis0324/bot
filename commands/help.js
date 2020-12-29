@@ -2,7 +2,12 @@ const Discord = require("discord.js");
 const Color = require("../colours.json");
 const botconfig = require("../botconfig.json");
 const prefix = botconfig.prefix;
-
+/*
+    카카오톡 1대1 플러스 친구처럼 진행할 예정
+    it's going to change to kakaotalk 1 vs 1 consulting
+    helping log will be choosen by number you fill in messagebox
+    UI will get simplify
+*/
 module.exports.run = async (bot, message, args) =>{
     if(args[0] == "help") return message.channel.send(`Just do ${prefix}help instead.`)
 
