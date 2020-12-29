@@ -53,7 +53,7 @@ module.exports.run = async(bot, message, args) =>{
             message.channel.send(embed);
             return ;
         }
-        playername.addRole(roleAdding.id).then(() => {
+        playername.roles.add(roleAdding.id).then(() => {
             console.log("successed!");
         })
 
