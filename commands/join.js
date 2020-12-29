@@ -45,8 +45,8 @@ module.exports.run = async(bot, message, args) =>{
     
     if(args[1]){
         console.log(message.member.hasPermission('MANAGE_ROLES'));
-        console.log(message.guild.owner);
-        if(!message.member.hasPermission('MANAGE_ROLES') || !message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
+        console.log(!message.guild.owner);
+        if(message.member.hasPermission('MANAGE_ROLES') || message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
         if(playername.roles.cache.find(r => r.name === rolename )){
             let embed = new Discord.RichEmbed()
             .setDescription(`이미 ${string}방에 들어와있습니다.`);
