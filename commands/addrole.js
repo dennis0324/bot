@@ -18,7 +18,9 @@ module.exports.run = async(bot, message, args) =>{
     console.log(`count의 사이즈는${count} #1`);
 
     let roleAdding = message.guild.roles.cache.find(r => r.name === `${rolename}-pro`);
-
+    console.log(roleAdding);
+    if(roleAdding === null) console.log("생성중");
+    
     if(!roleAdding) {
         try{
             createRole = message.guild.createRole({
