@@ -38,8 +38,7 @@ bot.on("message", message => {
 //     console.log(cmd);
     
 //     let args = messageArray.slice(1);
-    console.log(message.guild.roles.cacheType.array());
-    let role = message.guild.roles.cache.find(r => r.name === 'Minecraft-pro');
+    let role = message.guild.roles.cache.find(r => r.name === "Red");(r => r.name === "Red");
     console.log(role);
     // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
     let member = message.mentions.members.first();
