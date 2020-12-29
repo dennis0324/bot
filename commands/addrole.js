@@ -24,9 +24,10 @@ module.exports.run = async(bot, message, args) =>{
     if(!roleAdding) {
         try{
             createRole = message.guild.roles.create({
-                name: `${rolename}-pro`,
-                color : `#${Math.floor(Math.random()*16777215).toString(16)}`,
-                permissions:[
+                data: {
+                    name: `${rolename}-pro`,
+                    color : `#${Math.floor(Math.random()*16777215).toString(16)}`,
+                    permissions:[
                     "SEND_MESSAGES",
                     "READ_MESSAGES",
                     "SEND_TTS_MESSAGES",
@@ -34,7 +35,8 @@ module.exports.run = async(bot, message, args) =>{
                     "CHANGE_NICKNAME",
                     "ATTACH_FILES",
                     "ADD_REACTIONS"
-                ]
+                    ]
+                },
             }).catch(console.error);
 
             message.delete();
