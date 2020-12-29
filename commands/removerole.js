@@ -25,7 +25,7 @@ module.exports.run = async(bot, message, args) =>{
     else{
         try{
             roleAdding.delete();
-            let addRoleEmbed = new Discord.RichEmbed()
+            let addRoleEmbed = new Discord.MessageEmbed()
             .setColor(Color.lightblue)
             .setAuthor(`알림`,message.guild.iconURL)
             .setDescription(`${rolename}역할이 성공적으로 삭제되었습니다.`)
