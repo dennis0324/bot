@@ -22,7 +22,7 @@ fs.readdir("./commands/",(err, files) =>{
     }
     
     jsfile.forEach((f,i) => {
-        descript += `\n#${i+1}${f}`;
+        descript += `\n#${i+1}.${f.split(".").pop()}`;
     })
 });
 
