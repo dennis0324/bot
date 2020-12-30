@@ -27,7 +27,6 @@ module.exports.run = async (bot, message, args) =>{
     }
 
     if(!args[0]){
-        message.delete();
         let embed = new Discord.MessageEmbed()
         .setColor(Color.mint)
         .setThumbnail(bot.user.displayAvatarURL)
@@ -41,7 +40,7 @@ module.exports.run = async (bot, message, args) =>{
         .setFooter("참여 봇",bot.users.displayAvatarURL)
 
         message.channel.send(embed).then(m => m.delete({timeout: 2000}));
-        
+        message.delete();
 
         message.author.send(Sembed);
         
