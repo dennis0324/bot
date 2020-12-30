@@ -20,7 +20,6 @@ module.exports = bot =>{
                 fs.writeFile("./rolelist.json",JSON.stringify (msgst,null,4), function(err) {
                     if(err) console.log('error',err);
                 })
-                console.log(`#${count} : ${testing}`);
                 count++;
             }
         });
