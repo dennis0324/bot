@@ -28,15 +28,16 @@ module.exports.run = async (bot, message, args) =>{
 
     if(!args[0]){
         message.delete();
+        var iconUrl = message.guild.iconURL;
         let embed = new Discord.MessageEmbed()
         .setColor(Color.mint)
-        .setAuthor("",message.guild.iconURL)
+        .setAuthor("",iconUrl)
         .setThumbnail(bot.user.displayAvatarURL)
         .setDescription(`${message.author.username}님! 개인 메세지를 확인해주세요`)
 
         let Sembed = new Discord.MessageEmbed()
         .setColor(Color.mint)
-        .setAuthor(`도움말`,message.guild.iconURL)
+        .setAuthor(`도움말`,iconUrl)
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
         .setDescription("무엇을 도와드릴까요?")
