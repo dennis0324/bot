@@ -29,7 +29,7 @@ module.exports = bot =>{
     let statuses = [
         `${bot.guilds.cache.size}개의 서버에서 실행중!`,
         `--help`,
-        `현재 ${guild.members.cache.filter(member => !member.user.bot).size}명 온라인!`
+        `현재 ${bot.guilds.cache.user.size}명 온라인!`
     ]
 
     setInterval(function(){
