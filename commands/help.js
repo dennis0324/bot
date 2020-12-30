@@ -12,7 +12,6 @@ const fs = require("fs");
 
 var descript;
 
-bot.commands = new Discord.Collection();
 
 fs.readdir("./commands/",(err, files) =>{
     if(err) console.log(err)
