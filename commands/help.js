@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) =>{
     if(!args[0]){
         message.delete();
         let embed = new Discord.MessageEmbed()
-        .setAuthor(`명령어 도우미`,message.guild.iconURL)
+        .setAuthor(`명령어 도우미`,message.guild.iconURL())
         .setColor(Color.mint)
         .setThumbnail(bot.user.displayAvatarURL)
         .setDescription(`${message.author.username}님! 개인 메세지를 확인해주세요`)
