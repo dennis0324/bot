@@ -28,11 +28,10 @@ module.exports.run = async (bot, message, args) =>{
 
     if(!args[0]){
         message.delete();
-        var test = message.guild.iconURL;
         console.log(test);
         let embed = new Discord.MessageEmbed()
         .setColor(Color.mint)
-        .setAuthor("",test)
+        .setAuthor("",message.guild.iconURL)
         .setThumbnail(bot.user.displayAvatarURL)
         .setDescription(`${message.author.username}님! 개인 메세지를 확인해주세요`)
 
@@ -44,7 +43,7 @@ module.exports.run = async (bot, message, args) =>{
         .setDescription("무엇을 도와드릴까요?")
         .setFooter("참여 봇",bot.users.displayAvatarURL)
 
-        message.channel.send(embed);
+        message.channel.send(embed).then(m => console.log(m));
         
 
         message.author.send(Sembed);
