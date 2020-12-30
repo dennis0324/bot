@@ -10,7 +10,7 @@ const prefix = botconfig.prefix;
 */
 const fs = require("fs");
 
-var descript;
+var descript = "";
 
 
 fs.readdir("./commands/",(err, files) =>{
@@ -23,7 +23,7 @@ fs.readdir("./commands/",(err, files) =>{
     
     jsfile.forEach((f,i) => {
         console.log(i);
-        descript += `\n${f}`;
+        descript += `#${i+1}\n${f}`;
     })
 });
 
@@ -62,10 +62,7 @@ module.exports.run = async (bot, message, args) =>{
 
         message.channel.send(embed).then(m => m.delete({timeout: 2000}));
 
-        message.author.send(Sembed);
-        
-        message.author.send(" \n1.roles\n2.testing2\n3.testing3");
-        
+        message.author.send(Sembed);        
     }
 }
 
