@@ -28,7 +28,6 @@ module.exports.run = async (bot, message, args) =>{
 
     if(!args[0]){
         message.delete();
-        console.log(test);
         let embed = new Discord.MessageEmbed()
         .setColor(Color.mint)
         .setAuthor("",message.guild.iconURL)
@@ -48,7 +47,7 @@ module.exports.run = async (bot, message, args) =>{
 
         message.author.send(Sembed);
         
-        message.author.send("1.roles\n2.testing2\n3.testing3");
+        message.author.send("\n1.roles\n2.testing2\n3.testing3");
         
     }
 }
