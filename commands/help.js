@@ -35,7 +35,6 @@ module.exports.run = async (bot, message, args) =>{
 
         let Sembed = new Discord.MessageEmbed()
         .setColor(Color.mint)
-        .setAuthor(`도움말`,iconUrl)
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
         .setDescription("무엇을 도와드릴까요?")
