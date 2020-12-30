@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) =>{
 
     if(!args[0]){
         message.delete();
-        var iconUrl = message.guild.iconURL;
+        console.log(message.guild.iconURL);
         let embed = new Discord.MessageEmbed()
         .setColor(Color.mint)
         .setAuthor("",iconUrl)
