@@ -30,6 +30,7 @@ module.exports.run = async (bot, message, args) =>{
         let embed = new Discord.MessageEmbed()
         .setColor(Color.mint)
         .setThumbnail(bot.user.displayAvatarURL)
+        .setAuthor("",)
         .setDescription(`${message.author.username}님! 개인 메세지를 확인해주세요`)
 
         let Sembed = new Discord.MessageEmbed()
@@ -40,7 +41,6 @@ module.exports.run = async (bot, message, args) =>{
         .setFooter("참여 봇",bot.users.displayAvatarURL)
 
         message.channel.send(embed).then(m => m.delete({timeout: 2000}));
-        message.delete();
 
         message.author.send(Sembed);
         
