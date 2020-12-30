@@ -43,6 +43,7 @@ module.exports.run = async (bot, message, args) =>{
         .setFooter("참여 봇",bot.users.displayAvatarURL)
 
         message.channel.send(embed);
+        
 
         message.author.send(Sembed);
         
