@@ -39,13 +39,14 @@ module.exports.run = async (bot, message, args) =>{
         .setAuthor(`도움말`,message.guild.iconURL)
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
-        .setDescription(`**사용 가능한 명령어**\n명령어 수식어: ${prefix}`)
-        .addField(`Commands: "join","leave","rolelist","removerole","addrole"`)
+        .setDescription("무엇을 도와드릴까요?")
         .setFooter("참여 봇",bot.users.displayAvatarURL)
 
         message.channel.send(embed).then(m => m.delete(10000));
-
+        
         message.author.send(Sembed);
+        
+        message.author.send("1.roles");
     }
 }
 
