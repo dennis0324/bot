@@ -8,6 +8,26 @@ const prefix = botconfig.prefix;
     helping log will be choosen by number you fill in messagebox
     UI will get simplify
 */
+const fs = require("fs");
+
+var descript;
+
+bot.commands = new Discord.Collection();
+
+fs.readdir("./commands/",(err, files) =>{
+    if(err) console.log(err)
+
+    let jsfile = files.filter(f => f.split(".").pop() === "js")
+    if(jsfile.length <= 0){
+            return console.log("[LOGS] Couldn't Find Commands!");
+    }
+    
+    jsfile.forEach((f,i) => {
+        console.log(i);
+        descript += `\n${f}`;
+    })
+});
+
 module.exports.run = async (bot, message, args) =>{
     if(args[0] == "help") return message.channel.send(`Just do ${prefix}help instead.`)
 
