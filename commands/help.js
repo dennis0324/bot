@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) =>{
         console.log(test);
         let embed = new Discord.MessageEmbed()
         .setColor(Color.mint)
-        .setAuthor("",test);
+        .setAuthor("",test)
         .setThumbnail(bot.user.displayAvatarURL)
         .setDescription(`${message.author.username}님! 개인 메세지를 확인해주세요`)
 
