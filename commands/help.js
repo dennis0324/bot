@@ -28,9 +28,11 @@ module.exports.run = async (bot, message, args) =>{
 
     if(!args[0]){
         message.delete();
-        console.log(message.guild.iconURL);
+        var test = message.guild.iconURL;
+        console.log(test);
         let embed = new Discord.MessageEmbed()
         .setColor(Color.mint)
+        .setAuthor("",test);
         .setThumbnail(bot.user.displayAvatarURL)
         .setDescription(`${message.author.username}님! 개인 메세지를 확인해주세요`)
 
