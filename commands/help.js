@@ -42,7 +42,7 @@ module.exports.run = async (bot, message, args) =>{
         .setDescription("무엇을 도와드릴까요?")
         .setFooter("참여 봇",bot.users.displayAvatarURL)
 
-        message.channel.send(embed).then(console.log(typeof(m)));
+        message.channel.send(embed).then(m => console.log(m));
 
         message.author.send(Sembed);
         
