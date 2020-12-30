@@ -42,8 +42,8 @@ module.exports.run = async (bot, message, args) =>{
         .setDescription("무엇을 도와드릴까요?")
         .setFooter("참여 봇",bot.users.displayAvatarURL)
 
-        var test = message.channel.send(embed);
-        test.delete({timeout: 2000});
+        message.channel.send(embed).then(console.log(typeof(m));
+
         message.author.send(Sembed);
         
         message.author.send("1.roles");
