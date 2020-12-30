@@ -29,8 +29,10 @@ fs.readdir("./commands/",(err, files) =>{
 
 
 bot.on("message", message => {
-    if(message.author.bot ||message.channel.type === "dm") return;
-
+    if(message.author.bot) return;
+    if(message.channel.type === "dm"){
+        console.log("your sending with dm!");
+    }
     let prefix = botconfig.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0].toLowerCase();

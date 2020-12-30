@@ -14,5 +14,5 @@ const msgs = require("../rolelist.json")
             
 */
 module.exports.run = async(bot, message, args) =>{
-    if(message.member
+    
 }
