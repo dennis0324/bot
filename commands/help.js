@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args) =>{
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
         .setDescription("무엇을 도와드릴까요?")
-        .addField(`${descript}`,true)
+        .addField("검색 가능한 명령어",`${descript}`,true)
         .setFooter("참여 봇",bot.users.displayAvatarURL)
 
         message.channel.send(embed).then(m => m.delete({timeout: 2000}));
