@@ -30,7 +30,6 @@ module.exports.run = async (bot, message, args) =>{
         message.delete();
         let embed = new Discord.MessageEmbed()
         .setColor(Color.mint)
-        .setAuthor("",iconUrl)
         .setThumbnail(bot.user.displayAvatarURL)
         .setDescription(`${message.author.username}님! 개인 메세지를 확인해주세요`)
 
