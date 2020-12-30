@@ -16,3 +16,12 @@ const msgs = require("../rolelist.json")
 module.exports.run = async(bot, message, args) =>{
     
 }
+
+
+module.exports.config = {
+    name: "gameinfo",
+    aliases: ["gi","gamei","ginfo"],
+    description: "",
+    usage: "--gameinfo",
+    accessableby:"모든 이"
+}
