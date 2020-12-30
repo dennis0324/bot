@@ -22,7 +22,7 @@ fs.readdir("./commands/",(err, files) =>{
     }
     
     jsfile.forEach((f,i) => {
-        descript += `#${i+1}\n${f}`;
+        descript += `\n#${i+1}${f}`;
     })
 });
 
@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args) =>{
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
         .setDescription("무엇을 도와드릴까요?")
-        .addField(`${descript}`)
+        .addField(`${descript}`,true)
         .setFooter("참여 봇",bot.users.displayAvatarURL)
 
         message.channel.send(embed).then(m => m.delete({timeout: 2000}));
