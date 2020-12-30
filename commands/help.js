@@ -47,6 +47,9 @@ module.exports.run = async (bot, message, args) =>{
         message.author.send(Sembed);
         
         message.author.send("1.roles");
+        message.author.send("2.roles");
+        message.author.send("3.roles");
+        
     }
 }
 
