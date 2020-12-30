@@ -22,7 +22,6 @@ fs.readdir("./commands/",(err, files) =>{
     }
     
     jsfile.forEach((f,i) => {
-        console.log(i);
         descript += `#${i+1}\n${f}`;
     })
 });
