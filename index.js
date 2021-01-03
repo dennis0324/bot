@@ -12,10 +12,10 @@ bot.aliases = new Discord.Collection();
 var filesName;
 
 fs.readdir("./commands/",(err, files) =>{
-    if(err) console.log(err)
+    if(err) console.log(err)    
+    let jsfile = files.filter(f => f.split(".").pop() === "js")
     filesName = new Array(jsfile.length);
     
-    let jsfile = files.filter(f => f.split(".").pop() === "js")
     if(jsfile.length <= 0){
             return console.log("[LOGS] Couldn't Find Commands!");
     }
