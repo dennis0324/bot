@@ -5,5 +5,7 @@ const prefix = botconfig.prefix;
 
 exports.run = function(bot, message, args, filesName){
     console.log(filesName[args]);
-   
+    if(filesName > args){
+        return "testing";
+    }
 }
