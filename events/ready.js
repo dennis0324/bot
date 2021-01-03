@@ -5,8 +5,10 @@ const msgst = require("../rolelist.json");
 
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
-    console.log(process.env.CLEARDB_DATABASE_URL);
     console.log(bot.guilds.cache.array.length);
+    console.log(process.env.DB_ID);
+    console.log(process.env.DB_PASS);
+    
     
     bot.guilds.cache.forEach(element => {
         var count = 0;
