@@ -9,9 +9,11 @@ const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
+var fileNum;
+
 fs.readdir("./commands/",(err, files) =>{
     if(err) console.log(err)
-
+    fileNum = files.length;
     let jsfile = files.filter(f => f.split(".").pop() === "js")
     if(jsfile.length <= 0){
             return console.log("[LOGS] Couldn't Find Commands!");
@@ -35,6 +37,9 @@ bot.on("message", message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm"){
         console.log("your sending with dm!");
+        if(isInteger(fileNum)){
+            bot.commands.get("help").run(bot,message,args);     
+        }
     }
     if(message.channel.type === "text"){
         console.log("your sending in text channel!");
@@ -42,7 +47,6 @@ bot.on("message", message => {
     let prefix = botconfig.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0].toLowerCase();
-    console.log(cmd);
     
     let args = messageArray.slice(1);
 
