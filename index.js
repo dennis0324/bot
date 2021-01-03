@@ -35,12 +35,7 @@ bot.on("messageUpdate", (oldMess,newMess) =>{
 
 bot.on("message", message => {
     if(message.author.bot) return;
-    if(message.channel.type === "dm"){
-        console.log("your sending with dm!");
-        if(isInteger(fileNum)){
-            bot.commands.get("help").run(bot,message,args);     
-        }
-    }
+
     if(message.channel.type === "text"){
         console.log("your sending in text channel!");
     }
@@ -49,7 +44,10 @@ bot.on("message", message => {
     let cmd = messageArray[0].toLowerCase();
     
     let args = messageArray.slice(1);
-
+    if(message.channel.type === "dm"){
+        console.log("your sending with dm!");
+            bot.commands.get("help").run(bot,message,args);     
+    }
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
     if(commandfile) {
