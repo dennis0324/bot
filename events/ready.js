@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const msgst = require("../rolelist.json");
 
-var mysql = require('mysql');
+/*var mysql = require('mysql');
 
 var connection = mysql.createConnection({
     host : `${process.env.DB_SITE}`,
@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-appp.get('/',function(request,response){
+app.get('/',function(request,response){
     connection.query('SELECT & from t_users', function(err,rows,fields) {
         if(err){
             console.log('error',err);
@@ -21,7 +21,7 @@ appp.get('/',function(request,response){
         console.log("testing clearDB");
     })
 });
-
+*/
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
     console.log(bot.guilds.cache.array.length);
