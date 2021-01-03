@@ -8,7 +8,7 @@ exports.run = function(bot, message, args, filesName){
     console.log(filesName.length);
     console.log(args);
     if(filesName < args){
-        message.channel.send("```목록에 있는 숫자를 사용하여주십시오```");
+        message.channel.SendMessage('```없는 선택지입니다. ```');
         return;
     }
 }
