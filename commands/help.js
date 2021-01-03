@@ -29,7 +29,7 @@ fs.readdir("./commands/",(err, files) =>{
 module.exports.run = async (bot, message, args) =>{
     if(args[0] == "help") return message.channel.send(`Just do ${prefix}help instead.`)
     
-    if(isInteger(args[0])){
+    if(Number.isInteger(args[0])){
         console.log(args[0]);
     }
 
