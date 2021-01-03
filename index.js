@@ -27,6 +27,9 @@ fs.readdir("./commands/",(err, files) =>{
     })
 });
 
+bot.on("messageUpdate", (oldMess,newMess) =>{
+    console.log(`${oldMess},${newMess}`);
+});
 
 bot.on("message", message => {
     if(message.author.bot) return;
