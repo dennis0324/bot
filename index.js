@@ -33,6 +33,9 @@ bot.on("message", message => {
     if(message.channel.type === "dm"){
         console.log("your sending with dm!");
     }
+    if(message.channel.type === "text"){
+        console.log("your sending in text channel!");
+    }
     let prefix = botconfig.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0].toLowerCase();
