@@ -5,16 +5,14 @@ const helpNum = require("./support/help.js");
 const bot = new Discord.Client({disableEveryone: true});
 require("./util/eventHandler")(bot)
 
-
+// reading all commands in diretory "./commands/"
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
-
-var fileNum;
+var filesName = new array();
 
 fs.readdir("./commands/",(err, files) =>{
     if(err) console.log(err)
-    fileNum = files.length;
     let jsfile = files.filter(f => f.split(".").pop() === "js")
     if(jsfile.length <= 0){
             return console.log("[LOGS] Couldn't Find Commands!");
@@ -24,6 +22,7 @@ fs.readdir("./commands/",(err, files) =>{
     jsfile.forEach((f,i) => {
         let pull = require(`./commands/${f}`);
         bot.commands.set(pull.config.name,pull);
+        filesName.push(pull.config.name);
         pull.config.aliases.forEach(alias => {
             bot.aliases.set(alias,pull.config.name)
         });
@@ -47,7 +46,7 @@ bot.on("message", message => {
     let args = messageArray.slice(1);
     if(message.channel.type === "dm"){
         console.log("your sending with dm!");
-        helpNum.run(bot,message,Number(cmd));     
+        helpNum.run(bot,message,Number(cmd),filesName);     
     }
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
