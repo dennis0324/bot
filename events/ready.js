@@ -2,10 +2,7 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const msgst = require("../rolelist.json");
 
-var express = require('express');
 var mysql = require('mysql');
-var app = express();
-app.use(express.logger());
 
 var connection = mysql.createConnection({
     host : `${process.env.DB_SITE}`,
