@@ -1,6 +1,7 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const Color = require("./colours.json");
+const helpNum = require("./support/help.js");
 const bot = new Discord.Client({disableEveryone: true});
 require("./util/eventHandler")(bot)
 
@@ -46,8 +47,7 @@ bot.on("message", message => {
     let args = messageArray.slice(1);
     if(message.channel.type === "dm"){
         console.log("your sending with dm!");
-        var selectnum = Number(cmd);
-        bot.commands.get("help").run(bot,message,cmd,selectnum);     
+        helpNum.run(bot,message,Number(cmd));     
     }
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
