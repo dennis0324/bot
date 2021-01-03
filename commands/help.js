@@ -31,6 +31,9 @@ module.exports.run = async (bot, message, args) =>{
     
     if(Number.isInteger(args[0])){
         console.log(args[0]);
+        if(args == 1){
+            
+        }
     }
 
     if(args[0]) {
