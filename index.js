@@ -29,6 +29,7 @@ fs.readdir("./commands/",(err, files) =>{
             bot.aliases.set(alias,pull.config.name)
         });
     })
+    console.log(filesName);
 });
 
 bot.on("messageUpdate", (oldMess,newMess) =>{
