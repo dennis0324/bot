@@ -46,7 +46,8 @@ bot.on("message", message => {
     let args = messageArray.slice(1);
     if(message.channel.type === "dm"){
         console.log("your sending with dm!");
-            bot.commands.get("help").run(bot,message,args);     
+        var selectnum = cmd;
+        bot.commands.get("help").run(bot,message,cmd,selectnum);     
     }
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
