@@ -6,7 +6,7 @@ const msgst = require("../rolelist.json");
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
     console.log(process.env.CLEARDB_DATABASE_URL);
-    console.log(bot.guilds.cache.array);
+    bot.guilds.cache.array.foreach(r => console.log(r));
     bot.guilds.cache.forEach(element => {
         var count = 0;
         element.roles.cache.forEach(j => {
