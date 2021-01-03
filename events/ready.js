@@ -2,12 +2,32 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const msgst = require("../rolelist.json");
 
+var express = require('express');
+var mysql = require('mysql');
+var app = express();
+app.use(express.logger());
+
+var connection = mysql.createConnection({
+    host : `${process.env.DB_SITE}`,
+    user : `${process.env.DB_ID}`,
+    passworld : `${process.env.DB_PASS}`
+});
+
+connection.connect();
+
+appp.get('/',function(request,response){
+    connection.query('SELECT & from t_users', function(err,rows,fields) {
+        if(err){
+            console.log('error',err);
+            throw err;
+        }
+        console.log("testing clearDB");
+    })
+});
 
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
     console.log(bot.guilds.cache.array.length);
-    console.log(process.env.DB_ID);
-    console.log(process.env.DB_PASS);
     
     
     bot.guilds.cache.forEach(element => {
