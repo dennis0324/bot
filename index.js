@@ -9,10 +9,12 @@ require("./util/eventHandler")(bot)
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
-var filesName = new array();
+var filesName;
 
 fs.readdir("./commands/",(err, files) =>{
     if(err) console.log(err)
+    filesName = new Array(jsfile.length);
+    
     let jsfile = files.filter(f => f.split(".").pop() === "js")
     if(jsfile.length <= 0){
             return console.log("[LOGS] Couldn't Find Commands!");
