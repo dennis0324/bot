@@ -6,6 +6,7 @@ const msgst = require("../rolelist.json");
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);
     console.log(process.env.CLEARDB_DATABASE_URL);
+    console.log(bot.guilds.cache.array);
     bot.guilds.cache.forEach(element => {
         var count = 0;
         element.roles.cache.forEach(j => {
@@ -30,7 +31,7 @@ module.exports = bot =>{
     let statuses = [
         `${bot.guilds.cache.size}개의 서버에서 실행중!`,
         `--help`,
-        `현재 ${bot.guilds.cache.user.size}명 온라인!`
+        //`현재 ${bot.guilds.cache.user.size}명 온라인!`
     ]
 
     setInterval(function(){
