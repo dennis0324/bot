@@ -7,6 +7,7 @@ const msgst = require("../rolelist.json");
 
 
 const role_create = require("../support/role_create.js");
+const role_remove = require("../supprot/role_remove.js");
 
 
 
@@ -16,8 +17,12 @@ module.exports.run = async(bot, message, args) =>{
         args.shift();
         role_create.run(bot,message,args);
     }
-    else if(args[0] === "member") console.log("member selected");
-    else if(args[0] === "remove") console.log("remove selected");
+    else if(args[0] === "remove"){
+        args.shift();
+        role_remove.run(bot.message,args);
+        console.log("member selected");
+    } 
+    else if(args[0] === "member") console.log("remove selected");
 }
 
 
