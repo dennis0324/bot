@@ -7,12 +7,19 @@ const msgst = require("../rolelist.json");
 
 
 const role_create = require("../support/role_create.js");
-const role_remove = require("../supprot/role_remove.js");
+const role_remove = require("../support/role_remove.js");
 
 
 //when user enter 'role' command this module will be executed
 module.exports.run = async(bot, message, args) =>{
-    if(!args[0]) return message.channel.send(`\`\`\`ml\n \`옵션\`을 입력해주세요\n\`\`\``);
+    if(!args[0]){
+        let addRoleEmbed = new Discord.MessageEmbed()
+            .setColor(Color.lightblue)
+            .setDescription(`\`\`\`ml\n \`옵션\`을 입력해주세요\n\`\`\``)
+            .setFooter("도우미",null)
+            message.channel.send(addRoleEmbed)
+        return;
+    } 
     if(args[0] === "create") {
         args.shift();
         role_create.run(bot,message,args);
