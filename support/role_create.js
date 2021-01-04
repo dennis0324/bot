@@ -57,7 +57,6 @@ exports.run = function(bot, message, args){
                                   'ADD_REACTIONS']
                 },
             }).catch(console.error);
-            console.log(bot.user.displayAvatarURL());
             let addRoleEmbed = new Discord.MessageEmbed()
             .setColor(Color.green_pastel)
             .setAuthor(`알림: ROLE`,"")
@@ -84,7 +83,7 @@ exports.run = function(bot, message, args){
             .setColor(Color.red_pastel)
             .setAuthor(`알림: ROLE`,"")
             .setDescription(`이미 같은 이름이 존재합니다.`)
-            .setFooter("도우미",message.author.avatarURL())
+            .setFooter("도우미",bot.user.displayAvatarURL())
             message.channel.send(addRoleEmbed)
     }
     
