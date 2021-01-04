@@ -11,7 +11,7 @@ const role_create = require("../support/role_create.js");
 
 
 module.exports.run = async(bot, message, args) =>{
-    if(!args[0]) return message.channel.send(`\`\`\ml\n* '옵션'을 입력해주세요\n${array}\n\`\`\``);
+    if(!args[0]) return message.channel.send(`\`\`\ml\n* '옵션'을 입력해주세요\n\`\`\``);
     if(args[0] === "create") role_create.run(bot,message,args);
     else if(args[0] === "member") console.log("member selected");
     else if(args[0] === "remove") console.log("remove selected");
