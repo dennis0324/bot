@@ -15,8 +15,8 @@ module.exports.run = async(bot, message, args) =>{
     if(!args[0]){
         let addRoleEmbed = new Discord.MessageEmbed()
             .setColor(Color.lightblue)
-            .setAuthor(`알림:\`ROLE\``,"")
-            .setDescription("\`[옵션]\'을 입력해주세요")
+            .setAuthor(`알림: \`ROLE\``,"")
+            .setDescription("\`[옵션]\`을 입력해주세요")
             message.channel.send(addRoleEmbed)
         return;
     } 
