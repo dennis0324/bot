@@ -11,7 +11,6 @@ exports.run = function(bot, message, args, filesName){
     console.log(filesName.length);
     console.log(args);
     if(filesName.length < args){
-        console.log(message.channel.author);
-        message.channel.SendMessage('```없는 선택지입니다. ```');
+        message.channel.send('```없는 선택지입니다. ```');
     }
 }
