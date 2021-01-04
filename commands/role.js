@@ -5,7 +5,7 @@ const fs = require('fs');
 const prefix = botconfig.prefix;
 const msgst = require("../rolelist.json");
 
-
+const emMess = require("../embedMessageTemp/notificate.js");
 const role_create = require("../support/role_create.js");
 const role_remove = require("../support/role_remove.js");
 
@@ -15,7 +15,7 @@ module.exports.run = async(bot, message, args) =>{
     //if user didn't input any [options] in command
     if(!args[0]){
         let addRoleEmbed = new Discord.MessageEmbed()
-            .setColor(Color.lightblue)
+            .setColor(Color.red_pastel)
             .setAuthor(`알림: ROLE`,"")
             .setDescription("\`[옵션]\`을 입력해주세요")
             message.channel.send(addRoleEmbed)
