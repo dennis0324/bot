@@ -57,11 +57,12 @@ exports.run = function(bot, message, args){
                                   'ADD_REACTIONS']
                 },
             }).catch(console.error);
+            console.log(bot.user.displayAvatarURL());
             let addRoleEmbed = new Discord.MessageEmbed()
             .setColor(Color.green_pastel)
             .setAuthor(`알림: ROLE`,"")
             .setDescription(`\`${rolename}\`역할이 성공적으로 추가되었습니다.`)
-            .setFooter("도우미",bot.user.displayAvatarURL)
+            .setFooter("도우미",bot.user.displayAvatarURL())
             message.channel.send(addRoleEmbed)
             
             msgs[count] = {
