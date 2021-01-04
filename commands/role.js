@@ -6,7 +6,7 @@ const prefix = botconfig.prefix;
 const msgst = require("../rolelist.json");
 
 
-const role_create = require("./support/role_create.js");
+const role_create = require("../support/role_create.js");
 
 
 
