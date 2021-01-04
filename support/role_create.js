@@ -57,7 +57,7 @@ exports.run = function(bot, message, args){
                                   'ADD_REACTIONS']
                 },
             }).catch(console.error);
-            
+            console.log(bot.user.avatarURL());
             let addRoleEmbed = new Discord.MessageEmbed()
             .setColor(Color.red_pastel)
             .setAuthor(`알림: ROLE`,"")
