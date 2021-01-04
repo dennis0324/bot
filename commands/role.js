@@ -10,7 +10,7 @@ const role_create = require("../support/role_create.js");
 const role_remove = require("../supprot/role_remove.js");
 
 
-
+//when user enter 'role' command this module will be executed
 module.exports.run = async(bot, message, args) =>{
     if(!args[0]) return message.channel.send(`\`\`\`ml\n* \`옵션\`을 입력해주세요\n\`\`\``);
     if(args[0] === "create") {
@@ -23,6 +23,7 @@ module.exports.run = async(bot, message, args) =>{
         console.log("member selected");
     } 
     else if(args[0] === "member") console.log("remove selected");
+    else return return message.channel.send(`\`\`\`ml\n* \`올바른 옵션\`을 입력해주세요\n자세한 내용은 help를 참조하세요\\`\`\``);
 }
 
 
