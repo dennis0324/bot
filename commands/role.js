@@ -12,21 +12,24 @@ const role_remove = require("../support/role_remove.js");
 
 //when user enter 'role' command this module will be executed
 module.exports.run = async(bot, message, args) =>{
+    //if user didn't input any [options] in command
     if(!args[0]){
         let addRoleEmbed = new Discord.MessageEmbed()
             .setColor(Color.lightblue)
-            .setAuthor(`알림: \`ROLE\``,"")
+            .setAuthor(`알림: ROLE`,"")
             .setDescription("\`[옵션]\`을 입력해주세요")
             message.channel.send(addRoleEmbed)
         return;
     } 
+    // executing support/rolecreate
     if(args[0] === "create") {
         args.shift();
         role_create.run(bot,message,args);
     }
+    // executing support/roleremove
     else if(args[0] === "remove"){
         args.shift();
-        role_remove.run(bot.message,args);
+        role_remove.run(bot,message,args);
         console.log("member selected");
     } 
     else if(args[0] === "member") {
