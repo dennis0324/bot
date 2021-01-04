@@ -25,7 +25,7 @@ const msgs = require("../rolelist.json")
         arg[1]:
             on/off
 */
-module.exports.run = async(bot, message, args) =>{
+exports.run = function(bot, message, args) =>{
     if(!message.member.hasPermission("MANAGE_ROLES") || message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
 
     if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("봇이 명령어를 사용할 수 있는 권한이 없습니다.");
