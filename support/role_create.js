@@ -61,7 +61,7 @@ exports.run = function(bot, message, args){
             .setColor(Color.green_pastel)
             .setAuthor(`알림: ROLE`,"")
             .setDescription(`\`${rolename}\`역할이 성공적으로 추가되었습니다.`)
-            .setFooter("도우미",message.author.avatarURL())
+            .setFooter("도우미",bot.user.displayAvatarURL)
             message.channel.send(addRoleEmbed)
             
             msgs[count] = {
