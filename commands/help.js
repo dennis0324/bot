@@ -10,7 +10,7 @@ const prefix = botconfig.prefix;
 */
 const fs = require("fs");
 
-var descript = "";
+var descript = "```";
 
 
 fs.readdir("./commands/",(err, files) =>{
@@ -24,6 +24,7 @@ fs.readdir("./commands/",(err, files) =>{
     jsfile.forEach((f,i) => {
         descript += `\n#${i+1}.${f.split(".").shift()}`;
     })
+    descript += "```";
 });
 
 module.exports.run = async (bot, message, args) =>{
