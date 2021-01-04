@@ -57,12 +57,11 @@ exports.run = function(bot, message, args){
                                   'ADD_REACTIONS']
                 },
             }).catch(console.error);
-            console.log(bot.user.avatarURL());
             let addRoleEmbed = new Discord.MessageEmbed()
-            .setColor(Color.red_pastel)
+            .setColor(Color.green_pastel)
             .setAuthor(`알림: ROLE`,"")
-            .setDescription(`\'${rolename}\'역할이 성공적으로 추가되었습니다.`)
-            .setFooter("도우미",bot.user.avatarURL())
+            .setDescription(`\`${rolename}\`역할이 성공적으로 추가되었습니다.`)
+            .setFooter("도우미",message.author.avatarURL())
             message.channel.send(addRoleEmbed)
             
             msgs[count] = {
@@ -80,7 +79,12 @@ exports.run = function(bot, message, args){
         }
     }
     else{
-        message.channel.send(`이미 같은 이름이 존재합니다.`);
+        let addRoleEmbed = new Discord.MessageEmbed()
+            .setColor(Color.red_pastel)
+            .setAuthor(`알림: ROLE`,"")
+            .setDescription(`이미 같은 이름이 존재합니다.`)
+            .setFooter("도우미",message.author.avatarURL())
+            message.channel.send(addRoleEmbed)
     }
     
 }
