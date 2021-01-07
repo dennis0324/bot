@@ -17,7 +17,7 @@ exports.run = (bot, message, args) =>{
         rolename = args[0];
     }
     else{
-        rolename = msgs[args[0] * 1];
+        rolename = msgs.get(args[0] * 1);
         console.log(rolename);
     }
     console.log(`${rolename}를 제거하려 시도중... `);
