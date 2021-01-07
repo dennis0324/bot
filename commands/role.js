@@ -24,12 +24,12 @@ module.exports.run = async(bot, message, args) =>{
         return;
     } 
     // executing support/rolecreate
-    if(args[0] === "create") {
+    if(['create', '-c'].includes(args[0])) {
         args.shift();
         role_create.run(bot,message,args);
     }
     // executing support/roleremove
-    else if(args[0] === "remove"){
+    else if(['remove', '-r'].includes(args[0])){
         args.shift();
         role_remove.run(bot,message,args);
     } 
