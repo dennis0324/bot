@@ -68,7 +68,7 @@ exports.run = (bot, message, args) =>{
         let addRoleEmbed = new Discord.MessageEmbed()
             .setColor(Color.green_pastel)
             .setAuthor(`알림: ROLE`,"")
-            .setDescription(`\`${playername}\`가 \`${rolename}\`방에 참여했습니다.`)
+            .setDescription(`${playername}가 \`${rolename}\`방에 참여했습니다.`)
             .setFooter("도우미",bot.user.displayAvatarURL())
         message.channel.send(addRoleEmbed)
     }
@@ -88,7 +88,7 @@ exports.run = (bot, message, args) =>{
         let addRoleEmbed = new Discord.MessageEmbed()
             .setColor(Color.red_pastel)
             .setAuthor(`알림: ROLE`,"")
-            .setDescription(`\`${message.author.username}\`가 ${rolename}방에 참여했습니다.`)
+            .setDescription(`${message.author.username}가 \`${rolename}\`방에 참여했습니다.`)
             .setFooter("도우미",bot.user.displayAvatarURL())
         message.channel.send(addRoleEmbed)
     }
