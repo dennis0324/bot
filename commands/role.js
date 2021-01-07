@@ -10,7 +10,7 @@ const role_create = require("../support/role_create.js");
 const role_remove = require("../support/role_remove.js");
 const role_join = require("../support/role_join.js");
 
-const test = new embedSet.embedHelper();
+const test = new embedHelper();
 
 //when user enter 'role' command this module will be executed
 module.exports.run = async(bot, message, args) =>{
