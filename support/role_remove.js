@@ -20,16 +20,21 @@ exports.run = (bot, message, args) =>{
     let roleAdding = message.guild.roles.cache.find(r => r.name === `${rolename}-pro`);
 
     if(!roleAdding) {
-        message.channel.send(`지울 수 있는 이름이 존재하지 않습니다.`);
+        let addRoleEmbed = new Discord.MessageEmbed()
+            .setColor(Color.red_pastel)
+            .setAuthor(`알림: ROLE`,"")
+            .setDescription(`지울 수 있는 이름이 존재하지 않습니다.`)
+            .setFooter("도우미",bot.user.displayAvatarURL())
+        message.channel.send(addRoleEmbed)
     }
     else{
         try{
             roleAdding.delete();
             let addRoleEmbed = new Discord.MessageEmbed()
-            .setColor(Color.lightblue)
-            .setAuthor(`알림`,message.guild.iconURL)
-            .setDescription(`${rolename}역할이 성공적으로 삭제되었습니다.`)
-            .setFooter("도우미",null)
+                .setColor(Color.green_pastel)
+                .setAuthor(`알림: ROLE`,"")
+                .setDescription(`\`${rolename}\`역할이 성공적으로 삭제되었습니다.`)
+                .setFooter("도우미",bot.user.displayAvatarURL())
             message.channel.send(addRoleEmbed)
             var starting_point = getKeyByValue(msgs,`${rolename}`);
             console.log(`find in index #${starting_point}`);
