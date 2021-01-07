@@ -30,15 +30,23 @@ module.exports.run = async(bot, message, args) =>{
     else if(args[0] === "remove"){
         args.shift();
         role_remove.run(bot,message,args);
-        console.log("member selected");
     } 
     else if(args[0] === "member") {
         args.shift();
-        if(args[0] === "join") console.log("selected join");
+        if(args[0] === "join") {
+            
+        }console.log("selected join");
         else if(args[0] === "leave") console.log("selected leave");
         else console.log("바른 행동을 입력해주세요");
     }
-    else return message.channel.send(`\`\`\`ml\n* \`올바른 옵션\`을 입력해주세요\n자세한 내용은 help를 참조하세요\n\`\`\``);
+    else {
+        let addRoleEmbed = new Discord.MessageEmbed()
+            .setColor(Color.red_pastel)
+            .setAuthor(`알림: ROLE`,"")
+            .setDescription(`\`\`\`ml\n \`올바른 옵션\`을 입력해주세요\n자세한 내용은 help를 참조하세요\n\`\`\``)
+            message.channel.send(addRoleEmbed)
+        return;
+    }
 }
 
 
