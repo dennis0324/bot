@@ -6,8 +6,9 @@ const msgst = require("../rolelist.json");
 
 exports.run = (bot, message, args) =>{
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
-   
     var string = args[0];
+    console.log(string);
+    
     var playername = message.mentions.members.first();
     var checknum = Number(string)
     var roleAdding;
