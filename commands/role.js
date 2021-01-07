@@ -10,6 +10,7 @@ const role_create = require("../support/role_create.js");
 const role_remove = require("../support/role_remove.js");
 const role_join = require("../support/role_join.js");
 const role_leave = require("../support/role_leave.js");
+const role_list = require("../support/role_list.js");
 
 const test = new embedSet();
 
