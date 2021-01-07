@@ -17,6 +17,8 @@ exports.run = (bot, message, args) =>{
         rolename = args[0];
     }
     else{
+        console.log(typeof(msgs));
+        console.log(msgs);
         rolename = msgs.get(args[0] * 1);
         console.log(rolename);
     }
