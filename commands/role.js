@@ -48,6 +48,10 @@ module.exports.run = async(bot, message, args) =>{
             test.show(message,addRoleEmbed);
         }
     }
+    else if(args[0] === "list"){
+        args.shift();
+        role_list.run(bot,message,args);
+    }
     else {
         let addRoleEmbed = test.set(`알림: ROLE`,`\`\`\`ml\n \`올바른 옵션\`을 입력해주세요\n자세한 내용은 help를 참조하세요\n\`\`\``,Color.red_pastel);
         test.show(message,addRoleEmbed);
