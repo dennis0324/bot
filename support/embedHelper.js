@@ -1,3 +1,11 @@
+const Discord = require('discord.js');
+const Color = require("../colours.json");
+const botconfig = require("../botconfig.json");
+const fs = require('fs');
+const prefix = botconfig.prefix;
+const msgst = require("../rolelist.json");
+
+
 class embedHelper {
     constructor(){}
     
