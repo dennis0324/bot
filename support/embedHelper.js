@@ -1,0 +1,3 @@
+Const embedHelper = class{
+
+}
