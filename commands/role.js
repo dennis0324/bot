@@ -9,20 +9,17 @@ const embedSet = require("../support/embedHelper");
 const role_create = require("../support/role_create.js");
 const role_remove = require("../support/role_remove.js");
 const role_join = require("../support/role_join.js");
+const role_leave = require("../support/role_leave.js");
 
 const test = new embedSet();
 
 //when user enter 'role' command this module will be executed
 module.exports.run = async(bot, message, args) =>{
-    let testing_embed = test.set('test','testing',Color.red_pastel);
-    test.show(message,testing_embed);
     //if user didn't input any [options] in command
     if(!args[0]){
-        let addRoleEmbed = new Discord.MessageEmbed()
-            .setColor(Color.red_pastel)
-            .setAuthor(`알림: ROLE`,"")
-            .setDescription("\`[옵션]\`을 입력해주세요")
-            message.channel.send(addRoleEmbed)
+        //../support/embedHelper
+        let addRoleEmbed = test.set(`알림: ROLE`,"\`[옵션]\`을 입력해주세요",Color.red_pastel);
+        test.show(message,addRoleEmbed);
         return;
     } 
     // executing support/rolecreate
@@ -42,15 +39,18 @@ module.exports.run = async(bot, message, args) =>{
             args.shift();
             role_join.run(bot,message,args);
         }
-        else if(args[0] === "leave") console.log("selected leave");
-        else console.log("바른 행동을 입력해주세요");
+        else if(args[0] === "leave") {
+            args.shift();
+            role_leave.run(bot,message,args);
+        }
+        else {
+            let addRoleEmbed = test.set(`알림: ROLE`,"바른 행동을 입력해주세요",Color.red_pastel);
+            test.show(message,addRoleEmbed);
+        }
     }
     else {
-        let addRoleEmbed = new Discord.MessageEmbed()
-            .setColor(Color.red_pastel)
-            .setAuthor(`알림: ROLE`,"")
-            .setDescription(`\`\`\`ml\n \`올바른 옵션\`을 입력해주세요\n자세한 내용은 help를 참조하세요\n\`\`\``)
-            message.channel.send(addRoleEmbed)
+        let addRoleEmbed = test.set(`알림: ROLE`,`\`\`\`ml\n \`올바른 옵션\`을 입력해주세요\n자세한 내용은 help를 참조하세요\n\`\`\``,Color.red_pastel);
+        test.show(message,addRoleEmbed);
         return;
     }
 }
