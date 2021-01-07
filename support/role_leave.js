@@ -25,36 +25,46 @@ exports.run = async(bot, message, args) =>{
         if(!message.member.hasPermission("MANAGE_ROLES") || message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
         if(!playername.roles.cache.find(r => r.name === rolename ) && roleAdding){
             console.log("이미 탈퇴하였습니다.")
-            let embed = new Discord.RichEmbed()
-            .setDescription(`${string}를 이미 탈퇴하셨습니다.`);
-            message.channel.send(embed);
+            let addRoleEmbed = new Discord.MessageEmbed()
+                .setColor(Color.red_pastel)
+                .setAuthor(`알림: ROLE`,"")
+                .setDescription(`\`${string}\`를 이미 탈퇴하셨습니다.`)
+                .setFooter("도우미",bot.user.displayAvatarURL())
+            message.channel.send(addRoleEmbed)
             return ;
         }
         if(playername.roles.cache.find(r => r.name === rolename )){
             playername.removeRole(roleAdding.id).then(() => {
                 console.log("successed!");
             })
-    
-            let embed = new Discord.RichEmbed()
-            .setDescription(`${playername}가 ${string}방에 탈퇴했습니다.`);
-            message.channel.send(embed);
+            let addRoleEmbed = new Discord.MessageEmbed()
+                .setColor(Color.green_pastel)
+                .setAuthor(`알림: ROLE`,"")
+                .setDescription(`${playername}가 \`${string}\`방에 탈퇴했습니다.`)
+                .setFooter("도우미",bot.user.displayAvatarURL())
+            message.channel.send(addRoleEmbed)
         }
     }
     else{
         if(!message.member.roles.find(r => r.name === rolename ) && roleAdding){
             console.log("이미 탈퇴하였습니다.")
-            let embed = new Discord.RichEmbed()
-            .setDescription(`${string}를 이미 탈퇴하셨습니다.`);
-            message.channel.send(embed);
+            let addRoleEmbed = new Discord.MessageEmbed()
+                .setColor(Color.red_pastel)
+                .setAuthor(`알림: ROLE`,"")
+                .setDescription(`\`${string}\`를 이미 탈퇴하셨습니다.`)
+                .setFooter("도우미",bot.user.displayAvatarURL())
+            message.channel.send(addRoleEmbed)
             return ;
         }
         message.member.removeRole(roleAdding.id).then(() =>{
             console.log("successed!");
         })
-        
-        let embed = new Discord.RichEmbed()
-        .setDescription(`${message.author.username}가 ${string}방에 탈퇴했습니다.`);
-        message.channel.send(embed);
+        let addRoleEmbed = new Discord.MessageEmbed()
+            .setColor(Color.green_pastel)
+            .setAuthor(`알림: ROLE`,"")
+            .setDescription(`${message.author.username}가 \`${string}\`방에 탈퇴했습니다.`)
+            .setFooter("도우미",bot.user.displayAvatarURL())
+        message.channel.send(addRoleEmbed)
     }
 }
 
