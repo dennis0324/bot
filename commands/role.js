@@ -8,7 +8,7 @@ const msgst = require("../rolelist.json");
 const emMess = require("../embedMessageTemp/notificate.js");
 const role_create = require("../support/role_create.js");
 const role_remove = require("../support/role_remove.js");
-const role_remove = require("../support/role_join.js");
+const role_join = require("../support/role_join.js");
 
 
 //when user enter 'role' command this module will be executed
@@ -32,11 +32,13 @@ module.exports.run = async(bot, message, args) =>{
         args.shift();
         role_remove.run(bot,message,args);
     } 
+    // exe
     else if(args[0] === "member") {
         args.shift();
         if(args[0] === "join") {
-            
-        }console.log("selected join");
+            args.shift();
+            role_join.run(bot,message,args);
+        }
         else if(args[0] === "leave") console.log("selected leave");
         else console.log("바른 행동을 입력해주세요");
     }
