@@ -8,6 +8,7 @@ const msgst = require("../rolelist.json");
 const emMess = require("../embedMessageTemp/notificate.js");
 const role_create = require("../support/role_create.js");
 const role_remove = require("../support/role_remove.js");
+const role_remove = require("../support/role_join.js");
 
 
 //when user enter 'role' command this module will be executed
