@@ -23,7 +23,7 @@ exports.run = (bot, message, args) =>{
         return;
     }
     if(isNaN(string)){
-        roleAdding = message.guild.roles.cache.cache.find(r => r.name === `${string}-pro`);
+        roleAdding = message.guild.roles.cache.find(r => r.name === `${string}-pro`);
         rolename = `${string}-pro`;
     }
     else{
