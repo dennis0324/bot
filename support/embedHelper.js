@@ -14,7 +14,6 @@ class embedHelper {
             .setColor(color)
             .setAuthor(title,"")
             .setDescription(descript)
-            .setFooter("도우미",bot.user.displayAvatarURL())
     }
 
     
