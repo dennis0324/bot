@@ -36,11 +36,11 @@ module.exports.run = async(bot, message, args) =>{
     // exe
     else if(['member', '-m'].includes(args[0])) {
         args.shift();
-        if(['join', '-j'].includes(args[0])) {
+        if(['set', '-s'].includes(args[0])) {
             args.shift();
             role_join.run(bot,message,args);
         }
-        else if(['leave', '-l'].includes(args[0])) {
+        else if(['unset', '-u'].includes(args[0])) {
             args.shift();
             role_leave.run(bot,message,args);
         }
@@ -49,7 +49,7 @@ module.exports.run = async(bot, message, args) =>{
             test.show(message,addRoleEmbed);
         }
     }
-    else if(args[0] === "list"){
+    else if(['list', '-l'].includes(args[0])){
         args.shift();
         role_list.run(bot,message,args);
     }
