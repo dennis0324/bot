@@ -6,6 +6,9 @@ const prefix = botconfig.prefix;
 /*
 this function is to help user to get command from help command
 */
+
+var commands;
+var command;
 exports.run = function(bot, message, args, filesName){
     console.log(filesName[args]);
     console.log(filesName.length);
@@ -14,9 +17,12 @@ exports.run = function(bot, message, args, filesName){
         message.channel.send("```prolog\n없는 선택지입니다. \n```");
         return;
     }
+    else{
+        commands = filesName[args - 1])
+    }
     
-    if(bot.commands.has(filesName[args - 1])){
-        command = bot.commands.get(command);
+    if(bot.commands.has(commands){
+        command = bot.commands.get(commands);
         var specificHelpEmbed = new Discord.MessageEmbed()
         .setColor(Color.mint)
         .setAuthor("",message.guild.iconURL)
