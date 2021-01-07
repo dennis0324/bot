@@ -1,4 +1,4 @@
-Const embedHelper = class{
+class  embedHelper {
     constructor(){}
     
     set(title, descript, color){
