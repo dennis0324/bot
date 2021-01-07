@@ -1,4 +1,4 @@
-class  embedHelper {
+class embedHelper {
     constructor(){}
     
     set(title, descript, color){
