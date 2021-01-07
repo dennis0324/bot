@@ -43,7 +43,7 @@ exports.run = (bot, message, args) =>{
         let addRoleEmbed = new Discord.MessageEmbed()
             .setColor(Color.red_pastel)
             .setAuthor(`알림: ROLE`,"")
-            .setDescription(``\`${rolename}\`존재하지 않습니다.`)
+            .setDescription(`\`${rolename}\`존재하지 않습니다.`)
             .setFooter("도우미",bot.user.displayAvatarURL())
         message.channel.send(addRoleEmbed)
         return ;
