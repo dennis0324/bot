@@ -17,9 +17,12 @@ exports.run = async(bot, message, args) =>{
            array += `${i}. ${msgst[i].message}\n`;
 
        }
-
-
-        message.channel.send(`\`\`\`md\n* 참여 목록:\n${array}\n\`\`\``);
+    
+    let addRoleEmbed = new Discord.MessageEmbed()
+        .setColor(Color.green_pastel)
+        .setAuthor(`알림: ROLE`,"")
+        .setDescription(`\`\`\`md\n* 참여 목록:\n${array}\n\`\`\``)
+    message.channel.send(addRoleEmbed)
 }
 
 
