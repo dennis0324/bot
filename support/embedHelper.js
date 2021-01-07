@@ -12,3 +12,5 @@ Const embedHelper = class{
         message.channel.send(embed);
     }
 }
+
+module.exports = embedHelper
