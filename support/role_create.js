@@ -4,8 +4,10 @@ const botconfig = require("../botconfig.json");
 const fs = require('fs');
 const prefix = botconfig.prefix;
 
-const msgs = require("../rolelist.json")
+const msgs = require("../rolelist.json");
+const embedHelper = require("../support/embedHelper.js");
 
+const embedSet = new embedHelper();
 /*
     https://www.codegrepper.com/code-examples/javascript/discord.js+create+channel 추후 사용할 채널 예제
     addrole과 removerole를 통합할 예정
