@@ -8,7 +8,7 @@ const msgst = require("../rolelist.json");
 
 
 
-module.exports.run = async(bot, message, args) =>{
+exports.run = async(bot, message, args) =>{
     var array = "";
     let messages = msgst[0].message;
     let count_num = msgst.size;
