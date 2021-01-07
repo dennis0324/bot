@@ -10,11 +10,9 @@ exports.run = (bot, message, args) =>{
     console.log(string);
     
     var playername = message.mentions.members.first();
-    var checknum = Number(string)
     var roleAdding;
     var rolename;
-    console.log(`${checknum}`)
-    if(string.length > 1){
+    if(string.length < 1){
         console.log("명령어 입력 방식이 잘못되었습니다.");
         let addRoleEmbed = new Discord.MessageEmbed()
             .setColor(Color.red_pastel)
