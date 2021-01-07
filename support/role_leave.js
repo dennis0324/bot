@@ -34,7 +34,7 @@ exports.run = async(bot, message, args) =>{
             return ;
         }
         if(playername.roles.cache.find(r => r.name === rolename )){
-            playername.removeRole(roleAdding.id).then(() => {
+            playername.roles.remove(roleAdding.id).then(() => {
                 console.log("successed!");
             })
             let addRoleEmbed = new Discord.MessageEmbed()
