@@ -16,6 +16,14 @@ class embedHelper {
             .setDescription(descript)
     }
     
+    set(title, descript, color, avator){
+        return new Discord.MessageEmbed()
+            .setColor(color)
+            .setAuthor(title,"")
+            .setDescription(descript)
+            .setFooter("도우미",avator)
+    }
+    
     show(message, embed){
         message.channel.send(embed);
     }
