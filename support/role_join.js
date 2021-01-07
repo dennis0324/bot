@@ -30,13 +30,7 @@ exports.run = (bot, message, args) =>{
         roleAdding = message.guild.roles.cache.find(r => r.name === `${msgst[checknum].message}-pro`);
         rolename = `${msgst[checknum].message}-pro`
     }
-    console.log("testing line #1");
-    if(message.member.roles.cache.some(r => r.name === rolename )){
-        console.log("testing");
-    }
-    else{
-        console.log("no find");
-    }
+    console.log(roleAdding);
     if(!roleAdding){
         console.log("이름을 찾지 못하였습니다.")
         let addRoleEmbed = new Discord.MessageEmbed()
