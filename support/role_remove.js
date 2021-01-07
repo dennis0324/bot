@@ -12,7 +12,14 @@ exports.run = (bot, message, args) =>{
 
     if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("봇이 명령어를 사용할 수 있는 권한이 없습니다.");
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
-    let rolename = args[0];
+    var rolename;
+    if(isNaN(args[0])){
+        rolename = args[0];
+    }
+    else{
+        rolename = msgs[args[0] * 1];
+        console.log(rolename);
+    }
     console.log(`${rolename}를 제거하려 시도중... `);
     var count = msgs.size;
     console.log(`count의 사이즈는${count} #1`);
