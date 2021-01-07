@@ -5,14 +5,17 @@ const fs = require('fs');
 const prefix = botconfig.prefix;
 const msgst = require("../rolelist.json");
 
-const emMess = require("../embedMessageTemp/notificate.js");
+const embedSet = require("../support/embedHelper");
 const role_create = require("../support/role_create.js");
 const role_remove = require("../support/role_remove.js");
 const role_join = require("../support/role_join.js");
 
+const test = new embedSet.embedHelper();
 
 //when user enter 'role' command this module will be executed
 module.exports.run = async(bot, message, args) =>{
+    let testing_embed = test.set('test','testing',Color.red_pastel);
+    test.show(message,testing_embed);
     //if user didn't input any [options] in command
     if(!args[0]){
         let addRoleEmbed = new Discord.MessageEmbed()
