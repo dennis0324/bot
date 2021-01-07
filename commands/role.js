@@ -34,13 +34,13 @@ module.exports.run = async(bot, message, args) =>{
         role_remove.run(bot,message,args);
     } 
     // exe
-    else if(args[0] === "member") {
+    else if(['member', '-m'].includes(args[0])) {
         args.shift();
-        if(args[0] === "join") {
+        if(['join', '-j'].includes(args[0])) {
             args.shift();
             role_join.run(bot,message,args);
         }
-        else if(args[0] === "leave") {
+        else if(['leave', '-l'].includes(args[0])) {
             args.shift();
             role_leave.run(bot,message,args);
         }
