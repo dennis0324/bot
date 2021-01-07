@@ -5,9 +5,6 @@ const fs = require('fs');
 const prefix = botconfig.prefix;
 const msgst = require("../rolelist.json");
 
-
-
-
 exports.run = async(bot, message, args) =>{
     var array = "";
     let messages = msgst[0].message;
@@ -15,7 +12,6 @@ exports.run = async(bot, message, args) =>{
     console.log(`${count_num}`);
        for(var i = 0; i < count_num; i++){
            array += `${i}. ${msgst[i].message}\n`;
-
        }
     
     let addRoleEmbed = new Discord.MessageEmbed()
@@ -24,7 +20,6 @@ exports.run = async(bot, message, args) =>{
         .setDescription(`\`\`\`md\n* 참여 목록:\n${array}\n\`\`\``)
     message.channel.send(addRoleEmbed)
 }
-
 
 module.exports.config = {
     name: "rolelist",
