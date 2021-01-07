@@ -30,7 +30,6 @@ exports.run = (bot, message, args) =>{
         roleAdding = message.guild.roles.cache.find(r => r.name === `${msgst[checknum].message}-pro`);
         rolename = `${msgst[checknum].message}-pro`
     }
-    console.log(roleAdding);
     if(!roleAdding){
         console.log("이름을 찾지 못하였습니다.")
         let addRoleEmbed = new Discord.MessageEmbed()
@@ -43,8 +42,6 @@ exports.run = (bot, message, args) =>{
     }
     
     if(args[1]){
-        console.log(message.member.hasPermission('MANAGE_ROLES'));
-        console.log(!message.guild.owner);
         if(!message.member.hasPermission('MANAGE_ROLES') || message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
         if(playername.roles.cache.find(r => r.name === rolename )){
             let addRoleEmbed = new Discord.MessageEmbed()
