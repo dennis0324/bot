@@ -23,7 +23,7 @@ exports.run = (bot, message, args) =>{
         message.channel.send(addRoleEmbed)
         return;
     }
-    if(isNaN(checknum)){
+    if(isNaN(string)){
         roleAdding = message.guild.roles.cache.cache.find(r => r.name === `${string}-pro`);
         rolename = `${string}-pro`;
     }
