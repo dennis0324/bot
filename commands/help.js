@@ -10,8 +10,7 @@ const prefix = botconfig.prefix;
 */
 const fs = require("fs");
 
-var descript = "```";
-
+var descript = "```md\n* 참여 목록:";
 
 fs.readdir("./commands/",(err, files) =>{
     if(err) console.log(err)
@@ -24,7 +23,7 @@ fs.readdir("./commands/",(err, files) =>{
     jsfile.forEach((f,i) => {
         descript += `\n#${i+1}.${f.split(".").shift()}`;
     })
-    descript += "```";
+    descript += "\n```";
 });
 
 module.exports.run = async (bot, message, args) =>{
