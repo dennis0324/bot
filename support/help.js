@@ -10,7 +10,7 @@ this function is to help user to get command from help command
 var commands;
 var command;
 exports.run = function(bot, message, args, filesName){
-    console.log(message.author.dmChannel.lastMessage.toString);
+    console.log(message.author.dmChannel.lastMessage.toString());
     if(filesName.length < args){
         message.channel.send("```prolog\n없는 선택지입니다. \n```");
         return;
