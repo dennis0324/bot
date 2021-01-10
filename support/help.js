@@ -13,6 +13,7 @@ exports.run = function(bot, message, args, filesName){
     console.log(filesName[args]);
     console.log(message);
     console.log(args);
+    message.delete();
     if(filesName.length < args){
         message.channel.send("```prolog\n없는 선택지입니다. \n```");
         return;
@@ -22,7 +23,7 @@ exports.run = function(bot, message, args, filesName){
     }
     
     if(bot.commands.has(commands)){
-        message.delete();
+        
         command = bot.commands.get(commands);
         var specificHelpEmbed = new Discord.MessageEmbed()
         .setColor(Color.mint)
