@@ -31,7 +31,7 @@ fs.readdir("./commands/",(err, files) =>{
     })
 });
 
-client.on('presenceUpdate', (oldPresence, newPresence) => {
+bot.on('presenceUpdate', (oldPresence, newPresence) => {
     let member = newPresence.member;
     // User id of the user you're tracking status.
     console.log(member);
