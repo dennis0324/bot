@@ -35,7 +35,7 @@ client.on('presenceUpdate', (oldPresence, newPresence) => {
     let member = newPresence.member;
     // User id of the user you're tracking status.
     console.log(member);
-    }
+
 });
 
 bot.on("message", message => {
