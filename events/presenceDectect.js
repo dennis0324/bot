@@ -3,10 +3,6 @@ const Color = require("../colours.json");
 const botconfig = require("../botconfig.json");
 const prefix = botconfig.prefix;
 
-
-  
-const Discord = require("discord.js");
-
 module.exports = bot =>{
     bot.on("presenceUpdate", (oldPresence, newPresence) => {
         console.log(newPresence);
