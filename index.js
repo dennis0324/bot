@@ -31,10 +31,6 @@ fs.readdir("./commands/",(err, files) =>{
     })
 });
 
-bot.on("messageUpdate", (oldMess,newMess) =>{
-    console.log(`${oldMess},${newMess}`);
-});
-
 bot.on("presenceUpdate", (oldPresence, newPresence) => {
     console.log(newPresence);
     if (!newPresence.activities) return false;
