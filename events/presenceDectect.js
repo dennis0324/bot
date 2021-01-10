@@ -4,14 +4,20 @@ const botconfig = require("../botconfig.json");
 const prefix = botconfig.prefix;
 
 
+  
+const Discord = require("discord.js");
 
-client.on("presenceUpdate", (oldPresence, newPresence) => {
-    console.log(newPresence);
-    if (!newPresence.activities) return false;
-    console.log(newPresence);
-    newPresence.activities.forEach(activity => {
-        if (activity.type == "STREAMING") {
-            console.log(`${newPresence.user.tag} is streaming at ${activity.url}.`);
-        };
+module.exports = bot =>{
+    bot.on("presenceUpdate", (oldPresence, newPresence) => {
+        console.log(newPresence);
+        if (!newPresence.activities) return false;
+        console.log(newPresence);
+        newPresence.activities.forEach(activity => {
+            if (activity.type == "STREAMING") {
+                console.log(`${newPresence.user.tag} is streaming at ${activity.url}.`);
+            };
+        });
     });
-});
+}
+
+
