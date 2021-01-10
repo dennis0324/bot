@@ -11,7 +11,7 @@ bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 var filesName;
 
-fs.readdir("./commands/",(err, files) =>{
+fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
     if(err) console.log(err)    
     let jsfile = files.filter(f => f.split(".").pop() === "js")
     filesName = new Array(jsfile.length);
@@ -32,6 +32,7 @@ fs.readdir("./commands/",(err, files) =>{
 });
 
 bot.on('presenceUpdate', (oldPresence, newPresence) => {
+    console.log("testing");
     let member = newPresence.member;
     // User id of the user you're tracking status.
     console.log(member);
