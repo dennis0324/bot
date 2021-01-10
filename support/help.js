@@ -18,7 +18,7 @@ exports.run = function(bot, message, args, filesName){
         return;
     }
     else{
-        commands = filesName[args - 1])
+        commands = filesName[args - 1]
     }
     
     if(bot.commands.has(commands){
