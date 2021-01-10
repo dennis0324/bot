@@ -35,6 +35,17 @@ bot.on("messageUpdate", (oldMess,newMess) =>{
     console.log(`${oldMess},${newMess}`);
 });
 
+bot.on("presenceUpdate", (oldPresence, newPresence) => {
+    console.log(newPresence);
+    if (!newPresence.activities) return false;
+    console.log(newPresence);
+    newPresence.activities.forEach(activity => {
+        if (activity.type == "STREAMING") {
+            console.log(`${newPresence.user.tag} is streaming at ${activity.url}.`);
+        };
+    });
+});
+
 bot.on("message", message => {
     if(message.author.bot) return;
     let prefix = botconfig.prefix;
