@@ -6,5 +6,5 @@ module.exports = bot =>  {
     bot.on("disconnect",() => reqEvent("disconnect") (bot));
     bot.on("warn",reqEvent("warn"));
     bot.on("error",reqEvent("error"));
-    bot.on("presenceUpdate",reqEvent("presenceDectect"));
+    //bot.on("presenceUpdate",reqEvent("presenceDectect"));
 }
