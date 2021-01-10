@@ -31,15 +31,11 @@ fs.readdir("./commands/",(err, files) =>{
     })
 });
 
-bot.on("presenceUpdate", (oldPresence, newPresence) => {
-    console.log(newPresence);
-    if (!newPresence.activities) return false;
-    console.log(newPresence);
-    newPresence.activities.forEach(activity => {
-        if (activity.type == "STREAMING") {
-            console.log(`${newPresence.user.tag} is streaming at ${activity.url}.`);
-        };
-    });
+client.on('presenceUpdate', (oldPresence, newPresence) => {
+    let member = newPresence.member;
+    // User id of the user you're tracking status.
+    console.log(member);
+    }
 });
 
 bot.on("message", message => {
