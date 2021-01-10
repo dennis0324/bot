@@ -21,7 +21,7 @@ exports.run = function(bot, message, args, filesName){
         commands = filesName[args - 1]
     }
     
-    if(bot.commands.has(commands){
+    if(bot.commands.has(commands)){
         command = bot.commands.get(commands);
         var specificHelpEmbed = new Discord.MessageEmbed()
         .setColor(Color.mint)
