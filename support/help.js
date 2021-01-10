@@ -20,7 +20,7 @@ exports.run = function(bot, message, args, filesName){
     }
     
     if(bot.commands.has(commands)){
-        message.author.dmChannel.delete();
+        message.author.dmChannel.lastMessageID.delete();
         command = bot.commands.get(commands);
         var specificHelpEmbed = new Discord.MessageEmbed()
         .setColor(Color.mint)
