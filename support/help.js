@@ -11,7 +11,7 @@ var commands;
 var command;
 exports.run = function(bot, message, args, filesName){
     console.log(filesName[args]);
-    console.log(filesName.length);
+    console.log(message);
     console.log(args);
     if(filesName.length < args){
         message.channel.send("```prolog\n없는 선택지입니다. \n```");
