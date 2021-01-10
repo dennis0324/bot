@@ -5,6 +5,8 @@ const prefix = botconfig.prefix;
 
 /*
 this function is to help user to get command from help command
+testing https://stackoverflow.com/questions/55546906/discord-return-specified-users-activity-status
+
 */
 
 var commands;
@@ -21,6 +23,7 @@ exports.run = function(bot, message, args, filesName){
     
     if(bot.commands.has(commands)){
         var testing = message.author.dmChannel.lastMessageID;
+        console.log(testing);
         message.author.dmChannel.fetch(testing).then(m => m.delete());
         command = bot.commands.get(commands);
         var specificHelpEmbed = new Discord.MessageEmbed()
