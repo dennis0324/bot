@@ -37,17 +37,12 @@ bot.on("messageUpdate", (oldMess,newMess) =>{
 
 bot.on("message", message => {
     if(message.author.bot) return;
-
-    if(message.channel.type === "text"){
-        console.log("your sending in text channel!");
-    }
     let prefix = botconfig.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0].toLowerCase();
     
     let args = messageArray.slice(1);
     if(message.channel.type === "dm"){
-        console.log("your sending with dm!");
         helpNum.run(bot,message,Number(cmd),filesName);     
     }
     if(!message.content.startsWith(prefix)) return;
