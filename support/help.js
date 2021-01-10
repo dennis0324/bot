@@ -10,7 +10,7 @@ this function is to help user to get command from help command
 var commands;
 var command;
 exports.run = function(bot, message, args, filesName){
-    console.log(message.author.username);
+    console.log(message.author.dmChannel);
     if(filesName.length < args){
         message.channel.send("```prolog\n없는 선택지입니다. \n```");
         return;
@@ -20,7 +20,7 @@ exports.run = function(bot, message, args, filesName){
     }
     
     if(bot.commands.has(commands)){
-        message.author.dmChannel.messages.delete();
+        
         command = bot.commands.get(commands);
         var specificHelpEmbed = new Discord.MessageEmbed()
         .setColor(Color.mint)
