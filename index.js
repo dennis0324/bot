@@ -31,19 +31,13 @@ fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
     })
 });
 
-bot.on('presenceUpdate', async(oldMember, newMember) => {
-    conosole.log(oldMember);
-    // get a reference to all channels in the user's guild
-    let guildChannels = newMember.guild.channels;
-
-    // find the channel you want, based off the channel name
-    // -> replace '<YOUR CHANNEL NAME>' with the name of your channel
-    guildChannels.find('name', '<YOUR CHANNEL NAME>')
-        .send('test message!')
-        .then(msg => {
-            // do something else if you want
-        })
-        .catch(console.error)
+bot.on("presenceUpdate", (oldPresence, newPresence) => {
+    if (!newPresence.activities) return false;
+    newPresence.activities.forEach(activity => {
+        if (activity.type == "STREAMING") {
+            console.log(`${newPresence.user.tag} is streaming at ${activity.url}.`);
+        };
+    });
 });
 
 bot.on("message", message => {
