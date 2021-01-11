@@ -31,13 +31,8 @@ fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
     })
 });
 
-bot.on("presenceUpdate", (oldPresence, newPresence) => {
-    if (!newPresence.activities) return false;
-    newPresence.activities.forEach(activity => {
-        if (activity.type == "STREAMING") {
-            console.log(`${newPresence.user.tag} is streaming at ${activity.url}.`);
-        };
-    });
+bot.on("presenceUpdate", function(oldMember, newMember){
+    console.log(`a guild member's presence changes`);
 });
 
 bot.on("message", message => {
