@@ -31,7 +31,7 @@ fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
     })
 });
 
-bot.on('presenceUpdate', (oldMember, newMember) => {
+bot.on('presenceUpdate', async(oldMember, newMember) => {
     conosole.log(oldMember);
     // get a reference to all channels in the user's guild
     let guildChannels = newMember.guild.channels;
