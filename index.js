@@ -5,7 +5,7 @@ const helpNum = require("./support/help.js");
 const bot = new Discord.Client({disableEveryone: true});
 require("./util/eventHandler")(bot)
 
-reading all commands in diretory "./commands/"
+//reading all commands in diretory "./commands/"
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
@@ -13,10 +13,9 @@ var filesName;
 
 fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
     if(err) console.log(err)    
-    let jsfile = files.filter(f => f.split(".").pop() === "js")
+    let jsfile = files.filter(f => f.split(".").pop() === "js") //getting filename without ".js"
     filesName = new Array(jsfile.length);
-    
-    if(jsfile.length <= 0){
+    if(jsfile.length <= 0){ //checking file length over 0
             return console.log("[LOGS] Couldn't Find Commands!");
     }
     
