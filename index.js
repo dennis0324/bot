@@ -30,9 +30,6 @@ fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
     })
 });
 
-bot.on('presenceUpdate', (oldMember, newMember) => {
-    console.log("testing");
-});
 
 bot.on("message", message => {
     if(message.author.bot) return;
