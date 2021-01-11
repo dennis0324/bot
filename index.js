@@ -31,8 +31,9 @@ fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
     })
 });
 
-bot.on("presenceUpdate", function(oldMember, newMember){
-    console.log(`a guild member's presence changes`);
+bot.on('presenceUpdate', (oldMember, newMember) => {
+  console.log(`${oldMember.user.username} ${oldMember.user.presence.status} to ${newMember.user.presence.status}`);
+// Mr. Pink 🐱 online to online
 });
 
 bot.on("message", message => {
