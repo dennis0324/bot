@@ -32,10 +32,19 @@ fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
 });
 
 bot.on('presenceUpdate', (oldMember, newMember) => {
-  console.log(`${oldMember.user.username} ${oldMember.user.presence.status} to ${newMember.user.presence.status}`);
-// Mr. Pink 🐱 online to online
-});
+    // get a reference to all channels in the user's guild
+    let guildChannels = newMember.guild.channels;
 
+    console.log("시발 존나 안되네");
+    // find the channel you want, based off the channel name
+    // -> replace '<YOUR CHANNEL NAME>' with the name of your channel
+    guildChannels.find('name', '<YOUR CHANNEL NAME>')
+        .send('test message!')
+        .then(msg => {
+            // do something else if you want
+        })
+        .catch(console.error)
+});
 bot.on("message", message => {
     if(message.author.bot) return;
     let prefix = botconfig.prefix;
