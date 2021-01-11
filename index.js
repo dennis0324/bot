@@ -34,6 +34,7 @@ require("./util/eventHandler")(bot)
 bot.on('presenceUpdate', (oldMember, newMember) => {
     console.log("testing");
 });
+
 // bot.on("message", message => {
 //     if(message.author.bot) return;
 //     let prefix = botconfig.prefix;
