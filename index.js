@@ -31,7 +31,7 @@ fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
     })
 });
 
-bot.on("presenceUpdate", function(oldMember, newMember){
+bot.on("guildUpdate", function(oldMember, newMember){
     console.log(`a guild member's presence changes`);
 });
 
