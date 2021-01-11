@@ -5,7 +5,6 @@ const prefix = botconfig.prefix;
 
 module.exports = bot =>{
     bot.on("presenceUpdate", (oldPresence, newPresence) => {
-        console.log(newPresence);
         if (!newPresence.activities) return false;
         console.log(newPresence);
         newPresence.activities.forEach(activity => {
