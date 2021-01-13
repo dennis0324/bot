@@ -17,7 +17,9 @@ module.exports = bot =>{
         });
         newPresence.activities.forEach(activity => {
             if( activity.type == "CUSTOM_STATUS"){
-                bot.channels.cache.forEach(c => console.log(c.name))
+                bot.channels.cache.forEach(c => {if(c.type != "category"){
+                    console.log(c.name);
+                }})
                 console.log("he is playing");
                 
             }
