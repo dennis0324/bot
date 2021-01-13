@@ -47,7 +47,6 @@ bot.on("message", message => { //events that trigger at message or DM
     if(commandfile) {
         commandfile.run(bot,message,args);//executing commandfile
     }
-
 })
 
 bot.login(process.env.token);
