@@ -23,21 +23,18 @@ app.get('/',function(request,response){
 });
 */
 module.exports = bot =>{
-    console.log(`${bot.user.username} is online`);
-    console.log(bot.guilds.cache.array.length);
+    console.log(`${bot.user.username} is online`);    //rule joiner is online
     
-    
-    bot.guilds.cache.forEach(element => {
+    bot.guilds.cache.forEach(element => {// getting a role that currently in server
         var count = 0;
         element.roles.cache.forEach(j => {
-            if(j.name.includes('-pro')){
+            if(j.name.includes('-pro')){ //getting role called [role_name]-pro
                 
-                var testing = j.name.split('-');
+                var testing = j.name.split('-'); //spliting -pro rolename
                 testing.pop(1);
                 msgst[count] = {
                     message: testing
                 }
-                //아직 파일 입출력 못 고침
     
                 fs.writeFile("./rolelist.json",JSON.stringify (msgst,null,4), function(err) {
                     if(err) console.log('error',err);
