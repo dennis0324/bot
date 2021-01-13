@@ -31,13 +31,13 @@ module.exports = bot =>{
             if(j.name.includes('-pro')){ //getting role called [role_name]-pro
                 
                 var testing = j.name.split('-'); //spliting -pro rolename
-                testing.pop(1);
+                testing.pop(1); //extracting -pro from array
                 msgst[count] = {
                     message: testing
                 }
     
-                fs.writeFile("./rolelist.json",JSON.stringify (msgst,null,4), function(err) {
-                    if(err) console.log('error',err);
+                fs.writeFile("./rolelist.json",JSON.stringify (msgst,null,4), function(err) { //writing down roles in rolelist.json
+                    if(err) console.log('error',err); //this part will be change to sqlite soon :D
                 })
                 count++;
             }
@@ -45,10 +45,9 @@ module.exports = bot =>{
         msgst.size = count;
 
     });
-    let statuses = [
+    let statuses = [ //bot's auto change status
         `${bot.guilds.cache.size}개의 서버에서 실행중!`,
         `--help`,
-        //`현재 ${bot.guilds.cache.user.size}명 온라인!`
     ]
 
     setInterval(function(){
