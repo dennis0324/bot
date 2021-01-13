@@ -21,30 +21,31 @@ fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
     
 
     jsfile.forEach((f,i) => {
-        let pull = require(`./commands/${f}`);
-        bot.commands.set(pull.config.name,pull);
-        filesName[i] = pull.config.name;
+        let pull = require(`./commands/${f}`);//getting all files in ./commands/ folder
+        bot.commands.set(pull.config.name,pull); //setting commmands with module exports config
+        filesName[i] = pull.config.name; //putting commands in array for help commands
         pull.config.aliases.forEach(alias => {
-            bot.aliases.set(alias,pull.config.name)
+            bot.aliases.set(alias,pull.config.name) //setting commands aliases(command that can use also)
         });
     })
 });
 
 
-bot.on("message", message => {
-    if(message.author.bot) return;
-    let prefix = botconfig.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLowerCase();
+bot.on("message", message => { //events that trigger at message or DM
+    if(message.author.bot) return; //return for bot
+    let prefix = botconfig.prefix; //getting "--" prefix for command 
+    let messageArray = message.content.split(" "); //spliting commands and args for next behavior
+    let cmd = messageArray[0].toLowerCase(); //setting commmand to lowercase
     
-    let args = messageArray.slice(1);
-    if(message.channel.type === "dm"){
-        helpNum.run(bot,message,Number(cmd),filesName);     
+    let args = messageArray.slice(1); //getting all args 
+    if(message.channel.type === "dm"){ //if texting channel is dm then activating help support
+        helpNum.run(bot,message,Number(cmd),filesName); //passing to help support in support/help
     }
-    if(!message.content.startsWith(prefix)) return;
+    if(!message.content.startsWith(prefix)) return; //if message is not start with prefix then return
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+    //getting commandfile from the command
     if(commandfile) {
-        commandfile.run(bot,message,args);
+        commandfile.run(bot,message,args);//executing commandfile
     }
 
 })
