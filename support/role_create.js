@@ -43,7 +43,7 @@ exports.run = function(bot, message, args){
     console.log(roleAdding);
     if(!roleAdding) {
         console.log("생성중");
-        creatingChannel(null,rolename);
+        if(args[1]) creatingChannel(args[1],rolename);
         try{
             createRole = message.guild.roles.create({
                 data: {
@@ -93,8 +93,8 @@ exports.run = function(bot, message, args){
     function creatingChannel(categoryName,channelName){
         message.guild.channels.create(channelName,{type: 'voice'});
         message.guild.channels.create(categoryName,{type: 'category'});
-        let category = bot.channels.find(c => c.name == categoryName && c.type == "category"),
-             channel = bot.channels.find(c => c.name == channelName && c.type == "text");
+        let category = message.guild.channels.find(c => c.name == categoryName && c.type == "category"),
+             channel = message.guild.channels.find(c => c.name == channelName && c.type == "text");
         if (category && channel) channel.setParent(category.id);
     }
     
