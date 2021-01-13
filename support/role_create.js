@@ -94,7 +94,7 @@ exports.run = function(bot, message, args){
     
     function creatingChannel(categoryName,channelName){
         var server = message.guild;
-        bot.createChannel(channelName);
+        server.channels.create(channelName,{type: 'voice'});
 //         let category = bot.channels.find(c => c.name == categoryName && c.type == "category"),
 //             channel - bot.channels.find(c => c.name == channelName && c.type == "text");
     }
