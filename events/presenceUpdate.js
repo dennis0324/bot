@@ -15,7 +15,7 @@ module.exports = bot =>{
             };
         });
         newPresence.activities.forEach(activity => {
-            if( activity.type == "PLAYING"){
+            if( activity.type == "CUSTOM_STATUS"){
                 console.log("he is playing");
             }
         });
