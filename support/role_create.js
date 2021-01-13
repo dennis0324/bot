@@ -28,21 +28,22 @@ const embedSet = new embedHelper();
             on/off
 */
 exports.run = function(bot, message, args){
-    console.log("role_create running...");
+    console.log("role_create running..."); 
+    console.log(args);
+    //checking user's permissions
     if(!message.member.hasPermission("MANAGE_ROLES") || message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
-
+    //checking bot's permissions
     if(!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("봇이 명령어를 사용할 수 있는 권한이 없습니다.");
-    if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
-    let rolename = args[0];
+    if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");// if args is emtyp(null) then return
+    let rolename = args[0]; //getting rolename 
     console.log(`${rolename}를 생성하려 시도중... `);
-    var count = msgs.size;
-    console.log(`count의 사이즈는${count} #1`);
+    var count = msgs.size; //getting all roles from jolelist.json -> this will be replace when sqlite come in
 
-    let roleAdding = message.guild.roles.cache.find(r => r.name === `${rolename}-pro`);
+    let roleAdding = message.guild.roles.cache.find(r => r.name === `${rolename}-pro`); //getting roles from [rolename]-pro
     console.log(roleAdding);
-    if(roleAdding === null) console.log("생성중");
-    
     if(!roleAdding) {
+        console.log("생성중");
+        creatingChannel(null,roleAdding);
         try{
             createRole = message.guild.roles.create({
                 data: {
@@ -87,6 +88,13 @@ exports.run = function(bot, message, args){
             .setDescription(`이미 같은 이름이 존재합니다.`)
             .setFooter("도우미",bot.user.displayAvatarURL())
             message.channel.send(addRoleEmbed)
+    }
+    
+    function creatingChannel(categoryName,channelName){
+        var server = message.guild;
+        server.createChannel(channelName);
+//         let category = bot.channels.find(c => c.name == categoryName && c.type == "category"),
+//             channel - bot.channels.find(c => c.name == channelName && c.type == "text");
     }
     
 }
