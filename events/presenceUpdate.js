@@ -8,6 +8,7 @@ event that catch when discord user status, or activities changes
 module.exports = bot =>{
     bot.on("presenceUpdate", (oldPresence, newPresence) => {
         if (newPresence.member.user.bot) return;
+        console.log(newPresence.user.username);
         if (!newPresence.activities) return false;
         newPresence.activities.forEach(activity => {
             if (activity.type == "STREAMING") {
