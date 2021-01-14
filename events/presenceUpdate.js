@@ -18,6 +18,7 @@ module.exports = bot =>{
         if (!newPresence.activities) return false;
         newPresence.activities.forEach(activity => {
             if( activity.type == "PLAYING"){ //need to change to Playing,STREAMING, etc. except custom_status using temp beacause of military
+                console.log(newPresence.user.name);
                 console.log(activity.name);
                 bot.channels.cache.forEach(c => {
                     if(c.type != "category"){//to exclude category channels
