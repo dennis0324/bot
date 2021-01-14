@@ -95,6 +95,8 @@ exports.run = function(bot, message, args){
         message.guild.channels.create(categoryName,{type: 'category'});
         let category = message.guild.channels.cache.find(c => c.name == categoryName && c.type == "category"),
              channel = message.guild.channels.cache.find(c => c.name == channelName && c.type == "text");
+        console.log(category);
+        console.log(channel);
         if (category && channel) channel.setParent(category.id);
     }
     
