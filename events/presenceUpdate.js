@@ -7,18 +7,11 @@ event that catch when discord user status, or activities changes
 */
 module.exports = bot =>{
     bot.on("presenceUpdate", (oldPresence, newPresence) => {
-        if (oldPresence.clientStatus !== newPresence.clientStatus) return;
         console.log(`old-> ${oldPresence.user.username} : ${oldPresence.clientStatus}`);
         console.log(`new-> ${newPresence.user.username} : ${newPresence.clientStatus}`);
+        if (oldPresence.clientStatus !== newPresence.clientStatus) return;
         if (newPresence.member.user.bot) return;
-        console.log(oldPresence.user.username);
-        console.log(newPresence.user.username);
         if (!newPresence.activities) return false;
-        newPresence.activities.forEach(activity => {
-            if (activity.type == "STREAMING") {
-                console.log(`${newPresence.user.tag} is streaming at ${activity.url}.`);
-            };
-        });
         newPresence.activities.forEach(activity => {
             if( activity.type == "CUSTOM_STATUS"){ //need to change to Playing,STREAMING, etc. except custom_status using temp beacause of military
                 console.log(activity.name);
