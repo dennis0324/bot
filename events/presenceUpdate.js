@@ -6,7 +6,7 @@ const prefix = botconfig.prefix;
 event that catch when discord user status, or activities changes
 */
 module.exports = bot =>{
-    bot.on("presenceUpdate", (oldPresence, newPresence) => {
+    bot.once("presenceUpdate", (oldPresence, newPresence) => {
 //        console.log(`${newPresence.user.tag} user is now ${newPresence.status} in guild ${newPresence.guild.name}`);
 //        if (oldPresence.status !== newPresence.status) {
 //            console.log(`${newPresence.user.tag} user is now ${newPresence.status} in guild ${newPresence.guild.name}`);
