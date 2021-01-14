@@ -71,7 +71,6 @@ exports.run = function(bot, message, args){
                 message: rolename
             }
             count = count + 1;
-            console.log(`count의 사이즈는${count} #2`);
             msgs.size = count;
             fs.writeFile("../rolelist.json",JSON.stringify (msgs,null,4)), err =>{
                 if(err) throw err;
@@ -93,9 +92,11 @@ exports.run = function(bot, message, args){
     function creatingChannel(categoryName,channelName){
         message.guild.channels.create(channelName,{type: 'voice'});
         message.guild.channels.create(categoryName,{type: 'category'});
-        let category = message.guild.channels.cache.find(c => c.name == categoryName && c.type == "category"),
-             channel = message.guild.channels.cache.find(c => c.name == channelName && c.type == "text");
+        let category = message.guild.channels.cache.find(c => c.name == categoryName && c.type === "category"),
+             channel = message.guild.channels.cache.find(c => c.name == channelName && c.type === "text");
+        console.log(categoryName);
         console.log(category);
+        console.log(channelName);
         console.log(channel);
         if (category && channel) channel.setParent(category.id);
     }
