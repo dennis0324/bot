@@ -13,7 +13,7 @@ module.exports = bot =>{
 //            console.log(`old-> ${oldPresence.user.username} : ${oldPresence.activities.name} : ${oldPresence.createAt}`);
 //            console.log(`new-> ${newPresence.user.username} : ${newPresence.activities.name} : ${newPresence.createAt}`);
  //       }
-        if (oldPresence.clientStatus !== newPresence.clientStatus) return;
+//        if (oldPresence.clientStatus !== newPresence.clientStatus) return;
         if (newPresence.member.user.bot) return;
         if (!newPresence.activities) return false;
         newPresence.activities.forEach(activity => {
