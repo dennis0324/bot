@@ -7,7 +7,6 @@ event that catch when discord user status, or activities changes
 */
 module.exports = bot =>{
     bot.on("presenceUpdate", (oldPresence, newPresence) => {
-        console.log(newPresence.activities.details);
 //         console.log(`old-> ${oldPresence.user.username} : ${oldPresence.clientStatus}`);
 //         console.log(`new-> ${newPresence.user.username} : ${newPresence.clientStatus}`);
         if (oldPresence.clientStatus !== newPresence.clientStatus) return;
