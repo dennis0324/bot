@@ -91,14 +91,17 @@ exports.run = function(bot, message, args){
     
     function creatingChannel(categoryName,channelName){
         message.guild.channels.create(channelName,{type: 'voice'});
-        message.guild.channels.create(categoryName,{type: 'category'});
-        let category = message.guild.channels.cache.find(c => c.name == categoryName && c.type === "category"),
-             channel = message.guild.channels.cache.find(c => c.name == channelName && c.type === "text");
-        console.log(categoryName);
-        console.log(category);
-        console.log(channelName);
-        console.log(channel);
-        if (category && channel) channel.setParent(category.id);
+        message.guild.channels.create(categoryName,{type: 'category'}).then({
+            let category = message.guild.channels.cache.find(c => c.name == categoryName && c.type === "category"),
+                 channel = message.guild.channels.cache.find(c => c.name == channelName && c.type === "text");
+            if (category && channel) channel.setParent(category.id);
+            console.log(categoryName);
+            console.log(category);
+            console.log(channelName);
+            console.log(channel);
+            
+        });
+
     }
     
 }
