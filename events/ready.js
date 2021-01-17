@@ -12,9 +12,9 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT * FROM serverSetting', (error, rows, results) => {
+connection.query('SELECT * FROM serversetting', (error, rows, field) => {
     if( error ) throw error;
-    console.log('User info is: ', rows);
+	console.log(`rows: ${rows}, field: ${field}`);
 });
 
 connection.end();
