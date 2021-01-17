@@ -2,27 +2,6 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const msgst = require("../rolelist.json");
 
-/*var mysql = require('mysql');
-
-var connection = mysql.createConnection({
-    host : `${process.env.DB_SITE}`,
-    user : `${process.env.DB_ID}`,
-    passworld : `${process.env.DB_PASS}`
-});
-
-connection.connect();
-
-app.get('/',function(request,response){
-    connection.query('SELECT & from t_users', function(err,rows,fields) {
-        if(err){
-            console.log('error',err);
-            throw err;
-        }
-        console.log("testing clearDB");
-    })
-});
-*/
-
 const mysql = require('mysql');
 const connection = mysql.createConnection({
     host : `${process.env.DB_SITE}`,
