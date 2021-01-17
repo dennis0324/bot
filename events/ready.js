@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT * FROM topic', (error, rows, fields) => {
+connection.query('SELECT NOW()', (error, rows) => {
     if( error ) throw error;
     console.log('User info is: ', rows);
 });
