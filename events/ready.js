@@ -19,7 +19,6 @@ connection.query('SELECT * FROM serverSetting', (error, rows, results) => {
 
 connection.end();
 
-
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);    //rule joiner is online
     
