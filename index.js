@@ -18,8 +18,7 @@ fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
     if(jsfile.length <= 0){ //checking file length over 0
             return console.log("[LOGS] Couldn't Find Commands!");
     }
-    
-
+   
     jsfile.forEach((f,i) => {
         let pull = require(`./commands/${f}`);//getting all files in ./commands/ folder
         bot.commands.set(pull.config.name,pull); //setting commmands with module exports config
