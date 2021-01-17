@@ -19,6 +19,7 @@ connection.query('SELECT * FROM topic', (error, rows, fields) => {
 
 connection.end();
 
+
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);    //rule joiner is online
     
