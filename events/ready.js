@@ -22,6 +22,23 @@ app.get('/',function(request,response){
     })
 });
 */
+
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+    host : `${process.env.DB_SITE}`,
+    user : `${process.env.DB_ID}`,
+    password : `${process.env.DB_PASS}`
+});
+
+connection.connect();
+
+connection.query('SELECT * from Users', (error, rows, fields) => {
+    if( error ) throw error;
+    console.log('User info is: ', rows);
+});
+
+connection.end();
+
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);    //rule joiner is online
     
