@@ -19,9 +19,16 @@ module.exports = bot =>{
         newPresence.activities.forEach(activity => {
             if( activity.type == "PLAYING"){ //need to change to Playing,STREAMING, etc. except custom_status using temp beacause of military
                 console.log(newPresence.user.tag);
-                console.log(activity.name);
-                let startingGame = newPresence.client.channels.cache.find(c => c.name === activity.name);
+                console.log(activity.name.toLowerCase());
+                
+                let startingGame = newPresence.client.channels.cache.find(c => c.name.toLowerCase() === activity.name.toLowerCase());
                 console.log(startingGame.name);
+                if(startingGame) {
+                    console.log("find game... searching for user's voice channel connection");
+                }
+                else{
+                    concole.log("nothing has found");
+                }
                 bot.channels.cache.forEach(c => {
                     if(c.type != "category"){//to exclude category channels
                         if(activity.name == c.name){
