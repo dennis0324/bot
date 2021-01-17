@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
-
+connection.query('USE heroku_3cdd4905f680c6a');
 connection.query('SELECT heroku_3cdd4905f680c6a', (error, rows) => {
     if( error ) throw error;
     console.log('User info is: ', rows);
