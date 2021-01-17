@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT serverSetting', (error, rows, results) => {
+connection.query('SELECT * FROM serverSetting', (error, rows, results) => {
     if( error ) throw error;
     console.log('User info is: ', rows);
 });
