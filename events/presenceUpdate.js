@@ -21,7 +21,7 @@ module.exports = bot =>{
                 console.log(newPresence.user.tag);
                 console.log(activity.name.toLowerCase());
                 
-                let startingGame = newPresence.client.channels.cache.find(c => c.name.toLowerCase() === activity.name.toLowerCase());
+                let startingGame = newPresence.client.channels.cache.find(c => activity.name.toLowerCasec.includes(c.name.toLowerCase) && c.type !== "category");
                 console.log(startingGame.name);
                 if(startingGame) {
                     console.log("find game... searching for user's voice channel connection");
