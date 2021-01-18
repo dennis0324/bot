@@ -21,7 +21,6 @@ module.exports = bot =>{
 	    if( error ) throw error;
 		bot.guilds.cache.each((c,i) => {
 			console.log("server counting:",rows[i].serverID);
-			if(
 		});
 		console.log("rows:",rows);
 	});
