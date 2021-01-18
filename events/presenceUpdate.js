@@ -15,7 +15,7 @@ module.exports = bot =>{
                 console.log("presenceUpdate: ",newPresence.user.tag);
                 console.log(activity.name.toLowerCase());
                 
-                let startingGame = newPresence.client.channels.cache.find(c => activity.name.toLowerCasec.includes(c.name.toLowerCase) && c.type !== "category");
+                let startingGame = newPresence.client.channels.cache.find(c => activity.name.toLowerCase.includes(c.name.toLowerCase) && c.type !== "category");
                 console.log("presenceUpdate: ", startingGame.name);
                 if(startingGame) {
                     console.log("presenceUpdate: find game... searching for user's voice channel connection");
