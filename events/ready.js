@@ -14,7 +14,7 @@ connection.connect();
 
 connection.query('SELECT * FROM serversetting', (error, rows, field) => {
     if( error ) throw error;
-	console.log("rows:",rows, "field:", field);
+	console.log("rows:",rows);
 });
 
 connection.end();
