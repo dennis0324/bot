@@ -3,25 +3,30 @@ const fs = require('fs');
 const msgst = require("../rolelist.json");
 
 const mysql = require('mysql');
+
 const connection = mysql.createConnection({
-    host : `${process.env.DB_SITE}`,
-    user : `${process.env.DB_ID}`,
-    password : `${process.env.DB_PASS}`,
-    database : `heroku_3cdd4905f680c6a`
+	host : `${process.env.DB_SITE}`,
+	user : `${process.env.DB_ID}`,
+	password : `${process.env.DB_PASS}`,
+	database : `heroku_3cdd4905f680c6a`
 });
 
 connection.connect();
 
-connection.query('SELECT * FROM serversetting', (error, rows, field) => {
-    if( error ) throw error;
-	console.log("rows:",rows);
-});
-
-connection.end();
-
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);    //rule joiner is online
     
+
+	connection.query('SELECT serverID FROM serverSetting', (error, rows, field) => {
+	    if( error ) throw error;
+		bot.guilds.cache.each((c,i) => {
+			console.log("server counting:",row[i]);
+		});
+		console.log("rows:",rows);
+	});
+
+
+	
     bot.guilds.cache.forEach(element => {// getting a role that currently in server
         var count = 0;
         element.roles.cache.forEach(j => {
@@ -51,4 +56,6 @@ module.exports = bot =>{
         let status = statuses[Math.floor(Math.random() * statuses.length)];
         bot.user.setActivity(status,{type: "LISTENING"});
     },5000)
+	
+connection.end(); //mysql connection disable
 }
