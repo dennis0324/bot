@@ -19,7 +19,7 @@ module.exports = bot =>{
 	connection.query('SELECT serverID FROM serverSetting', (error, rows, field) => { //getting serverID and check is included
 	    if( error ) throw error;
 		bot.guilds.cache.each((c,i) => {
-			console.log(i);
+			console.log("num: ",i);
 			console.log("server counting:",rows[i]);
 			console.log(c.id);
 			if(c.id === rows[i].serverID){
