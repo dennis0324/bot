@@ -13,6 +13,7 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
+
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);    //rule joiner is online
     
