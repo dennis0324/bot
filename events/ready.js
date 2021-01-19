@@ -29,8 +29,6 @@ module.exports = bot =>{
 		console.log("rows:",rows);
 	});
 
-
-	
     bot.guilds.cache.forEach(element => {// getting a role that currently in server
         var count = 0;
         element.roles.cache.forEach(j => {
