@@ -19,12 +19,11 @@ module.exports = bot =>{
 	connection.query('SELECT serverID FROM serverSetting', (error, rows, field) => { //getting serverID and check is included
 	    if( error ) throw error;
 		bot.guilds.cache.forEach((c,i) => {
-			console.log("num: ",i);
-			console.log("server counting:",rows[i]);
-			console.log(c.id);
-			if(c.id === rows[i].serverID){
-				console.log("found same serverID");
-			}
+			console.log("c: ",c);
+// 			console.log("i: ",i);
+// 			if(c.id === rows[i]){
+// 				console.log("found same serverID");
+// 			}
 		});
 		console.log("rows:",rows);
 	});
