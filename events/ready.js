@@ -16,7 +16,6 @@ connection.connect();
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);    //rule joiner is online
     
-
 	connection.query('SELECT serverID FROM serverSetting', (error, rows, field) => { //getting serverID and check is included
 	    if( error ) throw error;
 		bot.guilds.cache.each((c,i) => {
