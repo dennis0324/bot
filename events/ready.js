@@ -10,34 +10,6 @@ const mysql = require('mysql');
 // 	database : `heroku_3cdd4905f680c6a`
 // });
 
-const connection = mysql.createConnection({
-	host : `us-cdbr-east-02.cleardb.com`,
-	user : `beeba3b53d8b34`,
-	password : `10d4db29`,
-	database : `heroku_3cdd4905f680c6a`
-});
-
-function handleDisconnect() {
-  	connection.connect(function(err) {            
-		if(err) {                            
-			console.log('error when connecting to db:', err);
-    		setTimeout(handleDisconnect, 2000); 
-    	}                                   
-  	});                                 
-                                         
-  	connection.on('error', function(err) {
-    	console.log('db error', err);
-    	if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
-			return handleDisconnect();                      
-		} 
-		else {                                    
-		  throw err;                              
-		}
-  	});
-}
-
-handleDisconnect();
-
 
 
 module.exports = bot =>{
