@@ -20,11 +20,27 @@ command prefix : -- (ex: --role,--help)
 
 role
 ```
--s
--u
--l
--c
--r
+[-s/set] [rolename] @playMention
+```
+```
+[-u/unset] [rolename(number)] @playerMetion
+```
+```
+[-l/list]
+```
+
+이 상황에서는 gmaeName이 rolename으로 대체됩니다.
+In this situation gameName is replace bt rolename
+```
+[-c/create] [gameName] 
+```
+
+```
+[-c/create] [gameName] [categoryName]
+```
+
+```
+[-r/remove] [roleName] 
 ```
 
 
