@@ -6,8 +6,9 @@
     + role
     + serverinfo
     + help
-    + refresh
-    + gameinfo...?
+    + gameinfo
+    + channel
+    + setting
 ***
 설치하는 방법(installation)
 --------------------------
