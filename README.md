@@ -17,7 +17,6 @@
 
 ***
 명령어(commands)
-
 --------------------------
 
 command prefix : -- (ex: --role,--help)
@@ -34,7 +33,6 @@ role
 [-l/list]
 ```
 return value `string: name`
-
 --------------------------
 
 이 상황에서는 gmaeName이 rolename으로 대체됩니다.
