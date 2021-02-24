@@ -7,5 +7,5 @@ module.exports = (bot,dbID) =>  {
     bot.on("presenceUpdate",(oldPresence, newPresence)=>reqEvent("presenceUpdate")(oldPresence, newPresence,bot));
 	bot.on("channelUpdate",(oldChannel,newChannel) => reqEvent("channelUpdate")(oldChannel,newChannel,bot));
     bot.on("warn",reqEvent("warn"));
-    bot.on("error",reqEvent("error"));
+    //bot.on("error",reqEvent("error"));
 }
