@@ -48,9 +48,6 @@ module.exports = async (bot,dbID) =>{
 	// 		});
 	// 	}
 	// });
-	
-
-
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);    //rule joiner is online
     
@@ -69,7 +66,6 @@ module.exports = bot =>{
 	// 		}
 	// 	});
 	// }); // this will be use in refresh role command
-
 	
 		// bot.guilds.cache.forEach(element => {// getting a role that currently in server
 		// connection.query("SELECT roles FROM channelNames Where serverID = '" + element.id+"'", (error, rows, field) => {
