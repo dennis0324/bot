@@ -16,7 +16,8 @@
 
 ***
 명령어(commands)
-***
+--------------------------
+
 command prefix : -- (ex: --role,--help)
 
 role
@@ -31,6 +32,7 @@ role
 [-l/list]
 ```
 return value `string: name`
+--------------------------
 
 이 상황에서는 gmaeName이 rolename으로 대체됩니다.
 In this situation gameName is replace bt rolename
@@ -46,6 +48,7 @@ In this situation gameName is replace bt rolename
 [-r/remove] [roleName] 
 ```
 return value `boolean`
+--------------------------
 
 
 [add Bot]: https://discord.com/oauth2/authorize?client_id=INSERT_CLIENT_ID_HERE&scope=bot&permissions=1069689918
