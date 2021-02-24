@@ -18,19 +18,6 @@ module.exports = async (bot,dbID) =>{
 // 	dataSave.setChannel(channelNames);
 // 	dataSave.setServer(serverSetting);
 	dataSave.updateData();
-	bot.guilds.cache.forEach(async g => {
-		let find_channel = await g.channels.cache.find(c => c.name === 'idbot-notice');
-		if(find_channel) return;
-		g.channels.create('idbot-notice',{
-			type : 'text',
-			permissionOverwrites: [
-			{
-			  id: g.roles.everyone, // shortcut for @everyone role ID
-			  deny: 'VIEW_CHANNEL'
-			}
-			]
-		})
-	})
     await console.log(`${bot.user.username} is online`);    //rule joiner is online
 	// const connection = await joinDB.get2DataBase();
 	
