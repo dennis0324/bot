@@ -29,15 +29,18 @@ command prefix : -- (ex: --role,--help)
 ```
 return value `boolean`
 
+
 ```
 [-u/unset] [rolename(number)] @playerMetion
 ```
 return value `boolean`
 
+
 ```
 [-l/list]
 ```
 return value `boolean`
+
 
 이 상황에서는 gmaeName이 rolename으로 대체됩니다.
 In this situation gameName is replace bt rolename
@@ -46,15 +49,18 @@ In this situation gameName is replace bt rolename
 ```
 return value `boolean`
 
+
 ```
 [-c/create] [gameName] [categoryName]
 ```
 return value `boolean`
 
+
 ```
 [-r/remove] [roleName] 
 ```
 return value `boolean`
+
 
 --------------------------
 
