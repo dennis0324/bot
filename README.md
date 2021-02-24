@@ -30,7 +30,7 @@ role
 ```
 [-l/list]
 ```
-return value` string: name`
+return value `string: name`
 
 이 상황에서는 gmaeName이 rolename으로 대체됩니다.
 In this situation gameName is replace bt rolename
