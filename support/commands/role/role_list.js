@@ -4,20 +4,22 @@ const botconfig = require("../../../botconfig.json");
 const fs = require('fs');
 const prefix = botconfig.prefix;
 
-exports.run = async(bot, message, args) =>{
-    var array = "";
-    let messages = msgst[0].message;
-    let count_num = msgst.size;
-    console.log(`${count_num}`);
-       for(var i = 0; i < count_num; i++){
-           array += `${i}. ${msgst[i].message}\n`;
-       }
-    
-    let addRoleEmbed = new Discord.MessageEmbed()
-        .setColor(Color.green_pastel)
-        .setAuthor(`알림: ROLE`,"")
-        .setDescription(`\`\`\`md\n* 참여 목록:\n${array}\n\`\`\``)
-    message.channel.send(addRoleEmbed)
+const dataSave = require('../../dataSave.js');
+
+exports.run = async(bot, message, args, dbID) =>{
+	const roleNames = dataSave.roleList;
+	var array = "";
+    roleNames.forEach((r,i) => {
+		// console.log(r.roles);
+		// console.log(i);
+		if(r.serverID === message.guild.id)
+			array += `${i + 1}. ${r.roles}\n`;
+	})
+	let addRoleEmbed = new Discord.MessageEmbed()
+	.setColor(Color.green_pastel)
+	.setAuthor(`알림: ROLE`,"")
+	.setDescription(`\`\`\`md\n* 참여 목록:\n${array}\n\`\`\``)
+	message.channel.send(addRoleEmbed)
 }
 
 module.exports.config = {

@@ -22,9 +22,6 @@ exports.run = function(bot, message, args, filesName){
     }
     
     if(bot.commands.has(commands)){
-        var testing = message.author.dmChannel.lastMessageID;
-        console.log(testing);
-        message.author.dmChannel.fetch(testing).then(m => m.delete());
         command = bot.commands.get(commands);
         var specificHelpEmbed = new Discord.MessageEmbed()
         .setColor(Color.mint)

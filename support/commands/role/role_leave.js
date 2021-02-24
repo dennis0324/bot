@@ -3,25 +3,33 @@ const Color = require("../../../colours.json");
 const botconfig = require("../../../botconfig.json");
 const prefix = botconfig.prefix;
 
-exports.run = async(bot, message, args) =>{
+const messageEmbedClass = require('../../messageEmbedClass.js');
+const meEmbed = new messageEmbedClass();
+
+exports.run = async(bot, message, args,dbID) =>{
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
     
     var string = args[0];
+	
+	const connnection = await dbID.get2DataBase();
+	await connnection.beginTransaction();
+	const [roleNames,field] = await connnection.query('SELECT distinct roles FROM channelNames WHERE serverID = ?',message.guild.id);
+	connnection.release();
+	
     var playername = message.mentions.members.first();
-    var checknum = Number(string)
     var roleAdding;
     var rolename;
-    console.log(`${checknum}`)
-    if(isNaN(checknum)){
+    if(isNaN(string)){
         roleAdding = message.guild.roles.cache.find(r => r.name === `${string}-pro`);
         rolename = `${string}-pro`;
     }
     else{
-        roleAdding = message.guild.roles.cache.find(r => r.name === `${msgst[checknum].message}-pro`);
-        rolename = `${msgst[checknum].message}-pro`
+        roleAdding = message.guild.roles.cache.find(r => r.name === `${roleNames[string*1 - 1].roles}-pro`);
+        rolename = `${roleNames[string*1 - 1].roles}-pro`
+		string = roleNames[string*1 - 1].roles;
     }
     if(args[1]){
-        if(!message.member.hasPermission("MANAGE_ROLES") || message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
+        if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return message.channel.send("명령어를 쓸 권한이 없습니다.");
         if(!playername.roles.cache.find(r => r.name === rolename ) && roleAdding){
             console.log("이미 탈퇴하였습니다.")
             let addRoleEmbed = new Discord.MessageEmbed()
@@ -45,7 +53,7 @@ exports.run = async(bot, message, args) =>{
         }
     }
     else{
-        if(!message.member.roles.find(r => r.name === rolename ) && roleAdding){
+        if(!message.member.roles.cache.find(r => r.name === rolename ) && roleAdding){
             console.log("이미 탈퇴하였습니다.")
             let addRoleEmbed = new Discord.MessageEmbed()
                 .setColor(Color.red_pastel)
@@ -55,7 +63,7 @@ exports.run = async(bot, message, args) =>{
             message.channel.send(addRoleEmbed)
             return ;
         }
-        message.member.removeRole(roleAdding.id).then(() =>{
+        message.member.roles.remove(roleAdding.id).then(() =>{
             console.log("successed!");
         })
         let addRoleEmbed = new Discord.MessageEmbed()

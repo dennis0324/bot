@@ -1,63 +1,54 @@
 const Discord = require("discord.js");
 const fs = require('fs');
 
-const mysql = require('mysql');
+const join_database = require('../support/join_database.js');
+const joinDB = new join_database();
 
-// const connection = mysql.createConnection({
-// 	host : `${process.env.DB_SITE}`,
-// 	user : `${process.env.DB_ID}`,
-// 	password : `${process.env.DB_PASS}`,
-// 	database : `heroku_3cdd4905f680c6a`
-// });
+const dataSave = require('../support/dataSave.js');
 
-const connection = mysql.createConnection({
-	host : `us-cdbr-east-02.cleardb.com`,
-	user : `beeba3b53d8b34`,
-	password : `10d4db29`,
-	database : `heroku_3cdd4905f680c6a`
-});
-
-function handleDisconnect() {
-  	connection.connect(function(err) {            
-		if(err) {                            
-			console.log('error when connecting to db:', err);
-    		setTimeout(handleDisconnect, 2000); 
-    	}                                   
-  	});                                 
-                                         
-  	connection.on('error', function(err) {
-    	console.log('db error', err);
-    	if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
-			return handleDisconnect();                      
-		} 
-		else {                                    
-		  throw err;                              
-		}
-  	});
-}
-
-handleDisconnect();
-
-
-
-module.exports = bot =>{
-    console.log(`${bot.user.username} is online`);    //rule joiner is online
-    
-	// connection.query('SELECT serverID FROM serverSetting', (error, rows, field) => { //getting serverID and check is included
-	//     if( error ) throw error;
-	// 	bot.guilds.cache.forEach(c => { //check all server is in database. maybe this will move to bot join event later on
-	// 		let serverID = rows.find(serverid => serverid.serverID === c.id); //comparing serverid and databaseiD
-	// 		if(!serverID){
-	// 			console.log("inputing to database");
-	// 			var sql = "INSERT INTO `serverSetting`(id, serverid, voiceAutoCreate) VALUES (?,?,1)";
-	// 			const param = [rows.length,c.id];
-	// 			connection.query(sql,param, function (err, result) {
-	// 				if (err) throw err;
-	// 				console.log("1 record inserted");
-	// 			});
-	// 		}
-	// 	});
-	// }); // this will be use in refresh role command
+module.exports = async (bot,dbID) =>{
+	// const connection = await dbID.get2DataBase();
+	// await connection.beginTransaction();
+	// const [channelNames] = await connection.query('SELECT * FROM channelNames');
+	// const [roles] = await connection.query('SELECT distinct roles FROM channelNames');
+	// const [serverSetting] = await connection.query('SELECT * FROM serverSetting');
+	// connection.release();
+	
+// 	dataSave.setRole(roles); //saving channelNames in static variable;
+// 	dataSave.setChannel(channelNames);
+// 	dataSave.setServer(serverSetting);
+	dataSave.updateData();
+	bot.guilds.cache.forEach(async g => {
+		let find_channel = await g.channels.cache.find(c => c.name === 'idbot-notice');
+		if(find_channel) return;
+		g.channels.create('idbot-notice',{
+			type : 'text',
+			permissionOverwrites: [
+			{
+			  id: g.roles.everyone, // shortcut for @everyone role ID
+			  deny: 'VIEW_CHANNEL'
+			}
+			]
+		})
+	})
+    await console.log(`${bot.user.username} is online`);    //rule joiner is online
+	// const connection = await joinDB.get2DataBase();
+	
+	// const [serverIDs,field] = await connection.query('SELECT serverID FROM serverSetting'); // this will be use in refresh role command
+	// bot.guilds.cache.forEach(c => { //check all server is in database. maybe this will move to bot join event later on
+	// 	let serverID = serverIDs.find(serverid => serverid.serverID === c.id); //comparing serverid and databaseiD
+	// 	console.log(serverIDs);
+	// 	if(!serverID){
+	// 		console.log("inputing to database");
+	// 		var sql = "INSERT INTO `serverSetting`(id, serverid, voiceAutoCreate) VALUES (?,?,1)";
+	// 		const param = [serverIDs.length,c.id];
+	// 		connection.query(sql,param, function (err, result) {
+	// 			if (err) throw err;
+	// 			console.log("1 record inserted");
+	// 		});
+	// 	}
+	// });
+	
 	
 		// bot.guilds.cache.forEach(element => {// getting a role that currently in server
 		// connection.query("SELECT roles FROM channelNames Where serverID = '" + element.id+"'", (error, rows, field) => {

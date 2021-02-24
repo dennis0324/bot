@@ -12,9 +12,9 @@ const mysql = require("mysql2/promise");
 function joinDataBase(){};
 
 var pool = mysql.createPool({
-		host : `${process.env.DB_SITE}`,
-		user : `${process.env.DB_ID}`,
-		password : `${process.env.DB_PASS}`,
+		host : `us-cdbr-east-02.cleardb.com`,
+		user : `beeba3b53d8b34`,
+		password : `10d4db29`,
 		database : `heroku_3cdd4905f680c6a`	
 	})
 
