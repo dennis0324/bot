@@ -15,40 +15,46 @@
 
 설치링크: [add Bot]
 
-***
+
 명령어(commands)
---------------------------
+***
 
 command prefix : -- (ex: --role,--help)
 
-role
-
+role 
+---------
 ```
 [-s/set] [rolename] @playMention
 ```
+return value `boolean`
+
 ```
 [-u/unset] [rolename(number)] @playerMetion
 ```
+return value `boolean`
+
 ```
 [-l/list]
 ```
-return value `string: name`
---------------------------
+return value `boolean`
 
 이 상황에서는 gmaeName이 rolename으로 대체됩니다.
 In this situation gameName is replace bt rolename
 ```
 [-c/create] [gameName] 
 ```
+return value `boolean`
 
 ```
 [-c/create] [gameName] [categoryName]
 ```
+return value `boolean`
 
 ```
 [-r/remove] [roleName] 
 ```
 return value `boolean`
+
 --------------------------
 
 
