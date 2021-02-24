@@ -6,9 +6,6 @@ const joinDB = new join_database();
 
 const dataSave = require('../support/dataSave.js');
 
-module.exports = async (bot,dbID) =>{
-	dataSave.updateData();
-    await console.log(`${bot.user.username} is online`);    //rule joiner is online
 module.exports = bot =>{
     console.log(`${bot.user.username} is online`);    //rule joiner is online
 	
