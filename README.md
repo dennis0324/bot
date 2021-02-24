@@ -48,4 +48,4 @@ In this situation gameName is replace bt rolename
 return value `boolean`
 
 
-[add Bot]: https://discord.com/oauth2/authorize?client_id=664884458025123853&scope=bot
+[add Bot]: https://discord.com/oauth2/authorize?client_id=INSERT_CLIENT_ID_HERE&scope=bot&permissions=1069689918
