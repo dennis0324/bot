@@ -6,7 +6,6 @@ const joinDB = new join_database();
 
 const dataSave = require('../support/dataSave.js');
 
-<<<<<<< HEAD
 module.exports = async (bot,dbID) =>{
 	// const connection = await dbID.get2DataBase();
 	// await connection.beginTransaction();
@@ -49,8 +48,6 @@ module.exports = async (bot,dbID) =>{
 	// 		});
 	// 	}
 	// });
-	
-=======
 
 
 module.exports = bot =>{
@@ -71,7 +68,6 @@ module.exports = bot =>{
 	// 		}
 	// 	});
 	// }); // this will be use in refresh role command
->>>>>>> a57b750f9e14dfcaacb11725bce7c7a9ff1581e5
 	
 		// bot.guilds.cache.forEach(element => {// getting a role that currently in server
 		// connection.query("SELECT roles FROM channelNames Where serverID = '" + element.id+"'", (error, rows, field) => {
