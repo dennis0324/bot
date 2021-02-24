@@ -6,6 +6,7 @@ const joinDB = new join_database();
 
 const dataSave = require('../support/dataSave.js');
 
+<<<<<<< HEAD
 module.exports = async (bot,dbID) =>{
 	// const connection = await dbID.get2DataBase();
 	// await connection.beginTransaction();
@@ -49,6 +50,28 @@ module.exports = async (bot,dbID) =>{
 	// 	}
 	// });
 	
+=======
+
+
+module.exports = bot =>{
+    console.log(`${bot.user.username} is online`);    //rule joiner is online
+    
+	// connection.query('SELECT serverID FROM serverSetting', (error, rows, field) => { //getting serverID and check is included
+	//     if( error ) throw error;
+	// 	bot.guilds.cache.forEach(c => { //check all server is in database. maybe this will move to bot join event later on
+	// 		let serverID = rows.find(serverid => serverid.serverID === c.id); //comparing serverid and databaseiD
+	// 		if(!serverID){
+	// 			console.log("inputing to database");
+	// 			var sql = "INSERT INTO `serverSetting`(id, serverid, voiceAutoCreate) VALUES (?,?,1)";
+	// 			const param = [rows.length,c.id];
+	// 			connection.query(sql,param, function (err, result) {
+	// 				if (err) throw err;
+	// 				console.log("1 record inserted");
+	// 			});
+	// 		}
+	// 	});
+	// }); // this will be use in refresh role command
+>>>>>>> a57b750f9e14dfcaacb11725bce7c7a9ff1581e5
 	
 		// bot.guilds.cache.forEach(element => {// getting a role that currently in server
 		// connection.query("SELECT roles FROM channelNames Where serverID = '" + element.id+"'", (error, rows, field) => {
