@@ -16,8 +16,8 @@
 설치링크: [add Bot]
 
 
-명령어(commands)
-***
+##명령어(commands)
+------
 
 command prefix : -- (ex: --role,--help)
 
