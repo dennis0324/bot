@@ -123,4 +123,5 @@ bot.on("message", async message => { //events that trigger at message or DM
 	}
 })
 
+
 bot.login(process.env.token);
