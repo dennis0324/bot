@@ -34,4 +34,17 @@ proto.sendFail = (bot,message) => {
 		.setFooter("도우미",bot.user.displayAvatarURL())
 }
 
+proto.send = (bot,messages) => {
+	var Embed =  new Discord.MessageEmbed()
+		.setColor(Color.green_pastel)
+		.setAuthor(`알림: ROLE`,"")
+	
+	messages.forEach(message => {
+		Embed.addFields({name: message.name, value: message.value, inline: true});
+	})
+	
+	return Embed;
+	
+}
+
 module.exports = messageEmbedClass;

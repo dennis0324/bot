@@ -7,6 +7,8 @@ class dataSave{
 	static serverSetting; //guildid,serverSetting,value
 	static channelList; //getting all from channelNames
 	static commandList; //getting
+	static serverList; //getting server id that bot is handling
+	static settingList; //getting setting column from database
 	
 	static setChannel(channelNamesQuery){
 		this.channelList = channelNamesQuery;
@@ -18,8 +20,14 @@ class dataSave{
 	static setServer(serverSettingQuery){
 		this.serverSetting = serverSettingQuery;
 	}
+	static settingList(settingList){
+		this.settingList = settingList;
+	}
 	static setCommandList(commandList){
 		this.commandList = commandList;
+	}
+	static setServerList(serverList){
+		this.serverList = serverList;
 	}
 	
 	
@@ -29,6 +37,8 @@ class dataSave{
 		[this.channelList] = await connection.query('SELECT * FROM channelNames');
 		[this.roleList] = await connection.query('SELECT roles, serverID FROM roleNames');
 		[this.serverSetting] = await connection.query('SELECT * FROM serverSetting');
+		[this.serverList] = await connection.query('SELECT distinct serverID FROM channelNames');
+		[this.settingList] = await connection.query('SHOW COLUMNS FROM serverSetting');
 
 		connection.release();
 	}

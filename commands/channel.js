@@ -52,7 +52,7 @@ module.exports.config = {
     aliases: ["cl","chl"],
     description: "역할에 관련된 명령어를 사용할 수 있습니다.\n- [-c,create] [...]: 역할을 생성합니다.\n- [-r,remove] [...]: 역할을 삭제합니다.\n- [-m,member] <...> [...]: 플레이어의 역할을 관리합니다.\n- [-l,list]: 역할리스트를 보여줍니다.",
     usage: "--channel <options> [...]",
-    accessableby:"관리자만 사용 가능",
+    accessableby:"일부 명령어 관리자만 사용 가능",
 	indexCount: {
 		default: 2,
 		other: {

@@ -10,6 +10,10 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 	if(!args[0]) return [false,'역할을 정확하게 입력해주세요.'];
 	if(!args[1]) return [false,'음성채널이름을 정확하게 입력해주세요.']
 	
+	if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return [false,'명령어를 사용할 수 있는 권한이 없습니다.'];
+    //checking bot's permissions
+    if(!message.guild.me.hasPermission("MANAGE_ROLES")) return [false,'봇이 명령어를 사용할 수 있는 권한이 없습니다.'];
+	
 	const roleNames = dataSave.roleList; //getting data from dataSave 
 	var findRole,findChannel; //variable for finding role
 	var rlList = new Array(); //Filter out role that certain guild.id

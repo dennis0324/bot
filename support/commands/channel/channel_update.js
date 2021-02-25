@@ -10,6 +10,9 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 	if(!args[0]) return [false,'옵션을 적어주십시오. 1'];
 	if(!args[1]) return [false,'변경될 이름을 적어주십시오.'];
 	if(!args[2]) return [false,'변경 후 이름을 적어주십시오.'];
+	if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return [false,'명령어를 사용할 수 있는 권한이 없습니다.'];
+    //checking bot's permissions
+    if(!message.guild.me.hasPermission("MANAGE_ROLES")) return [false,'봇이 명령어를 사용할 수 있는 권한이 없습니다.'];
 	
 	const channelNames = dataSave.channelList; //getting data from dataSave 
 	var clList = new Array(); //Filter out role that certain guild.id

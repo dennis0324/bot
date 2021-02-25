@@ -9,6 +9,10 @@ const meEmbed = new messageEmbedClass();
 exports.run = async (bot, message, args, dbID, ouputResult) => {
 	if(!args[0] || !args[1] || !args[2]) return [false,'인수를 정확하게 입력해주세요.'];
 	
+	if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return [false,'명령어를 사용할 수 있는 권한이 없습니다.'];
+    //checking bot's permissions
+    if(!message.guild.me.hasPermission("MANAGE_ROLES")) return [false,'봇이 명령어를 사용할 수 있는 권한이 없습니다.'];
+	
 	const roleNames = dataSave.roleList; //getting roleList from dataSave
 	var rlList = new Array(); //array for guild id role
 	
