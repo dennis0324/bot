@@ -6,14 +6,13 @@ const prefix = botconfig.prefix;
 const messageEmbedClass = require('../../messageEmbedClass.js');
 const meEmbed = new messageEmbedClass();
 
+const dataSave = require('../../dataSave.js');
+
 exports.run = async(bot, message, args, dbID) =>{
     if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
     var string = args[0];
 	console.log(args);
-	const connnection = await dbID.get2DataBase();
-	await connnection.beginTransaction();
-	const [roleNames,field] = await connnection.query('SELECT distinct roles FROM channelNames WHERE serverID = ?',message.guild.id);
-	connnection.release();
+	const roleNames = dataSave.channelList;
     
     var playername = message.mentions.members.first();
     var roleAdding;
@@ -24,14 +23,25 @@ exports.run = async(bot, message, args, dbID) =>{
         return;
     }
 	
+	var guildRoles = new Array();
+    roleNames.forEach((r,i) => {
+		if(r.serverID === message.guild.id)
+			guildRoles.push(r);
+	})
+	
+	
     if(isNaN(string)){
         roleAdding = message.guild.roles.cache.find(r => r.name === `${string}-pro`);
         rolename = `${string}-pro`;
     }
     else{
-        roleAdding = message.guild.roles.cache.find(r => r.name === `${roleNames[string*1 - 1].roles}-pro`);
-        rolename = `${roleNames[string*1 - 1].roles}-pro`
-		string = roleNames[string*1 - 1].roles;
+		try{
+			roleAdding = message.guild.roles.cache.find(r => r.name === `${guildRoles[string*1 - 1].roles}-pro`);
+			rolename = `${guildRoles[string*1 - 1].roles}-pro`
+			string = guildRoles[string*1 - 1].roles;
+		}
+		catch(err){}
+
     }
 	
     if(!roleAdding){

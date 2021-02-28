@@ -11,10 +11,15 @@ module.exports.run = async(bot, message, args, dbID, outputResult) =>{
 		args.shift();
 		const returnValue = await setting_list.run(bot,message,args,dbID,outputResult);
 		return returnValue;
-	}else {
+	}else if(['member', '-m'].includes(args[0])){
+		args.shitf();
+		
+		
+	} else {
 		const returnValue = await setting_set.run(bot,message,args,dbID,outputResult);
 		return returnValue;
 	}
+	
 }
 
 module.exports.config = {
@@ -27,6 +32,7 @@ module.exports.config = {
 		default : 2,
 		other: {
 			'l' : 1,
+			'm' : 4
 		},
 		except: 1
 	}

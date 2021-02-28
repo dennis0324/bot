@@ -18,13 +18,19 @@ exports.run = async (bot, message, args, dbID) =>{
     //if(!args[0]) return message.channel.send("역할을 반드시 적으셔야 합니다.");
 	const roleNames = dataSave.roleList;
 	const channelNames = dataSave.channelList;
-;
+
+	var guildRoles = new Array();
+    roleNames.forEach((r,i) => {
+		if(r.serverID === message.guild.id)
+			guildRoles.push(r);
+	})
+	
     var rolename;
     if(isNaN(args[0])){
         rolename = args[0];
     }
     else{
-        rolename = roleNames[args[0] * 1 - 1].roles;
+        rolename = guildRoles[args[0] * 1 - 1].roles;
         console.log(rolename);
     }
     console.log(`${rolename}를 제거하려 시도중... `);

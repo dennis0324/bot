@@ -22,14 +22,14 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 			clList.push([element.displayName,element.gameName]);
 		}
 	})
-	
-	if(isNaN(args[0])){
+	console.log(clList);
+	if(isNaN(args[1])){
 		let searchChannel = clList.find(channel => channel[0] === args[1] || channel[1] === args[1])
 		if(searchChannel) findChannel = searchChannel
 		else return [false, '역할이름을 찾을 수 없습니다.'];
 	}
 	else{
-		if(args[0] * 1 < clList.length) findChannel = clList[args[1] * 1];
+		if(args[1] * 1 - 1< clList.length) findChannel = clList[args[1] * 1 - 1];
 		else return [false, '번호를 잘못 입력하셨습니다.'];
 	}
 	console.log(findChannel)
@@ -71,7 +71,7 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 	else{
 		return [false,'옵션이 존재하지 않습니다.'];
 	}
-
+	dataSave.updateData();
 	if(!ouputResult)
 		message.channel.send(meEmbed.sendSuccess(bot,'성공적으로 수정하였습니다.'));
 	return [true];

@@ -23,6 +23,13 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 		if(element.serverID === message.guild.id)
 			rlList.push(element.roles);
 	})
+	const chlNames = dataSave.channelList;
+
+	var guildRoles = new Array();
+    chlNames.forEach((r,i) => {
+		if(r.serverID === message.guild.id)
+			guildRoles.push(r);
+	})
 	
 	if(isNaN(args[0])){
 		if(rlList.find(role => role === args[0])) findRole = args[0];
@@ -39,7 +46,7 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 	var arrDisplayName = "";
 
 	const channelNames = dataSave.channelList;
-	channelNames.forEach((element,i) => {
+	guildRoles.forEach((element,i) => {
 		if(element.serverID === message.guild.id && element.roles === findRole){
 			arrNum += `${i + 1}\n`;
 			arrDisplayName += `${element.displayName}\n`;
