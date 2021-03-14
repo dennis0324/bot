@@ -69,6 +69,10 @@ exports.run = async(bot, message, args, dbID) =>{
         message.member.roles.add(roleAdding.id).then(() =>{
             console.log("successed!");
         })
+		console.log('======[user roles]=======');
+		message.member.roles.cache.forEach(e => console.log(e.name));
+		console.log('=============');
+
 		message.channel.send(meEmbed.sendSuccess(bot,`${message.author.username}가 \`${string}\`방에 참여했습니다.`));
     }
 }
