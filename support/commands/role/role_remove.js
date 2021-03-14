@@ -88,3 +88,12 @@ exports.run = async (bot, message, args, dbID) =>{
     
 }
 
+exports.config = {
+	cmd : 'r|emove',
+	options : {
+		0 : {
+			args : '[Role / RoleNum]',
+			explain : '생성되어있는 역할을 삭제합니다.'
+		}
+	}
+}

@@ -1,3 +1,5 @@
 index_test.js
 temp
 serverInfo.txt
+support/join_database.js
+events/ready.js

@@ -85,9 +85,9 @@ module.exports.config = {
 	indexCount: {
 		default: 1,
 		other: {
-			'c' : 2,
-			'r' : 2,
-			'm' : 4
+			'c' : [2],
+			'r' : [2],
+			'm' : [4]
 		}
 	}
 }

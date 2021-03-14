@@ -9,6 +9,8 @@ class dataSave{
 	static commandList; //getting
 	static serverList; //getting server id that bot is handling
 	static settingList; //getting setting column from database
+	static personalSett;
+	static perSettList;
 	
 	static setChannel(channelNamesQuery){
 		this.channelList = channelNamesQuery;
@@ -29,7 +31,12 @@ class dataSave{
 	static setServerList(serverList){
 		this.serverList = serverList;
 	}
-	
+	static setPersonalSett(personalSett){
+		this.personalSett = personalSett;
+	}
+	static setperSettList(perSettList){
+		this.perSettList = perSettList;
+	}
 	
 	static async updateData(){
 		const connection = await join_DB.get2DataBase();
@@ -39,7 +46,8 @@ class dataSave{
 		[this.serverSetting] = await connection.query('SELECT * FROM serverSetting');
 		[this.serverList] = await connection.query('SELECT distinct serverID FROM channelNames');
 		[this.settingList] = await connection.query('SHOW COLUMNS FROM serverSetting');
-
+		[this.personalSett] = await connection.query('SELECT * FROM personalSetting');
+		[this.perSettList] = await connection.query('SHOW COLUMNS FROM personalSetting');
 		connection.release();
 	}
 }

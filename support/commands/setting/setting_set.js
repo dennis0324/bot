@@ -14,14 +14,13 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
     if(!message.guild.me.hasPermission("MANAGE_ROLES")) return [false,'봇이 명령어를 사용할 수 있는 권한이 없습니다.'];
 	
 	const settingList = dataSave.settingList;
-	console.log(settingList);
 	
 	var findSetting;
 	var stList = new Array();
 	
 	settingList.forEach(e => stList.push(e.Field))
 	stList.shift(); //dont need serverID
-	
+	console.log('testing: ',args[1])
 	if(isNaN(args[0])){
 		if(stList.find(setting => setting === args[0])) findSetting = args[0];
 		else return [false, '역할이름을 찾을 수 없습니다.'];
@@ -52,4 +51,20 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 		message.channel.send(meEmbed.sendSuccess(bot,'정상적으로 설정 값을 바꾸었습니다.'));
 	}
 	return [true];
+}
+
+exports.config = {
+	cmd : {
+		's|et' : 'options'
+	},
+	options : {
+		1 : {
+			args : '[SettingName / Num] [Value]',
+			explain : '서버 설정값을 변경합니다.'
+		},
+		2 : {
+			args : '[SettingName / Num]',
+			explain : '서버 설정값을 확인합니다.'
+		}
+	}
 }

@@ -57,3 +57,14 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 		message.channel.send(meEmbed.sendSuccess(bot,`게임 \`${gameName}\`와(과) 채널\`${findChannel}\`를(을) ${findRole}에 귀속시켰습니다.`));
 	return [true];
 }
+
+exports.config = {
+	cmd : 's|et',
+	options: {
+		0: {
+			args : '[Role / RoleNum] [VoiceChannelName] [GameName]',
+			explain : '역할에 게임이름과 채널을 귀속시켜줍니다.'	
+		}
+
+	}
+}

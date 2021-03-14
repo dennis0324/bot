@@ -16,20 +16,29 @@ module.exports = async bot =>{
         `--help`,
     ]
 	const serverList = dataSave.serverSetting;
-
+	const personalSett = dataSave.personalSett;
+	const connection = await joinDB.get2DataBase();
+	
+	await connection.beginTransaction();
 	for await(const guild of  bot.guilds.cache.map(e => e)){
 		console.log(guild.id);
 		let chkServer = serverList.find(server => server.serverID === guild.id);
 		if(!chkServer) {
-			const connection = await joinDB.get2DataBase();
-			await connection.beginTransaction();
 			const [result] = await connection.query('INSERT INTO serverSetting(serverID) VALUE (?)',[guild.id]);
 			await connection.commit();
-			connection.release();
+		}
+		for await(const member of guild.members.cache.map(e => e)){
+			var userInfo
+			userInfo = personalSett.find(userSett => userSett.userID === member.id);
+			if(!userInfo) {
+				const [result] = await connection.query('INSERT INTO personalSetting(serverID,userID) VALUE (?,?)',[guild.id,member.id]);
+				await connection.commit();
+			}
 		}
 	}
-	
-    
+	connection.release();
+	await dataSave.updateData();
+
     setInterval(function(){
         let status = statuses[Math.floor(Math.random() * statuses.length)];
         bot.user.setActivity(status,{type: "LISTENING"});

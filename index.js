@@ -11,6 +11,8 @@ require("./util/eventHandler")(bot,join_DB);
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
+
+bot.support = new Array();
 var cmdNames;
 
 //require for mysql2 
@@ -23,8 +25,10 @@ const messageEmbedClass = require('./support/messageEmbedClass.js');
 const meEmbed = new messageEmbedClass();
 
 
-fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
+fs.readdir("./commands/",async (err, files) =>{//to get module from ./commands file
     if(err) console.log(err)    
+	var names = new Array();
+
     let jsfile = files.filter(f => f.split(".").pop() === "js") //getting filename without ".js"
     cmdNames = new Array();
     if(jsfile.length <= 0){ //checking file length over 0
@@ -32,15 +36,44 @@ fs.readdir("./commands/",(err, files) =>{//to get module from ./commands file
     }
     jsfile.forEach((f,i) => {
         let pull = require(`./commands/${f}`);//getting all files in ./commands/ folder
+		names.push(f.split(".").shift());
         bot.commands.set(pull.config.name,pull); //setting commmands with module exports config
         cmdNames.push(pull.config.name); //putting commands in array for help commands
         pull.config.aliases.forEach(alias => {
             bot.aliases.set(alias,pull.config.name) //setting commands aliases(command that can use also)
         });
 	})
-	dataSave.setCommandList(cmdNames);
-
+	await dataSave.setCommandList(cmdNames);
+	await bot.support.push(names.slice())
+	await bot.support.push(names)
 });
+
+fs.readdir("./support/commands/",(err, files) =>{//to get module from ./commands file
+	if(err) console.log(err) 
+	var cmds = new Array();
+	var names = new Array();
+	files.forEach((file,i) => {
+		console.log(file)
+
+		var objects = new Array();
+		fs.readdir(`./support/commands/${file}`,(err, supports) => {
+			let jsfile = supports.filter(f => f.split(".").pop() === "js") //getting filename without ".js"
+			if(jsfile.length <= 0) return console.log("[LOGS] Couldn't Find Support!");
+			jsfile.forEach(f => {
+				let pull = require(`./support/commands/${file}/${f}`);
+				objects.push(pull.config);
+			})
+		})
+		var findCmds = bot.support[1];
+		console.log(findCmds);
+		var fileName = findCmds.find(element => element === file);
+		const index = findCmds.indexOf(fileName);
+		findCmds.splice(index,1,objects);
+		
+		
+	})
+});
+
 
 
 bot.on("message", async message => { //events that trigger at message or DM
@@ -88,9 +121,13 @@ bot.on("message", async message => { //events that trigger at message or DM
 		getIndex = defaultIndex; //setting to default arg length
 		if(otherIndexs !== undefined){
 			try{
+				var testing;
 				let findIndex = Object.entries(otherIndexs).find(argCount => secondCmd.startsWith(argCount[0]))
-				console.log('findIndex:',findIndex);
-				if(findIndex) getIndex = findIndex[1];
+				console.log('findIndex: ',findIndex,'findIndex length:' , findIndex[1].length);
+				if(findIndex[1].length == 1) getIndex = findIndex[1][0];
+				else if(findIndex[1].length > 1){
+					getIndex = findIndex[1].find(countNum =>messageArray[startNum + countNum + 1] === undefined)
+				}
 			}
 			catch(err){
 				

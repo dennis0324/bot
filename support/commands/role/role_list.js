@@ -27,10 +27,11 @@ exports.run = async(bot, message, args, dbID) =>{
 	message.channel.send(addRoleEmbed)
 }
 
-module.exports.config = {
-    name: "rolelist",
-    aliases: ["rl","rolel"],
-    description: "선택 가능한 역할을 볼 수 있습니다.",
-    usage: "--rolelist",
-    accessableby:"모든 이"
+exports.config = {
+	cmd : 'l|ist',
+	options : {
+		0 :{
+			explain: '사용자가 쓸 수 있는 역할을 봅니다.'	
+		}
+	}
 }

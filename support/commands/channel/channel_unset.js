@@ -79,3 +79,15 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 	return [true];
 	
 }
+
+exports.config = {
+	cmd: 'u|nset',
+	options: {
+		0 :{
+			args : '[Role / RoleNum] [Channel / ChannelNum]',
+			explain : '게임에 귀속되어있는 채널중 선택하신 채널의 귀속을 해제합니다.'			
+		}
+
+	}
+
+}

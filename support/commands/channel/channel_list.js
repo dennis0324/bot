@@ -72,3 +72,13 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 	}
 	return [true];
 }
+
+exports.config = {
+	cmd : 'l|ist',
+	options : {
+		0 : {
+			args : '[Role / RoleNum]',
+			explain : '현재 역할에 귀속되어있는 모든 채널이름을 보여줍니다.'
+		}
+	}
+}

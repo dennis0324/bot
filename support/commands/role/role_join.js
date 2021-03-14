@@ -74,10 +74,23 @@ exports.run = async(bot, message, args, dbID) =>{
 }
 
 
-module.exports.config = {
-    name: "join",
-    aliases: ["j"],
-    description: "필요한 역할을 부여받을 수 있습니다.",
-    usage: "--join <목록 이름|숫자> @[사람 이름]",
-    accessableby:"모든 이"
+
+exports.config = {
+	cmd : 'm|ember',
+	options : {
+		0: {
+			name : 's|et',
+			options : {
+				0 : {
+					args : '[Role / RoleNum] [@User]',
+					explain : '유저에게 역할을 부여합니다.'
+				},
+				1 : {
+					args : '[Role / RoleNum]',
+					explain : '자신이 특정 역할에 들어갑니다.'
+				}
+				
+			}
+		}
+	}
 }

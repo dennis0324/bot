@@ -15,6 +15,7 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 	
 	const serverSetting = dataSave.serverSetting;
 	const settingNames = dataSave.settingList;
+	const personalSett =dataSave.personalSett;
 	
 	var settingNameList = new Array();
 	var serverSettNum = new Array();
@@ -44,4 +45,13 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 	
 	
 	return [true];
+}
+
+exports.config = {
+	cmd : {
+		'l|ist' : 'None'
+	},
+	None : {
+		explain : '현재 서버 설정을 보여줍니다.'
+	}
 }

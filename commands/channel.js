@@ -56,10 +56,10 @@ module.exports.config = {
 	indexCount: {
 		default: 2,
 		other: {
-			'up' : 4,
-			's' : 4,
-			'u' : 3,
-			'l' : 2
+			'up' : [4],
+			's' : [4],
+			'u' : [3],
+			'l' : [2]
 		}
 	}
 }

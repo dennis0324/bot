@@ -76,3 +76,30 @@ exports.run = async (bot, message, args, dbID, ouputResult) => {
 		message.channel.send(meEmbed.sendSuccess(bot,'성공적으로 수정하였습니다.'));
 	return [true];
 }
+
+exports.config = {
+	cmd : 'up|date',
+	options : {
+		0: {
+			cmd : 'g|ame',
+			options:{
+				0 :{
+					args : '[Role / RoleNum] [PreGameName/Num] [AfterGameName]',
+					explain : '역할이 귀속되어있는 게임 이름을 변경합니다.'					
+				}
+			}
+		},
+		1 : {
+			cmd : 'c|hannel',
+			options: {
+				0: {
+					args : '[Role / RoleNum] [PreChannelName/Num] [AfterChannelName]',
+					explain : '역할이 귀속되어있는 채널 이름을 변경합니다.'						
+				}
+			
+			}
+
+		}
+		
+	}
+}

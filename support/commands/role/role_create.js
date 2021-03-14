@@ -55,7 +55,6 @@ exports.run = async (bot, message, args, dbID, ouputResult) =>{ //role -c [rolen
 			return;
 		}
 	}
-	// creatingChannel(roleNameArg,gameNameArg);
 	
 	await connection.beginTransaction();
 	const sql = 'INSERT INTO `roleNames`(serverID,roles) VALUE(?,?)';
@@ -66,53 +65,15 @@ exports.run = async (bot, message, args, dbID, ouputResult) =>{ //role -c [rolen
 	message.channel.send(meEmbed.sendSuccess(bot,`\`${roleNameArg}\`역할이 성공적으로 추가되었습니다.`));
 	await dataSave.updateData();
 	console.log(dataSave.roleList);
-	
-		// async function creatingChannel(categoryName,channelName){
-		// let categoryChannel = await message.guild.channels.cache.find(c => c.name.toUpperCase() == categoryName.toUpperCase() && c.type === 'category')
-		// if(!categoryChannel){
-		// 	categoryChannel = await message.guild.channels.create(categoryName,{
-		// 		type: 'category',
-		// 		permissionOverwrites: [
-		// 			{
-		// 			  id: message.guild.roles.everyone, // shortcut for @everyone role ID
-		// 			  deny: 'VIEW_CHANNEL'
-		// 			},
-		// 			{
-		// 			  id: message.guild.roles.cache.find(r => r.name === `${roleNameArg}-pro`).id,
-		// 			  allow: 'VIEW_CHANNEL'
-		// 			}
-		// 		]
-		// 	})
-		// }
-		// message.guild.channels.create(gameNameArg,{
-		// 	type : 'text',
-		// 	parent: categoryChannel.id,
-		// 	permissionOverwrites: [
-		// 	{
-		// 	  id: message.guild.roles.everyone, // shortcut for @everyone role ID
-		// 	  deny: 'VIEW_CHANNEL'
-		// 	},
-		// 	{
-		// 	  id: message.guild.roles.cache.find(r => r.name === `${roleNameArg}-pro`).id,
-		// 	  allow: 'VIEW_CHANNEL'
-		// 	}
-		// 	]
-		// })
-		// message.guild.channels.create(channelName,{
-		// 	type: 'voice',
-		// 	parent: categoryChannel.id,
-		// 	permissionOverwrites: [
-		// 	{
-		// 	  id: message.guild.roles.everyone, // shortcut for @everyone role ID
-		// 	  deny: 'VIEW_CHANNEL'
-		// 	},
-		// 	{
-		// 	  id: message.guild.roles.cache.find(r => r.name === `${roleNameArg}-pro`).id,
-		// 	  allow: 'VIEW_CHANNEL'
-		// 	}
-		// 	]
-		// });
-		// }
-	
-    
+}
+
+
+exports.config = {
+	cmd : 'c|reate',
+	options:{
+		0: {
+			args: '[RoleName]',
+			explain	: '역할을 생성합니다.'
+		}
+	}	 
 }
