@@ -57,8 +57,15 @@ module.exports =async(oldPresence, newPresence,bot) =>{
 							if(newPresence.member.voice.channel){
 								console.log("detected in voice channel");
 								const targetChl = newPresence.client.channels.cache.find(channel => channel.name == channelInfo.displayName);
-								const chkRole = newPresence.member.roles.cache.find(role => role.name === `${channelInfo.roles}-pro`);
+								const chkRole = newPresence.member.roles.cache.find(role => {
+									console.log(role.name, ':', channelInfo.roles);
+									if(role.name === `${channelInfo.roles}-pro`)
+										return true;
+									
+									
+								});
 								console.log(chkRole);
+								
 								try{
 									if(chkRole)
 										newPresence.member.voice.setChannel(targetChl)								
