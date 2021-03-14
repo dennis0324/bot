@@ -35,7 +35,7 @@ module.exports =async(oldPresence, newPresence,bot) =>{
 		newPresence.activities.forEach(async activity => {
 			if( activity.type == "PLAYING"){ //need to change to Playing,STREAMING, etc. except custom_status using temp beacause of military
 				console.log("presenceUpdate: ",newPresence.user.tag);
-				console.log("presenceUpdate: ",newPresence.activities.name);
+				console.log("presenceUpdate: ",activity.name);
 				const channelInfo = channelNames.find(q => q.gameName === activity.name && oldPresence.guild.id === q.serverID);
 				if(!channelInfo) {
 					console.log('게임을 채널에서 찾을 수 없습니다.');

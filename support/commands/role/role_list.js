@@ -8,6 +8,7 @@ const dataSave = require('../../dataSave.js');
 
 exports.run = async(bot, message, args, dbID) =>{
 	const roleNames = dataSave.roleList;
+	console.log(roleNames);
 	var array = new Array();
 	var text = "";
     roleNames.forEach((r,i) => {
