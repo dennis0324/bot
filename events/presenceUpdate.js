@@ -19,6 +19,7 @@ module.exports =async(oldPresence, newPresence,bot) =>{
 		const channelNames = dataSave.channelList;
 		const serverSettings = dataSave.serverSetting;
 		 if (newPresence.member.user.bot) return; //if bot change presence return
+		console.log(newPresence.activities.length );
 		const guildSetting = serverSettings.find(setting => setting.serverID === oldPresence.guild.id);
 		if(!guildSetting.defaultChannel && newPresence.activities.length <= 0) {
 			return;
@@ -57,7 +58,7 @@ module.exports =async(oldPresence, newPresence,bot) =>{
 							if(newPresence.member.voice.channel){
 								console.log("detected in voice channel");
 								const targetChl = newPresence.client.channels.cache.find(channel => channel.name == channelInfo.displayName);
-								const chkRole = newPresence.member.roles.cache.find(role => {
+								var chkRole = newPresence.member.roles.cache.find(role => {
 									console.log(role.name, ':', channelInfo.roles);
 									if(role.name === `${channelInfo.roles}-pro`)
 										return true;
