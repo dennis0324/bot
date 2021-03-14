@@ -60,6 +60,9 @@ exports.run = async(bot, message, args, dbID) =>{
             console.log("successed!");
         })
 		message.channel.send(meEmbed.sendSuccess(bot,`${playername}가 \`${string}\`방에 참여했습니다.`));
+		console.log('======[user roles]=======');
+		message.member.roles.cache.forEach(e => console.log(e.name));
+		console.log('=============');
     }
     else{
         if(message.member.roles.cache.find(r => r.name === rolename )){
