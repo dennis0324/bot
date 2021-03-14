@@ -67,9 +67,7 @@ exports.run = async(bot, message, args, dbID) =>{
 			message.channel.send(meEmbed.sendFail(bot,`이미 \`${string}\`방에 들어와있습니다.`));
             return ;
         }
-        message.member.roles.add(roleAdding.id).then(() =>{
-            console.log("successed!");
-        })
+       	await playername.roles.add(roleAdding.id);
 		console.log('======[user roles]=======');
 		message.member.roles.cache.forEach(e => console.log(e.name));
 		console.log('=============');
